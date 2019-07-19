@@ -1,5 +1,16 @@
 @import "variables";
+@import "header";
+@import "sidebar";
 
 body {
     font-family: $body-font;
+    background-color: #222;
+}
+
+button.btn {
+    border-radius: .5rem;
+}
+
+a {
+    text-decoration: none !important;
 }

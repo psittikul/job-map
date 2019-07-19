@@ -2,3 +2,14 @@ $sunflower-hex: #E8D82A;
 $sunflower-rgba: rgba(232, 222, 42, 1);
 $sunflower-hsv: hsv(57,82,91);
 $body-font: "Oswald", sans-serif;
+
+@mixin sunflower-btn {
+    color: $sunflower-hex;
+    background-color: black;
+    border: solid thin $sunflower-hex;
+}
+
+@mixin sunflower-btn-inverse {
+    color: black;
+    background-color: $sunflower-hex;
+}
