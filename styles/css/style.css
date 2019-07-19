@@ -1,0 +1,63 @@
+#topNav a {
+  color: #E8D82A;
+  cursor: pointer;
+}
+#topNav button.btn {
+  color: #E8D82A;
+  border: solid thin #E8D82A;
+  transition: 0.25s;
+}
+#topNav button.btn:hover {
+  color: black;
+  background-color: #E8D82A;
+}
+#topNav .dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 0;
+}
+#topNav .dropdown-menu a {
+  border-bottom: solid thin #E8D82A;
+}
+#topNav .dropdown-menu a:hover {
+  color: black;
+  background-color: #E8D82A;
+  border-bottom: solid thin black;
+}
+
+#sidebarSec {
+  display: none;
+}
+#sidebarSec button {
+  border: none;
+  color: #E8D82A;
+  border: solid thin #E8D82A;
+  background-color: #222;
+  transition: 0.25s;
+}
+#sidebarSec button:hover {
+  color: black;
+  background-color: #E8D82A;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  background: #222;
+}
+body button,
+body .btn {
+  border-radius: 0.25rem;
+}
+
+#vmap {
+  margin: auto;
+}
+
+.jqvmap-zoomin,
+.jqvmap-zoomout {
+  width: 1rem;
+  height: 1rem;
+  color: black;
+  background-color: #E8D82A;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,9 +1,9 @@
 #sidebarSec {
-    display: none;
-    color: $sunflower-hex;
-    button {
+  display: none;
+  button {
+    @include sunflower-btn;
+    &:hover {
+      @include sunflower-btn-inverse;
     }
-    h2 {
-        color: $sunflower-hex;
-    }
+  }
 }

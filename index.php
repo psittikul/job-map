@@ -1,17 +1,13 @@
-<?php
-include "includes/connection.php";
-include "includes/header.php";
-?>
-        <!-- Top nav -->
+<?php include "includes/header.php"; ?>
+
+<body>
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <!-- jqvmaps div thing goes here -->
+                <div id="vmap" style="width: 1000px; height: 500px;"></div>
             </div>
-            <div class="col">
-                <?php include "includes/sidebar.php"; ?>
-            </div>
+            <?php include "includes/sidebar.php";?>
         </div>
-    </div>
     </div>
     <!-- Bootstrap scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -1,0 +1,28 @@
+#topNav {
+  a {
+    color: $sunflower-hex;
+    cursor: pointer;
+  }
+  button.btn {
+    color: $sunflower-hex;
+    border: solid thin $sunflower-hex;
+    transition: .25s;
+    &:hover {
+        color: black;
+        background-color: $sunflower-hex;
+    }
+  }
+  .dropdown-menu {
+      background-color: rgba(0,0,0,.85);
+      padding: 0;
+      a {
+          border-bottom: solid thin $sunflower-hex;
+          &:hover {
+              color: black;
+              background-color: $sunflower-hex;
+              border-bottom: solid thin black;
+          }
+      }
+  }
+
+}

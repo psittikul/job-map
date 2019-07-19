@@ -1,16 +1,24 @@
 @import "variables";
-@import "header";
+@import "topnav";
 @import "sidebar";
 
 body {
     font-family: $body-font;
-    background-color: #222;
+    background: #222;
+    button,
+    .btn {
+        border-radius: .25rem;
+    }
 }
 
-button.btn {
-    border-radius: .5rem;
+#vmap {
+    margin: auto;
 }
 
-a {
-    text-decoration: none !important;
+.jqvmap-zoomin,
+.jqvmap-zoomout {
+    width: 1rem;
+    height: 1rem;
+    color: black;
+    background-color: $sunflower-hex;
 }
