@@ -1,4 +1,4 @@
-<?php include "includes/connection.php"; ?>
+<?php include "connection.php"; ?>
 <!doctype html>
 <html>
 
@@ -36,26 +36,35 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <button class="btn dropdown-toggle" type="button" id="actionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Actions
+                        Actions
                     </button>
                     <div class="dropdown-menu" id="actionsMenu" aria-labelledby="actionsDropdown">
                         <a class="dropdown-item" role="button" id="addJob">Add Job</a>
                         <a class="dropdown-item" role="button" id="addLocation">Add Location</a>
+                        <a class="dropdown-item" role="button" id="addCompany">Add Company</a>
                         <a class="dropdown-item" role="button" id="editJob">Edit Job</a>
                         <a class="dropdown-item" role="button" id="editLocation">Edit Location</a>
+                        <a class="dropdown-item" role="button" id="editCompany">Edit Company</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle" type="button" id="viewsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Views
+                    <button class="btn dropdown-toggle" type="button" id="viewsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Views
                     </button>
                     <div class="dropdown-menu" role="button" id="viewsMenu" aria-labelledby="viewsDropdown">
                         <a class="dropdown-item" role="button" id="viewJobs">View Jobs</a>
                         <a class="dropdown-item" role="button" id="viewLocations">View Locations</a>
+                        <a class="dropdown-item" role="button" id="viewCompanies">View Companies</a>
                 </li>
+                <!-- <li class="nav-item">
+                    <span class="navbar-text">
+                        An interactive web application designed to help organize and visualize the job search process.
+                    </span>
+                </li> -->
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

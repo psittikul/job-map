@@ -1,14 +1,16 @@
-$sunflower-hex: #E8D82A;
+$sunflower-hex: #e8d82a;
 $sunflower-rgba: rgba(232, 222, 42, 1);
-$sunflower-hsv: hsv(57,82,91);
+$sunflower-hsv: hsv(57, 82, 91);
+$spanish-violet: #462279;
+$maximum-purple: #773e75;
 $body-font: "Oswald", sans-serif;
 @mixin sunflower-btn {
-    color: $sunflower-hex;
-    border: solid thin $sunflower-hex;
-    background-color: #222;
-    transition: 0.25s;
+  color: $sunflower-hex;
+  border: solid thin $sunflower-hex;
+  background-color: #222;
+  transition: 0.25s;
 }
 @mixin sunflower-btn-inverse {
-    color: black;
-    background-color: $sunflower-hex;
+  color: black;
+  background-color: $sunflower-hex;
 }

@@ -6,27 +6,39 @@
       @include sunflower-btn-inverse;
     }
   }
-  #sidebarHeader {
-    border-bottom: solid thin $sunflower-hex;
-    margin-bottom: 1rem;
+}
+#sidebarHeader {
+  border-bottom: solid thin $sunflower-hex;
+}
+#sidebarTitle {
+  color: $sunflower-hex;
+  display: inline;
+}
+#exitSidebarBtn {
+  background: none;
+  color: $sunflower-hex;
+  line-height: 1;
+  font-size: 2rem;
+  padding: 0;
+  border: none;
+  float: right;
+  &:hover {
+    opacity: 0.8;
   }
-  h2 {
-    color: $sunflower-hex;
-    display: inline;
+  &:focus {
+    box-shadow: none;
   }
-  #exitSidebarBtn {
-    background: none;
-    color: $sunflower-hex;
-    line-height: 1;
-    font-size: 2rem;
-    padding: 0;
-    border: none;
-    float: right;
-    &:hover {
-      opacity: 0.8;
-    }
-    &:focus {
-      box-shadow: none;
-    }
+}
+#formSec {
+  padding: 1rem;
+  background-color: rgba(255,255,255,.6);
+  color: #222;
+  border: {
+    bottom-left-radius: .25rem;
+    bottom-right-radius: .25rem;
   }
+}
+
+#submitBtnRow {
+  display: none;
 }

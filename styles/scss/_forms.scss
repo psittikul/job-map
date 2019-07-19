@@ -1,7 +1,11 @@
-input.form-control {
+#formSec input.form-control {
     margin-bottom: .5rem;
 }
 
 button.btn-align-right {
     float: right;
+}
+
+.form-group {
+    width: 100%;
 }

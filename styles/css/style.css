@@ -1,6 +1,10 @@
+#topNav .navbar-text {
+  color: #e8d82a;
+  width: 25%;
+}
 #topNav .nav-item button {
   border: none;
-  color: #E8D82A;
+  color: #e8d82a;
 }
 #topNav .nav-item button:focus {
   box-shadow: none;
@@ -10,29 +14,29 @@
   border-top: 0;
 }
 #topNav a {
-  color: #E8D82A;
+  color: #e8d82a;
   cursor: pointer;
   transition: 0.25s;
 }
 #topNav form button.btn {
-  color: #E8D82A;
-  border: solid thin #E8D82A;
+  color: #e8d82a;
+  border: solid thin #e8d82a;
   transition: 0.25s;
 }
 #topNav form button.btn:hover {
   color: black;
-  background-color: #E8D82A;
+  background-color: #e8d82a;
 }
 #topNav .dropdown-menu {
   background-color: rgba(0, 0, 0, 0.85);
   padding: 0;
 }
 #topNav .dropdown-menu a {
-  border-bottom: solid thin #E8D82A;
+  border-bottom: solid thin #e8d82a;
 }
 #topNav .dropdown-menu a:hover {
   color: black;
-  background-color: #E8D82A;
+  background-color: #e8d82a;
   border-bottom: solid thin black;
 }
 
@@ -40,38 +44,63 @@
   display: none;
 }
 #sidebarSec button.action-btn {
-  border: none;
-  color: #E8D82A;
-  border: solid thin #E8D82A;
+  color: #e8d82a;
+  border: solid thin #e8d82a;
   background-color: #222;
   transition: 0.25s;
 }
 #sidebarSec button.action-btn:hover {
   color: black;
-  background-color: #E8D82A;
+  background-color: #e8d82a;
 }
-#sidebarSec #sidebarHeader {
-  border-bottom: solid thin #E8D82A;
-  margin-bottom: 1rem;
+
+#sidebarHeader {
+  border-bottom: solid thin #e8d82a;
 }
-#sidebarSec h2 {
-  color: #E8D82A;
+
+#sidebarTitle {
+  color: #e8d82a;
   display: inline;
 }
-#sidebarSec #exitSidebarBtn {
+
+#exitSidebarBtn {
   background: none;
-  color: #E8D82A;
+  color: #e8d82a;
   line-height: 1;
   font-size: 2rem;
   padding: 0;
   border: none;
   float: right;
 }
-#sidebarSec #exitSidebarBtn:hover {
+#exitSidebarBtn:hover {
   opacity: 0.8;
 }
-#sidebarSec #exitSidebarBtn:focus {
+#exitSidebarBtn:focus {
   box-shadow: none;
+}
+
+#formSec {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #222;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+#submitBtnRow {
+  display: none;
+}
+
+#formSec input.form-control {
+  margin-bottom: 0.5rem;
+}
+
+button.btn-align-right {
+  float: right;
+}
+
+.form-group {
+  width: 100%;
 }
 
 body {
@@ -101,7 +130,7 @@ body .btn:focus {
   width: 1.5rem;
   height: 1.5rem;
   color: black;
-  background-color: #E8D82A;
+  background-color: #e8d82a;
   transition: 0.25s;
 }
 .jqvmap-zoomin:hover,

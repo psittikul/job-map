@@ -1,4 +1,8 @@
 #topNav {
+  .navbar-text {
+    color: $sunflower-hex;
+    width: 25%;
+  }
   .nav-item button {
     border: none;
     color: $sunflower-hex;

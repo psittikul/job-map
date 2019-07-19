@@ -17,23 +17,104 @@ $(function () {
 
     // Set up menu for add job function
     $("#addJob").on("click", function () {
-        $("#sidebarHeader h2").text("Add Job");
-        $("#sidebarSec form").attr("id", "addJobForm");
-        var formHTML = "<div class='form-row'>";
-        formHTML += "<div class='col'><button class='action-btn' type='button' id='importBtn'>Import Job Information from URL</button></div>";
-        formHTML += "<div class='col'><button class='action-btn' type='button' id='manualBtn'>Manually Enter Job Information</button></div>";
-        $("#addJobForm").html(formHTML);
+        initAddJobForm();
         $("#sidebarSec").css("display", "block");
     });
-    // Set up menu for importing job information from URL
-    $("#sidebarSec").on("click", "#importBtn", function() {
-        $("#sidebarHeader h2").text("Import Job Information from URL");
-        $("#formSec").html(forms["importJob"]);
+    // Set up menu for add company functions
+    $("#addCompany").on("click", function () {
+        initAddCompanyForm();
+        $("#sidebarSec").css("display", "block");
+    })
+    // Set up menu for importing job, location, or company information from URL
+    $("#sidebarSec").on("click", "#importBtn", function () {
+        switch ($(this).attr("data-subject")) {
+            case "job":
+                $("#sidebarTitle").text("Import Job Information from URL");
+                $("#formSec form").html(forms["importJob"]);
+                $("#submitBtnRow").css("display", "flex");
+                break;
+        }
+    });
+    $("#sidebarSec").on("click", "#manualBtn", function () {
+        switch ($(this).attr("data-subject")) {
+            case "job":
+                $("#sidebarTitle").text("Manually Enter Job Information");
+                $("#entryMethodBtnRow").remove();
+                $("#submitBtnRow").before(forms["manualAddJob"]);
+                $("#submitBtnRow").css("display", "flex");
+                break;
+            case "company":
+                $("#sidebarTitle").text("Manually Enter Company Information");
+                $("#entryMethodBtnRow").remove();
+                $("#submitBtnRow").before(forms["manualAddCompany"]);
+                $("#submitBtnRow").css("display", "flex");
+                break;
+        }
     });
     // Clear and exit sidebar after clicking close icon
     $("#exitSidebarBtn").on("click", function () {
         $("#sidebarSec").css("display", "none");
-        $("#sidebarHeader h2").text("");
-        $("#sidebarSec #formSec form").html("");
+        resetSidebar();
     });
+    // Send AJAX request to DB after clicking submit button
+    $("#sidebarSec").on("click", "#submitBtn", function () {
+        console.log("Submit button clicked for: " + $(this).attr("data-subject"));
+        switch ($(this).attr("data-subject")) {
+            case "company":
+                saveCompanyAJAX();
+                break;
+        }
+    });
+
 });
+
+function resetSidebar() {
+    $("#sidebarTitle").text("");
+    $("#sidebarSec form").removeAttr("id");
+    $("#sidebarSec #formSec form").html(forms["blankForm"]);
+}
+
+function initAddJobForm() {
+    resetSidebar();
+    $("#sidebarTitle").text("Add Job");
+    $("#sidebarSec form").attr("id", "addJobForm");
+    $("#addJobForm .action-btn").attr("data-subject", "job");
+    $("#importBtn").text("Import Job Information from URL");
+    $("#manualBtn").text("Manually Enter Job Information");
+    $("#submitBtn").text("Save Information");
+    $("#submitBtn").attr("data-subject", "job");
+};
+
+function initAddCompanyForm() {
+    resetSidebar();
+    $("#sidebarTitle").text("Add Company");
+    $("#sidebarSec form").attr("id", "addCompanyForm");
+    $("#addCompanyForm .action-btn").attr("data-subject", "company");
+    $("#importBtn").text("Import Company Information from URL");
+    $("#manualBtn").text("Manually Enter Company Information");
+    $("#submitBtn").text("Save Information");
+    $("#submitBtn").attr("data-subject", "company");
+}
+
+function saveCompanyAJAX() {
+    var company_name = $("input[name='company_name']").val();
+    var company_website = $("input[name='company_website']").val();
+    var company_glassdoor = $("input[name='company_glassdoor']").val();
+    var formData = {
+        "company_name": $("input[name='company_name']").val(), "company_website": $("input[name='company_website']").val(),
+        "company_glassdoor": $("input[name='company_glassdoor'").val()
+    };
+    console.log("Time to make AJAX call");
+    $.ajax({
+        url: "ajax/saveCompany.php",
+        type: "POST",
+        data: {
+            company_name: company_name,
+            company_website: company_website,
+            company_glassdoor: company_glassdoor
+        },
+        success: function (response) {
+            console.log(response)
+        }
+    });
+}
