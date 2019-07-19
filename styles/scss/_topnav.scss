@@ -1,9 +1,21 @@
 #topNav {
+  .nav-item button {
+    border: none;
+    color: $sunflower-hex;
+    &:focus {
+      box-shadow: none;
+    }
+    &:focus > .dropdown-toggle:after {
+      border-bottom: 3em solid;
+      border-top: 0;
+    }
+  }
   a {
     color: $sunflower-hex;
     cursor: pointer;
+    transition: .25s;
   }
-  button.btn {
+  form button.btn {
     color: $sunflower-hex;
     border: solid thin $sunflower-hex;
     transition: .25s;

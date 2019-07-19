@@ -23,11 +23,12 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="jqvmap/dist/jquery.vmap.js"></script>
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/form-html.js"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
     <!-- Top nav -->
     <nav class="navbar navbar-expand-lg" id="topNav">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand">
             <h1>Job Map</h1>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,21 +38,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="actionsDropdown" role="button"
-                    data-toggle="dropdown" data-target="#actionsMenu">Actions</a>
+                    <button class="btn dropdown-toggle" type="button" id="actionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Actions
+                    </button>
                     <div class="dropdown-menu" id="actionsMenu" aria-labelledby="actionsDropdown">
                         <a class="dropdown-item" role="button" id="addJob">Add Job</a>
-                        <a class="dropdown-item" href="#" id="addLocation">Add Location</a>
-                        <a class="dropdown-item" href="#" id="editJob">Edit Job</a>
-                        <a class="dropdown-item" href="#" id="editLocation">Edit Location</a>
+                        <a class="dropdown-item" role="button" id="addLocation">Add Location</a>
+                        <a class="dropdown-item" role="button" id="editJob">Edit Job</a>
+                        <a class="dropdown-item" role="button" id="editLocation">Edit Location</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="viewsDropdown" role="button"
-                    data-toggle="dropdown" data-target="#viewsMenu">Views</a>
-                    <div class="dropdown-menu" href="#" id="viewsMenu" aria-labelledby="viewsDropdown">
-                        <a class="dropdown-item" href="#" id="viewJobs">View Jobs</a>
-                        <a class="dropdown-item" href="#" id="viewLocations">View Locations</a>
+                <button class="btn dropdown-toggle" type="button" id="viewsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Views
+                    </button>
+                    <div class="dropdown-menu" role="button" id="viewsMenu" aria-labelledby="viewsDropdown">
+                        <a class="dropdown-item" role="button" id="viewJobs">View Jobs</a>
+                        <a class="dropdown-item" role="button" id="viewLocations">View Locations</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

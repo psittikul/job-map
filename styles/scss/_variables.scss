@@ -3,7 +3,6 @@ $sunflower-rgba: rgba(232, 222, 42, 1);
 $sunflower-hsv: hsv(57,82,91);
 $body-font: "Oswald", sans-serif;
 @mixin sunflower-btn {
-    border: none;
     color: $sunflower-hex;
     border: solid thin $sunflower-hex;
     background-color: #222;

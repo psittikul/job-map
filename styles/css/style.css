@@ -1,13 +1,25 @@
+#topNav .nav-item button {
+  border: none;
+  color: #E8D82A;
+}
+#topNav .nav-item button:focus {
+  box-shadow: none;
+}
+#topNav .nav-item button:focus > .dropdown-toggle:after {
+  border-bottom: 3em solid;
+  border-top: 0;
+}
 #topNav a {
   color: #E8D82A;
   cursor: pointer;
+  transition: 0.25s;
 }
-#topNav button.btn {
+#topNav form button.btn {
   color: #E8D82A;
   border: solid thin #E8D82A;
   transition: 0.25s;
 }
-#topNav button.btn:hover {
+#topNav form button.btn:hover {
   color: black;
   background-color: #E8D82A;
 }
@@ -27,16 +39,39 @@
 #sidebarSec {
   display: none;
 }
-#sidebarSec button {
+#sidebarSec button.action-btn {
   border: none;
   color: #E8D82A;
   border: solid thin #E8D82A;
   background-color: #222;
   transition: 0.25s;
 }
-#sidebarSec button:hover {
+#sidebarSec button.action-btn:hover {
   color: black;
   background-color: #E8D82A;
+}
+#sidebarSec #sidebarHeader {
+  border-bottom: solid thin #E8D82A;
+  margin-bottom: 1rem;
+}
+#sidebarSec h2 {
+  color: #E8D82A;
+  display: inline;
+}
+#sidebarSec #exitSidebarBtn {
+  background: none;
+  color: #E8D82A;
+  line-height: 1;
+  font-size: 2rem;
+  padding: 0;
+  border: none;
+  float: right;
+}
+#sidebarSec #exitSidebarBtn:hover {
+  opacity: 0.8;
+}
+#sidebarSec #exitSidebarBtn:focus {
+  box-shadow: none;
 }
 
 body {
@@ -47,17 +82,42 @@ body button,
 body .btn {
   border-radius: 0.25rem;
 }
+body button:focus,
+body .btn:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 #vmap {
   margin: auto;
 }
 
+.jqvmap-zoomin {
+  top: 0;
+}
+
 .jqvmap-zoomin,
 .jqvmap-zoomout {
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   color: black;
   background-color: #E8D82A;
+  transition: 0.25s;
+}
+.jqvmap-zoomin:hover,
+.jqvmap-zoomout:hover {
+  opacity: 0.8;
+}
+
+.dropup-toggle:after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-bottom: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-top: 0;
+  border-left: 0.3em solid transparent;
 }
 
 /*# sourceMappingURL=style.css.map */
