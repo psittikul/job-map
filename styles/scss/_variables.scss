@@ -1,8 +1,8 @@
 $sunflower-hex: #e8d82a;
 $sunflower-rgba: rgba(232, 222, 42, 1);
-$sunflower-hsv: hsv(57, 82, 91);
+$sunflower-hsl: hsla(55, 81%, 54%, 1);
 $spanish-violet: #462279;
-$maximum-purple: #773e75;
+$spanish-violet-hsl: hsla(264, 53%, 33%, 1);
 $body-font: "Oswald", sans-serif;
 @mixin sunflower-btn {
   color: $sunflower-hex;

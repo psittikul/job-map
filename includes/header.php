@@ -22,6 +22,8 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="jqvmap/dist/jquery.vmap.js"></script>
+    <script src="https://kit.fontawesome.com/8819ef24c8.js"></script>
+
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/form-html.js"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
