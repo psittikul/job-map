@@ -1,11 +1,13 @@
 #topNav {
+  border-bottom: double $sunflower-hex;
+  margin-bottom: 1rem;
   .navbar-text {
-    color: $sunflower-hex;
-    width: 25%;
+    color: $spanish-violet;
+    width: 100%;
   }
   .nav-item button {
     border: none;
-    color: $sunflower-hex;
+    color: $spanish-violet;
     &:focus {
       box-shadow: none;
     }
@@ -14,31 +16,34 @@
       border-top: 0;
     }
   }
-  a {
-    color: $sunflower-hex;
-    cursor: pointer;
-    transition: .25s;
+  a.navbar-brand {
+    color: $spanish-violet;
   }
-  form button.btn {
+
+  a {
+    cursor: pointer;
+    transition: 0.25s;
     color: $sunflower-hex;
+  }
+
+  form button.btn {
+    color: $spanish-violet;
     border: solid thin $sunflower-hex;
-    transition: .25s;
+    transition: 0.25s;
     &:hover {
-        color: black;
-        background-color: $sunflower-hex;
+      @include violet-btn-inverse;
     }
   }
   .dropdown-menu {
-      background-color: rgba(0,0,0,.85);
-      padding: 0;
-      a {
-          border-bottom: solid thin $sunflower-hex;
-          &:hover {
-              color: black;
-              background-color: $sunflower-hex;
-              border-bottom: solid thin black;
-          }
+    background-color: rgba(70, 34, 121, 0.9);
+    padding: 0;
+    a {
+      border-bottom: solid thin $sunflower-hex;
+      &:hover {
+        color: $spanish-violet;
+        background-color: $white-smoke;
+        border-bottom: solid thin $sunflower-hex;
       }
+    }
   }
-
 }

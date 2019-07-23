@@ -27,6 +27,8 @@
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/form-html.js"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
+    <!-- JavaScript for action class -->
+    <script type="text/javascript" src="js/action_object.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
     <!-- Top nav -->
     <nav class="navbar navbar-expand-lg" id="topNav">
@@ -62,11 +64,11 @@
                         <a class="dropdown-item" role="button" id="viewLocations">View Locations</a>
                         <a class="dropdown-item" role="button" id="viewCompanies">View Companies</a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <span class="navbar-text">
                         An interactive web application designed to help organize and visualize the job search process.
                     </span>
-                </li> -->
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

@@ -6,7 +6,7 @@ var importJobHTML = "<div class='form-row'><div class='form-group'>" +
     "<div class='form-row'><div class='form-group'><label for='companyName' >Company Name</label>" +
     "<input type='text' class='form-control' id='companyName' name='company_name'placeholder='Company name'></div></div>" +
     "<div class='form-row'><div class='form-group'><label for='jobTitle'>Job Title</label>" +
-    "<input type='text' class='form-control' id='jobTitle' name='job_title' placeholder='Job Title'></div></div>";
+    "<input type='text' class='form-control' id='jobTitle' name='job_title' placeholder='Job title'></div></div>";
 
 var blankFormHTML = "<div class='form-row' id='entryMethodBtnRow'><div class='col'><button type='button' class='action-btn' id='importBtn'></button></div>" +
     "<div class='col'><button type='button' class='action-btn' id='manualBtn'></button></div></div>" +
@@ -15,10 +15,16 @@ var blankFormHTML = "<div class='form-row' id='entryMethodBtnRow'><div class='co
 
 
 
-var manualAddJobHTML = "<div class='form-row'><div class='form-group'><label for='companyName' >Company Name</label>" +
-    "<input type='text' class='form-control' id='companyName' name='company_name'placeholder='Company name'></div></div>" +
-    "<div class='form-row'><div class='form-group'><label for='jobTitle'>Job Title</label>" +
-    "<input type='text' class='form-control' id='jobTitle' name='job_title' placeholder='Job Title'></div></div>";
+var manualAddJobHTML = "<form id='manualAddJobForm'><div class='form-row'><div class='form-group'><label for='companyName' >Company Name</label>" +
+"<input type='text' class='form-control' id='companyName' name='company_name'placeholder='Company name'></div></div>" +
+"<div class='form-row'><div class='form-group'><label for='jobTitle'>Job Title</label>" +
+"<input type='text' class='form-control' id='jobTitle' name='job_title' placeholder='Job Title'></div></div>" + 
+"<div class='form-row'><div class='form-group'<label for='jobUrl'>Job Posting URL</label>" + 
+"<input type='text' class='form-control' id='jobUrl' name='job_url' placeholder='Link to job posting'></div></div>" +
+"<div class='form-row' id='submitRow'><button type='button' class='btn action-btn' id='submitBtn' data-action='manualAddJob'>" +
+"Save Information</button></div></form>";
+var manualAddJobFooter = "<button type='button' class='btn action-btn' data-action='addJob' id='backBtn'>Back</button>" + 
+"<button type='button' class='btn' id='closeBtn' data-dismiss='modal' data-target='#actionModal'>Close</button>";
 
 var manualAddCompanyHTML = "<div class='form-row'><div class='form-group'><label for='companyName'>Company Name</label>" +
     "<input type='text' class='form-control' id='companyName' name='company_name' placeholder='Company name'></div></div>" +

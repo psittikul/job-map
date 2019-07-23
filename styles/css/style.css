@@ -1,10 +1,14 @@
+#topNav {
+  border-bottom: double #e8d82a;
+  margin-bottom: 1rem;
+}
 #topNav .navbar-text {
-  color: #e8d82a;
-  width: 25%;
+  color: #462279;
+  width: 100%;
 }
 #topNav .nav-item button {
   border: none;
-  color: #e8d82a;
+  color: #462279;
 }
 #topNav .nav-item button:focus {
   box-shadow: none;
@@ -13,31 +17,34 @@
   border-bottom: 3em solid;
   border-top: 0;
 }
+#topNav a.navbar-brand {
+  color: #462279;
+}
 #topNav a {
-  color: #e8d82a;
   cursor: pointer;
   transition: 0.25s;
+  color: #e8d82a;
 }
 #topNav form button.btn {
-  color: #e8d82a;
+  color: #462279;
   border: solid thin #e8d82a;
   transition: 0.25s;
 }
 #topNav form button.btn:hover {
-  color: black;
   background-color: #e8d82a;
+  border: solid thin #462279;
 }
 #topNav .dropdown-menu {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(70, 34, 121, 0.9);
   padding: 0;
 }
 #topNav .dropdown-menu a {
   border-bottom: solid thin #e8d82a;
 }
 #topNav .dropdown-menu a:hover {
-  color: black;
-  background-color: #e8d82a;
-  border-bottom: solid thin black;
+  color: #462279;
+  background-color: #F5F5F5;
+  border-bottom: solid thin #e8d82a;
 }
 
 #sidebarSec {
@@ -103,9 +110,42 @@ button.btn-align-right {
   width: 100%;
 }
 
+#actionModal button.action-btn {
+  color: #462279;
+  border: solid thin #e8d82a;
+  transition: 0.25s;
+  background: transparent;
+}
+#actionModal button.action-btn:hover {
+  background-color: #e8d82a;
+  border: solid thin #462279;
+}
+
+#closeBtn {
+  background-color: #bbb;
+  color: #462279;
+  border: solid thin #e8d82a;
+}
+#closeBtn:hover {
+  background-color: #F5F5F5;
+}
+
+.modal-header {
+  background-color: #462279;
+  color: white;
+}
+
+.modal-header button.close {
+  color: white;
+}
+
+#submitRow {
+  float: right;
+}
+
 body {
   font-family: "Oswald", sans-serif;
-  background: #222;
+  background: #F5F5F5;
 }
 body button,
 body .btn {

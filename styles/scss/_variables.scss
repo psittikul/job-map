@@ -2,7 +2,11 @@ $sunflower-hex: #e8d82a;
 $sunflower-rgba: rgba(232, 222, 42, 1);
 $sunflower-hsl: hsla(55, 81%, 54%, 1);
 $spanish-violet: #462279;
-$spanish-violet-hsl: hsla(264, 53%, 33%, 1);
+$spanish-violet-rgba: rgba(70, 34, 121, 1);
+$spanish-violet-hsl: hsla(265, 56%, 30%, 1);
+$white-smoke: #F5F5F5;
+$marigold: #E1A327;
+
 $body-font: "Oswald", sans-serif;
 @mixin sunflower-btn {
   color: $sunflower-hex;
@@ -13,4 +17,14 @@ $body-font: "Oswald", sans-serif;
 @mixin sunflower-btn-inverse {
   color: black;
   background-color: $sunflower-hex;
+}
+
+@mixin violet-btn {
+  color: $spanish-violet;
+  border: solid thin $sunflower-hex;
+}
+
+@mixin violet-btn-inverse {
+  background-color: $sunflower-hex;
+  border: solid thin $spanish-violet;
 }

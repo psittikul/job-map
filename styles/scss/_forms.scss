@@ -9,3 +9,34 @@ button.btn-align-right {
 .form-group {
     width: 100%;
 }
+
+ #actionModal button.action-btn {
+    @include violet-btn;
+    transition: 0.25s;
+    background: transparent;
+    &:hover {
+        @include violet-btn-inverse;
+    }
+}
+
+#closeBtn {
+    background-color: #bbb;
+    color: $spanish-violet;
+    border: solid thin $sunflower-hex;
+    &:hover {
+        background-color: $white-smoke;
+    }
+}
+
+.modal-header {
+    background-color: $spanish-violet;
+    color: white;
+}
+
+.modal-header button.close {
+    color: white;
+}
+
+#submitRow {
+    float: right;
+}
