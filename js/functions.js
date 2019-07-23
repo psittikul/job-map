@@ -10,9 +10,44 @@ addJobObj.footerHTML = "<button type='button' class='btn' data-dismiss='modal' d
 var manualAddJobObj = new Action("manualAddJob", "#manualBtn.on(click)", null, "Manually Enter Job Information", "#actionModal");
 manualAddJobObj.formHTML = manualAddJobHTML;
 manualAddJobObj.footerHTML = manualAddJobFooter;
-
+var companyFields = [
+    {
+        "label": "Company Name",
+        "type": "text",
+        "span": "row",
+        "name": "company_name",
+        "id": "companyName"
+    },
+    {
+        "label": "Company Website",
+        "type": "text",
+        "span": "row",
+        "name": "company_website",
+        "id": "companyWebsite"
+    },
+    {
+        "label": "Company Glassdoor Page",
+        "type": "text",
+        "span": "row",
+        "name": "company_glassdoor",
+        "id": "companyGlassdoor"
+    },
+    {
+        "label": "Number of Employees",
+        "type": "number",
+        "span": "row",
+        "name": "number_of_employees",
+        "id": "numberEmployees"
+    }
+];
+var closeFooter = "<button type='button' class='btn' id='closeBtn' data-dismiss='modal' data-target='#actionModal'>Close</button>";
+var company = new DataType("Company", companyFields, "addCompany");
+var addCompanyObj = new Action("addCompany", "#addCompany", null, "Add New Company", "#actionModal", generateButtons(company), closeFooter);
+var addCompanyManualObj = new Action("addCompanyManual", "#manualBtn", null, "Manually Enter Company Information", generateForm(company), generateFooter(company));
 actionMap.set("addJob", addJobObj);
-actionMap.set("manualAddJob", manualAddJobObj);
+actionMap.set("addJobManual", manualAddJobObj);
+actionMap.set("addCompany", addCompanyObj);
+actionMap.set("addCompanyManual", addCompanyManualObj);
 $(function () {
     // Initialize tooltips
     $("[data-toggle='tooltip']").tooltip();
@@ -51,8 +86,8 @@ $(function () {
  */
 function resetModal(id) {
     $(id).find(".modal-title").text("");
-    $(id).find(".modal-body").html("");
-    $(id).find("#submitBtn").text("");
+    $(id).find(".modal-body").find("form").html("");
+    $(id).find(".modal-footer").html("");
 }
     // Event handlers for the various sidebar functions
 

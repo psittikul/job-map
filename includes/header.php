@@ -27,6 +27,8 @@
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/form-html.js"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
+    <!-- JavaScript for data type class -->
+    <script type="text/javascript" src="js/data_type.js"></script>
     <!-- JavaScript for action class -->
     <script type="text/javascript" src="js/action_object.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>

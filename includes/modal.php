@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Modal that pops up after an action button is clicked, each time having its contents updated to match the action being called
  */
@@ -14,11 +15,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                
+                <form></form>
             </div>
             <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-primary action-btn" id="submitBtn"></button> -->
-                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#actionModal" id="closeBtn">Close</button> -->
             </div>
         </div>
     </div>

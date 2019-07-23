@@ -47,7 +47,7 @@ function Action(name, caller, callback, title, target, form = null, footer=null)
 }
 
 function initModal(Action, target) {
-    $(target).find(".modal-body").html(Action.formHTML);
+    $(target).find(".modal-body").find("form").html(Action.formHTML);
     $(target).find(".modal-title").text(Action.title);
     $(target).find(".modal-footer").html(Action.footerHTML);
     // $(target).find("#submitBtn").text(Action.submit);
