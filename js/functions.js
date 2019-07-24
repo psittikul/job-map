@@ -50,6 +50,7 @@
 // actionMap.set("addCompanyManual", addCompanyManualObj);
 var actionMap = new Map();
 actionMap.set("addJob", addJobOverview);
+actionMap.set("manualAddJobBtn", manualAddJob);
 $(function () {
     // Initialize tooltips
     $("[data-toggle='tooltip']").tooltip();
@@ -66,6 +67,11 @@ $(function () {
     });
     // Event handler for when action items are clicked
     $("a.dropdown-item").on("click", function() {
+        var id = $(this).attr("id");
+        var actionItem = actionMap.get(id);
+        actionItem.generateFormHtml();
+    });
+    $(body).on("click", "button.action-btn", function() {
         var id = $(this).attr("id");
         var actionItem = actionMap.get(id);
         actionItem.generateFormHtml();

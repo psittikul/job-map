@@ -40,3 +40,12 @@ button.btn-align-right {
 #submitRow {
     float: right;
 }
+
+.form-row button.btn {
+    margin: auto;
+}
+
+
+.form-row:not(:last-of-type) {
+    margin-bottom: .5rem;
+}

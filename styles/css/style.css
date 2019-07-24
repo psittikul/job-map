@@ -143,6 +143,14 @@ button.btn-align-right {
   float: right;
 }
 
+.form-row button.btn {
+  margin: auto;
+}
+
+.form-row:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+
 body {
   font-family: "Oswald", sans-serif;
   background: #F5F5F5;
