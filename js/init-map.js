@@ -12,5 +12,5 @@ $(function () {
         borderColor: '#222',
         borderOpacity: .8
     });
-    $("#vmap").vectorMap('set', 'colors', {tx: '#4c2882', dc:'#e8d82a', wa:'#2ba989'});
+    // $("#vmap").vectorMap('set', 'colors', {tx: '#4c2882', dc:'#e8d82a', wa:'#2ba989'});
 });

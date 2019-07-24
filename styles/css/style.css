@@ -151,6 +151,14 @@ button.btn-align-right {
   margin-bottom: 0.5rem;
 }
 
+.modal-button-sec .col:last-of-type button {
+  float: right;
+}
+
+.form-group .check-input {
+  margin-left: 0.5rem;
+}
+
 body {
   font-family: "Oswald", sans-serif;
   background: #F5F5F5;

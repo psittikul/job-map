@@ -1,90 +1,93 @@
-/**
- * Fields common to multiple forms
- */
-var jobFields = [
+var addFormButtons = [
     {
-        "object": "input",
-        "label": "Job Title",
-        "attributes": { "type": "text", "name": "job_title", "id": "jobTitle", "placeholder": "Job Title" }
+        "id": "clearBtn",
+        "class": "btn action-btn",
+        "text": "Clear"
     },
     {
-        "object": "input",
-        "label": "Company",
-        "attributes": { "type": "text", "name": "company", "id": "jobCompany", "placeholder": "Company" }
-    },
-    {
-        "object": "input",
-        "label": "Job Posting URL",
-        "attributes": { "type": "text", "name": "job_posting_url", "id": "jobPostingUrl", "placeholder": "Link to Job Posting" }
-    },
-    {
-        "object": "input",
-        "label": "Applied",
-        "attributes": { "type": "checkbox", "name": "job_applied", "id": "jobApplied" }
+        "id": "submitBtn",
+        "class": "btn action-btn",
+        "text": "Save Information"
     }
 ];
 
-
-var addJobOverviewContents = {
+var addJobContents = {
     "title": "Add New Job",
-    "buttons": [
-        {
-            "id": "manualAddJobBtn",
-            "class": "btn action-btn",
-            "text": "Manually Enter Job Information"
-        },
-        {
-            "id": "ipmortJobBtn",
-            "class": "btn action-btn",
-            "text": "Import Job Information from URL"
-        }
-    ],
-    "fields": null
+    "buttons": addFormButtons,
+    "fields": [{
+        "object": "input",
+        "parent": "form-group",
+        "label": "Job Posting URL",
+        "attributes": { "type": "text", "name": "job_posting_url", "id": "jobPostingUrl", "placeholder": "Link to Job Posting", "class": "form-control url-input" }
+    },
+    {
+        "object": "input",
+        "parent": "form-group",
+        "label": "Job Title",
+        "attributes": { "type": "text", "name": "job_title", "id": "jobTitle", "placeholder": "Job Title", "class": "form-control" }
+    },
+    {
+        "object": "input",
+        "parent": "form-group",
+        "label": "Company",
+        "attributes": { "type": "text", "name": "job_company", "id": "jobCompany", "placeholder": "Hiring Company", "class": "form-control" }
+    },
+    {
+        "object":"input",
+        "parent":"form-group",
+        "label":"Remote Job",
+        "attributes":{"type":"checkbox","name":"remote_job", "id":"remoteJob", "class":"check-input"}
+    },
+    {
+        "object": "input",
+        "parent": "form-group",
+        "label": "Location",
+        "attributes": { "type": "text", "name": "job_location", "id": "jobLocation", "placeholder": "Search location", "class": "form-control" }
+    },
+    {
+        "object": "input",
+        "parent": "form-group",
+        "label": "Date Applied",
+        "attributes": { "type": "date", "name": "date_applied", "id": "dateApplied", "class": "form-control" }
+    }]
 };
-var addJobOverview = new Form("addJobOverviewForm", "#addJob", addJobOverviewContents, "#actionModal", null);
+var addJob = new Form("addJob", "#addJob", addJobContents, "#actionModal");
 
-var manualAddJobContents = {
-    "title": "Manually Enter Job Information",
-    "buttons": [
-        {
-            "id": "addJobOverviewBtn",
-            "class": "btn action-btn",
-            "text": "Back"
-        },
-        {
-            "id": "submitBtn",
-            "class": "btn action-btn",
-            "text": "Save Information"
-        }
-    ],
-    "fields": jobFields
-};
-var manualAddJob = new Form("manualAddJobForm", "#manualAddJobBtn", manualAddJobContents, "#actionModal", saveInfo);
-
-var importJobContents = {
-    "title": "Import Job Information from URL",
-    "buttons": [
-        {
-            "id": "addJobOverviewBtn",
-            "class": "btn action-btn",
-            "text": "Back"
-        },
-        {
-            "id": "startImportBtn",
-            "class": "btn action-btn",
-            "text": "Import Information"
-        }
-    ],
+var addCompanyContents = {
+    "title": "Add New Company",
+    "buttons": addFormButtons,
     "fields": [
         {
             "object": "input",
-            "label": "Import URL",
-            "attributes": {
-                "type": "text",
-                "name": "import_job_url",
-                "id": "importJobUrl",
-                "placeholder": "URL to Import Job Information From"
-            }
+            "parent": "form-group",
+            "label": "Company Website",
+            "attributes": { "type": "text", "name": "company_website", "id": "companyWebsite", "placeholder": "Link to Company Careers Website", "class": "form-control url-input" }
+        },
+        {
+            "object": "input",
+            "parent": "form-group",
+            "label": "Company Name",
+            "attributes": { "type": "text", "name": "company_name", "id": "companyName", "placeholder": "Company Name", "class": "form-control" }
+        },
+        {
+            "object": "input",
+            "parent": "form-group",
+            "label": "Company Glassdoor",
+            "attributes": { "type": "text", "name": "company_glassdoor", "id": "companyGlassdoor", "placeholder": "Link to Company Glassdoor", "class": "form-control" }
+        },
+        {
+            "object": "input",
+            "parent": "form-group",
+            "label": "Number of Employees",
+            "attributes": { "type": "number", "name": "number_of_employees", "id": "numberEmployees", "class": "form-control" }
+        },
+        {
+            "object": "input",
+            "parent": "form-group",
+            "label": "Location(s)",
+            "attributes": { "type": "text", "name": "company_location_input", "id": "locationLookup", "placeholder": "Search for a location to add", "class": "form-control" }
         }
     ]
-}
+};
+
+var addCompany = new Form("addCompany", "#addCompany", addCompanyContents, "#actionModal");

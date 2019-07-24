@@ -1,5 +1,5 @@
 class Form {
-    constructor(name, caller, contents, target, callback = null) {
+    constructor(name, caller, contents, target) {
         this._name = name;
         this._caller = caller;
         this._contents = contents;
@@ -7,7 +7,6 @@ class Form {
         this._buttons = contents.buttons;
         this._fields = contents.fields;
         this._target = target;
-        this._callback = callback;
     }
 
 
@@ -26,24 +25,49 @@ class Form {
             var formHtml = "";
             var fieldHtml = "";
             var fieldHtmlArray = $.map(fieldArray, function (field, index) {
-                fieldHtml = "<div class='form-group'><label>" + field.label + "</label><" + field.object;
+                fieldHtml = "<div class='" + field.parent + "'><label>" + field.label + "</label><" + field.object;
                 attributeArray = field.attributes;
                 $.each(attributeArray, function (key, value) {
                     fieldHtml += " " + key + "='" + value + "' ";
                 });
-                fieldHtml += " class='form-control'></" + field.object + "></div>";
+                fieldHtml += "></" + field.object + "></div>";
                 return fieldHtml;
             });
             $.each(fieldHtmlArray, function (index, value) {
-                formHtml += "<div class='form-row'>" + value + "</div>";
+                formHtml += value;
             });
             $(this._target).find("form").html(formHtml);
         }
         var buttonHtml = "";
-        $.each(buttonArray, function(index, btn) {
+        $.each(buttonArray, function (index, btn) {
             buttonHtml += "<div class='col'><button type='button' id='" + btn.id + "' class='" + btn.class + "'>" + btn.text + "</button></div>";
         });
         $(this._target).find(".modal-button-sec").html(buttonHtml);
         $(this._target).modal("show");
+    }
+
+    saveInfo() {
+        var formName = this._name;
+        var selector = "form[name='" + this._name + "']";
+        var table = formName.replace("add", "").replace("edit", "").toLowerCase();
+        var inputArray = $.makeArray($(selector).find("input"));
+        var dataArray = {};
+        $.each(inputArray, function (index, value) {
+            var key = $(this).attr("name");
+            var val = $(this).val();
+            dataArray[key] = val;
+        });
+        $.ajax({
+            url: "./ajax/saveInfo.php",
+            data: {
+                "data": dataArray,
+                "table": table
+            },
+            method: "POST",
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+            }
+        });
     }
 }
