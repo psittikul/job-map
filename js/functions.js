@@ -1,53 +1,55 @@
-// Map to store actions and their corresponding functions, content, etc.
+// // Map to store actions and their corresponding functions, content, etc.
+// var actionMap = new Map();
+// // var addJobObj = new Action("addJob", "#addJob.on(click)", "actionModal set", "Add New Job", "#actionModal",
+// // null, "Save Information", "Manually Enter Job Information", "Import Job Information from URL");
+// var addJobObj = new Action("addJob", "#addJob.on(click)", null, "Add New Job", "#actionModal");
+// addJobObj.formHTML = "<form id='addJobForm'><div class='form-row'><div class='col'><button type='button' id='manualBtn' " +
+// "data-action='manualAddJob' class='btn action-btn'>Manually Enter Job Information</button></div>" +
+// "<div class='col'><button type='button' data-action='importJob' id='importBtn' class='btn action-btn'>Import Job Information from URL</button></div></div></form>";
+// addJobObj.footerHTML = "<button type='button' class='btn' data-dismiss='modal' data-target='#actionModal' id='closeBtn'>Close</button>";
+// var manualAddJobObj = new Action("manualAddJob", "#manualBtn.on(click)", null, "Manually Enter Job Information", "#actionModal");
+// manualAddJobObj.formHTML = manualAddJobHTML;
+// manualAddJobObj.footerHTML = manualAddJobFooter;
+// var companyFields = [
+//     {
+//         "label": "Company Name",
+//         "type": "text",
+//         "span": "row",
+//         "name": "company_name",
+//         "id": "companyName"
+//     },
+//     {
+//         "label": "Company Website",
+//         "type": "text",
+//         "span": "row",
+//         "name": "company_website",
+//         "id": "companyWebsite"
+//     },
+//     {
+//         "label": "Company Glassdoor Page",
+//         "type": "text",
+//         "span": "row",
+//         "name": "company_glassdoor",
+//         "id": "companyGlassdoor"
+//     },
+//     {
+//         "label": "Number of Employees",
+//         "type": "number",
+//         "span": "row",
+//         "name": "number_of_employees",
+//         "id": "numberEmployees"
+//     }
+// ];
+// var closeFooter = "<button type='button' class='btn' id='closeBtn' data-dismiss='modal' data-target='#actionModal'>Close</button>";
+// var company = new DataType("Company", companyFields, "addCompany");
+// var addCompanyObj = new Action("addCompany", "#addCompany", null, "Add New Company", "#actionModal", generateButtons(company), closeFooter);
+// var addCompanyManualObj = new Action("addCompanyManual", "#manualBtn", null, "Manually Enter Company Information", generateForm(company), generateFooter(company));
+// actionMap.set("addJob", addJobObj);
+// actionMap.set("addJobManual", manualAddJobObj);
+// actionMap.set("addCompany", addCompanyObj);
+// actionMap.set("addCompanyManual", addCompanyManualObj);
 var actionMap = new Map();
-// var addJobObj = new Action("addJob", "#addJob.on(click)", "actionModal set", "Add New Job", "#actionModal",
-// null, "Save Information", "Manually Enter Job Information", "Import Job Information from URL");
-var addJobObj = new Action("addJob", "#addJob.on(click)", null, "Add New Job", "#actionModal");
-addJobObj.formHTML = "<form id='addJobForm'><div class='form-row'><div class='col'><button type='button' id='manualBtn' " +
-"data-action='manualAddJob' class='btn action-btn'>Manually Enter Job Information</button></div>" +
-"<div class='col'><button type='button' data-action='importJob' id='importBtn' class='btn action-btn'>Import Job Information from URL</button></div></div></form>";
-addJobObj.footerHTML = "<button type='button' class='btn' data-dismiss='modal' data-target='#actionModal' id='closeBtn'>Close</button>";
-var manualAddJobObj = new Action("manualAddJob", "#manualBtn.on(click)", null, "Manually Enter Job Information", "#actionModal");
-manualAddJobObj.formHTML = manualAddJobHTML;
-manualAddJobObj.footerHTML = manualAddJobFooter;
-var companyFields = [
-    {
-        "label": "Company Name",
-        "type": "text",
-        "span": "row",
-        "name": "company_name",
-        "id": "companyName"
-    },
-    {
-        "label": "Company Website",
-        "type": "text",
-        "span": "row",
-        "name": "company_website",
-        "id": "companyWebsite"
-    },
-    {
-        "label": "Company Glassdoor Page",
-        "type": "text",
-        "span": "row",
-        "name": "company_glassdoor",
-        "id": "companyGlassdoor"
-    },
-    {
-        "label": "Number of Employees",
-        "type": "number",
-        "span": "row",
-        "name": "number_of_employees",
-        "id": "numberEmployees"
-    }
-];
-var closeFooter = "<button type='button' class='btn' id='closeBtn' data-dismiss='modal' data-target='#actionModal'>Close</button>";
-var company = new DataType("Company", companyFields, "addCompany");
-var addCompanyObj = new Action("addCompany", "#addCompany", null, "Add New Company", "#actionModal", generateButtons(company), closeFooter);
-var addCompanyManualObj = new Action("addCompanyManual", "#manualBtn", null, "Manually Enter Company Information", generateForm(company), generateFooter(company));
-actionMap.set("addJob", addJobObj);
-actionMap.set("addJobManual", manualAddJobObj);
-actionMap.set("addCompany", addCompanyObj);
-actionMap.set("addCompanyManual", addCompanyManualObj);
+actionMap.set("addJob", addJobOverview);
 $(function () {
     // Initialize tooltips
     $("[data-toggle='tooltip']").tooltip();
@@ -62,22 +64,13 @@ $(function () {
         $(eventBtn).removeClass("dropup-toggle");
         $(eventBtn).addClass("dropdown-toggle");
     });
-    // Event handler for when dropdown action items are clicked
-    $("a.dropdown-item").on("click", function () {
+    // Event handler for when action items are clicked
+    $("a.dropdown-item").on("click", function() {
         var id = $(this).attr("id");
-        var thisObj = actionMap.get(id);
-        initModal(thisObj, thisObj.target);
+        var actionItem = actionMap.get(id);
+        actionItem.generateFormHtml();
     });
-    $(".modal-body").on("click", ".action-btn", function() {
-        var id = $(this).attr("data-action");
-        var currentObj = actionMap.get(id);
-        initModal(currentObj, currentObj.target);
-    });
-    // Event handler for when a modal is being closed
-    $(".modal").on("hide.bs.modal", function (e) {
-        var id = "#" + $(this).attr("id");
-        resetModal(id);
-    });
+ 
 });
 
 /**
@@ -195,4 +188,6 @@ $.ajax({
     }
 });
 } */
+
+
 

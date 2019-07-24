@@ -18,6 +18,7 @@
                 <form></form>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn" id="closeBtn" data-dismiss="modal" data-target="actionModal">Close</button>
             </div>
         </div>
     </div>
