@@ -16,6 +16,7 @@
             </div>
             <div class="modal-body">
                 <form></form>
+                <div class="modal-button-sec row"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn" id="closeBtn" data-dismiss="modal" data-target="actionModal">Close</button>

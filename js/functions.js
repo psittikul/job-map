@@ -1,56 +1,7 @@
-// // Map to store actions and their corresponding functions, content, etc.
-// var actionMap = new Map();
-// // var addJobObj = new Action("addJob", "#addJob.on(click)", "actionModal set", "Add New Job", "#actionModal",
-// // null, "Save Information", "Manually Enter Job Information", "Import Job Information from URL");
-// var addJobObj = new Action("addJob", "#addJob.on(click)", null, "Add New Job", "#actionModal");
-// addJobObj.formHTML = "<form id='addJobForm'><div class='form-row'><div class='col'><button type='button' id='manualBtn' " +
-// "data-action='manualAddJob' class='btn action-btn'>Manually Enter Job Information</button></div>" +
-// "<div class='col'><button type='button' data-action='importJob' id='importBtn' class='btn action-btn'>Import Job Information from URL</button></div></div></form>";
-// addJobObj.footerHTML = "<button type='button' class='btn' data-dismiss='modal' data-target='#actionModal' id='closeBtn'>Close</button>";
-// var manualAddJobObj = new Action("manualAddJob", "#manualBtn.on(click)", null, "Manually Enter Job Information", "#actionModal");
-// manualAddJobObj.formHTML = manualAddJobHTML;
-// manualAddJobObj.footerHTML = manualAddJobFooter;
-// var companyFields = [
-//     {
-//         "label": "Company Name",
-//         "type": "text",
-//         "span": "row",
-//         "name": "company_name",
-//         "id": "companyName"
-//     },
-//     {
-//         "label": "Company Website",
-//         "type": "text",
-//         "span": "row",
-//         "name": "company_website",
-//         "id": "companyWebsite"
-//     },
-//     {
-//         "label": "Company Glassdoor Page",
-//         "type": "text",
-//         "span": "row",
-//         "name": "company_glassdoor",
-//         "id": "companyGlassdoor"
-//     },
-//     {
-//         "label": "Number of Employees",
-//         "type": "number",
-//         "span": "row",
-//         "name": "number_of_employees",
-//         "id": "numberEmployees"
-//     }
-// ];
-// var closeFooter = "<button type='button' class='btn' id='closeBtn' data-dismiss='modal' data-target='#actionModal'>Close</button>";
-// var company = new DataType("Company", companyFields, "addCompany");
-// var addCompanyObj = new Action("addCompany", "#addCompany", null, "Add New Company", "#actionModal", generateButtons(company), closeFooter);
-// var addCompanyManualObj = new Action("addCompanyManual", "#manualBtn", null, "Manually Enter Company Information", generateForm(company), generateFooter(company));
-// actionMap.set("addJob", addJobObj);
-// actionMap.set("addJobManual", manualAddJobObj);
-// actionMap.set("addCompany", addCompanyObj);
-// actionMap.set("addCompanyManual", addCompanyManualObj);
 var actionMap = new Map();
-actionMap.set("addJob", addJobOverview);
-actionMap.set("manualAddJobBtn", manualAddJob);
+actionMap.set("addJob", addJob);
+// actionMap.set("manualAddJobBtn", manualAddJob);
+// actionMap.set("addJobOverviewBtn", addJobOverview);
 $(function () {
     // Initialize tooltips
     $("[data-toggle='tooltip']").tooltip();
@@ -69,14 +20,21 @@ $(function () {
     $("a.dropdown-item").on("click", function() {
         var id = $(this).attr("id");
         var actionItem = actionMap.get(id);
+        resetModal("#actionModal");
         actionItem.generateFormHtml();
     });
-    $(body).on("click", "button.action-btn", function() {
+    $(".modal").on("click", "button.action-btn", function() {
         var id = $(this).attr("id");
         var actionItem = actionMap.get(id);
+        resetModal("#actionModal");
         actionItem.generateFormHtml();
     });
  
+    // Reset contents of modal any time it is closed
+    $(".modal").on("hide.bs.modal", function() {
+        var id = "#" + $(this).attr("id");
+        resetModal(id);
+    });
 });
 
 /**
@@ -86,7 +44,7 @@ $(function () {
 function resetModal(id) {
     $(id).find(".modal-title").text("");
     $(id).find(".modal-body").find("form").html("");
-    $(id).find(".modal-footer").html("");
+    $(id).find(".modal-button-sec").html("");
 }
     // Event handlers for the various sidebar functions
 
