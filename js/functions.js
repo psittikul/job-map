@@ -18,17 +18,17 @@ $(function () {
     });
     // Event handler for when action items are clicked
     $("a.dropdown-item").on("click", function () {
-        var id = $(this).attr("id");
-        var actionItem = actionMap.get(id);
+        var action = $(this).attr("data-action");
+        var actionItem = actionMap.get(action);
         resetModal("#actionModal");
         actionItem.generateFormHtml();
     });
-    // $(".modal").on("click", "button.action-btn", function() {
-    //     var id = $(this).attr("id");
-    //     var actionItem = actionMap.get(id);
-    //     resetModal("#actionModal");
-    //     actionItem.generateFormHtml();
-    // });
+    $(".modal").on("click", "button.action-btn:not(#submitBtn):not(#clearBtn)", function() {
+        var action = $(this).attr("data-action");
+        var actionItem = actionMap.get(action);
+        resetModal("#actionModal");
+        actionItem.generateFormHtml();
+    });
 
     $(".modal").on("click", "#submitBtn", function () {
         var formName = $(this).parent().parent().prev().attr("name");

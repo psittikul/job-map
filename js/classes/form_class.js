@@ -47,6 +47,7 @@ class Form {
     }
 
     saveInfo() {
+        console.log("Save info called for: " + this._)
         var formName = this._name;
         var selector = "form[name='" + this._name + "']";
         var table = formName.replace("add", "").replace("edit", "").toLowerCase();
@@ -54,19 +55,33 @@ class Form {
         var dataArray = {};
         $.each(inputArray, function (index, value) {
             var key = $(this).attr("name");
-            var val = $(this).val();
+            var val = "";
+            if ($(this).attr("type") === "checkbox") {
+                val = $(this).prop("checked") ? 1 : 0;
+            }
+            if ($(this).attr("type")==="number" && $(this).val().length < 1) {
+                val = 0;
+            }
+            if ($(this).val().length < 1 && $(this).attr("type") != "number") {
+                val = null;
+            }
+            if ($(this).attr("type") != "checkbox" && $(this).val().length > 0) {
+                val = $(this).val();
+            }
             dataArray[key] = val;
         });
         $.ajax({
             url: "./ajax/saveInfo.php",
             data: {
-                "data": dataArray,
+                "fields": dataArray,
                 "table": table
             },
-            method: "POST",
-            dataType: "json",
-            success: function(data) {
-                console.log(data);
+            type: "POST",
+            success: function (response) {
+                $(this._target).find(".modal-body").html(response);
+            },
+            error: function (e) {
+                console.log(e.message);
             }
         });
     }

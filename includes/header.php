@@ -1,4 +1,4 @@
-<?php include "connection.php"; ?>
+<?php include "connection.php";?>
 <!doctype html>
 <html>
 
@@ -56,12 +56,12 @@
                         Actions
                     </button>
                     <div class="dropdown-menu" id="actionsMenu" aria-labelledby="actionsDropdown">
-                        <a class="dropdown-item" role="button" id="addJob">Add Job</a>
-                        <a class="dropdown-item" role="button" id="addLocation">Add Location</a>
-                        <a class="dropdown-item" role="button" id="addCompany">Add Company</a>
-                        <a class="dropdown-item" role="button" id="editJob">Edit Job</a>
-                        <a class="dropdown-item" role="button" id="editLocation">Edit Location</a>
-                        <a class="dropdown-item" role="button" id="editCompany">Edit Company</a>
+                        <a class="dropdown-item" role="button" id="addJobLink" data-action="addJob">Add Job</a>
+                        <a class="dropdown-item" role="button" id="addLocationLink" data-action="addLocation">Add Location</a>
+                        <a class="dropdown-item" role="button" id="addCompanyLink" data-action="addCompany">Add Company</a>
+                        <a class="dropdown-item" role="button" id="editJobLink" data-action="editJob">Edit Job</a>
+                        <a class="dropdown-item" role="button" id="editLocationLink" data-action="editLocation">Edit Location</a>
+                        <a class="dropdown-item" role="button" id="editCompanyLink" data-action="editCompany">Edit Company</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -79,10 +79,13 @@
                     </span>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <p id="copyright">
+            &#169; Patricia Sittikul 2019
+</p>
+            <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn  my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            </form> -->
         </div>
     </nav>
 </head>

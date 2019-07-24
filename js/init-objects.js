@@ -81,11 +81,17 @@ var addCompanyContents = {
             "label": "Number of Employees",
             "attributes": { "type": "number", "name": "number_of_employees", "id": "numberEmployees", "class": "form-control" }
         },
+        // {
+        //     "object": "input",
+        //     "parent": "form-group",
+        //     "label": "Location(s)",
+        //     "attributes": { "type": "text", "name": "company_location_input", "id": "locationLookup", "placeholder": "Search for a location to add", "class": "form-control" }
+        // },
         {
-            "object": "input",
-            "parent": "form-group",
-            "label": "Location(s)",
-            "attributes": { "type": "text", "name": "company_location_input", "id": "locationLookup", "placeholder": "Search for a location to add", "class": "form-control" }
+            "object":"input",
+            "parent":"form-group",
+            "label":"Currently Hiring",
+            "attributes":{"type":"checkbox", "name":"currently_hiring", "id":"currentlyHiring", "class":"check-input"}
         }
     ]
 };

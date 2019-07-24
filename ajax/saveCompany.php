@@ -1,4 +1,5 @@
 <?php
+$cwd = getcwd();
 include "../includes/connection.php";
 // $data = $_POST["data"];
 // $company_name = $data["company_name"];
