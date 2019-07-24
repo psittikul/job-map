@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Modal that pops up after an action button is clicked, each time having its contents updated to match the action being called
+ * Modal that pops up after an action button (specifically add or edit) is clicked, each time having its contents
+ * updated to match the action being called
  */
 ?>
 
@@ -15,7 +16,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form></form>
+                <form>
+                </form>
+                <input type="text" id="autocomplete" style="display: none" name="company_location_lookup" placeholder="Enter City to Lookup">
                 <div class="modal-button-sec row"></div>
             </div>
             <div class="modal-footer">

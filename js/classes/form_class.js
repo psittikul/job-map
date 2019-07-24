@@ -43,6 +43,8 @@ class Form {
             buttonHtml += "<div class='col'><button type='button' id='" + btn.id + "' class='" + btn.class + "'>" + btn.text + "</button></div>";
         });
         $(this._target).find(".modal-button-sec").html(buttonHtml);
+        $("#locality").parent().before($("#autocomplete"));
+        $("#autocomplete").css("display", "block");
         $(this._target).modal("show");
     }
 
@@ -59,7 +61,7 @@ class Form {
             if ($(this).attr("type") === "checkbox") {
                 val = $(this).prop("checked") ? 1 : 0;
             }
-            if ($(this).attr("type")==="number" && $(this).val().length < 1) {
+            if ($(this).attr("type") === "number" && $(this).val().length < 1) {
                 val = 0;
             }
             if ($(this).val().length < 1 && $(this).attr("type") != "number") {

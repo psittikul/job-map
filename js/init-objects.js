@@ -88,6 +88,30 @@ var addCompanyContents = {
         //     "attributes": { "type": "text", "name": "company_location_input", "id": "locationLookup", "placeholder": "Search for a location to add", "class": "form-control" }
         // },
         {
+            "object": "input",
+            "parent": "form-group",
+            "label": "City",
+            "attributes": {
+                "type": "text",
+                "name": "company_location_city",
+                "id": "locality",
+                "placeholder": "City",
+                "class": "form-control"
+            }
+        },
+        {
+            "object": "input",
+            "parent": "form-group",
+            "label": "State",
+            "attributes": {
+                "type": "text",
+                "name": "company_location_state",
+                "id": "administrative_area_level_1",
+                "placeholder": "State",
+                "class": "form-control"
+            }
+        },
+        {
             "object":"input",
             "parent":"form-group",
             "label":"Currently Hiring",
