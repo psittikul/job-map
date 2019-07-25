@@ -38,7 +38,9 @@ button.btn-align-right {
 }
 
 #submitRow {
-    float: right;
+    button {
+        @include sunflower-btn;
+    }
 }
 
 .form-row button.btn {
@@ -63,6 +65,9 @@ button.btn-align-right {
     margin: auto;
     border: solid thin #e8d82a;
     border-radius: .5rem;
+    button.action-btn {
+        @include sunflower-btn-inverse;
+    }
 }
 
 #formTitle {
@@ -75,4 +80,14 @@ button.btn-align-right {
 
 #formContainer form {
     padding: 1rem;
+}
+
+#pipmap {
+    float: right;
+    
+    .jqvmap-zoomin,
+    .jqvmap-zoomout {
+        width: 1rem;
+        height: 1rem;
+    }
 }

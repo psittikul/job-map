@@ -36,13 +36,14 @@
                 <div class="form-group">
                     <label for="autocomplete">Located in</label>
                     <input type="text" id="autocomplete" class="form-control" name="location_lookup">
+                    <button type="button" class="action-btn" data-action="add" data-item="location">Add Location</button>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <div class="form-group">
                         <label for="locality">City</label>
-                        <input type="text" id="locality" name="company_city" disabled="true" class="form-control">
+                        <input type="text" id="locality" name="company_city" disabled="true" class="form-control" placeholder="Enter a location to lookup">
                     </div>
                 </div>
                 <div class="col">
@@ -53,8 +54,14 @@
                 </div>
             </div>
             <div class="form-row" id="companyLocationsRow">
+                <div id="companyLocationsTags">
+                    
+                </div>
                 <!-- <label for="companyLocationTags">Locations</label> -->
-                <textarea id="companyLocationTags" class="form-control">(Selected locations go here...)</textarea>
+                <!-- <textarea id="companyLocationTags" class="form-control">(Selected locations go here...)</textarea> -->
+            </div>
+            <div class="form-row" id="submitRow">
+                <button class="action-btn" type="button" id="submitBtn" data-item="company">Save Information</button>
             </div>
         </form>
     </div>

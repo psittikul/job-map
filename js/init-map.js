@@ -13,7 +13,17 @@ $(function () {
             borderColor: '#222',
             borderOpacity: .8
         });
-        // $("#vmap").vectorMap('set', 'colors', {tx: '#4c2882', dc:'#e8d82a', wa:'#2ba989'});
     }
-
+    // "Picture in picture" map on the other pages
+    if ($("#pipmap")) {
+        $("#pipmap").vectorMap({
+            map: 'usa_en',
+            backgroundColor: 'rgba(0,0,0,.7)',
+            selectedRegions: ['TX', 'NY', 'PA', 'DC', 'CA', 'WA'],
+            hoverColor: 'rgba(232,216,42,.8)',
+            selectedColor: '#e8d82a',
+            borderColor: '#222',
+            borderOpacity: .8,
+        })
+    }
 });

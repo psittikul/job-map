@@ -7,13 +7,14 @@ body {
   font-family: $body-font;
   background: $white-smoke;
   padding-bottom: 5rem;
-  button,
-  .btn {
-    border-radius: 0.25rem;
-    &:focus {
-      outline: none;
-      box-shadow: none;
-    }
+}
+
+button,
+.btn {
+  border-radius: 0.25rem;
+  &:focus {
+    outline: none;
+    box-shadow: none;
   }
 }
 

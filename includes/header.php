@@ -1,4 +1,4 @@
-<?php include "connection.php";?>
+<?php include "connection.php"; ?>
 <!doctype html>
 <html>
 
@@ -25,12 +25,17 @@
     <script src="https://kit.fontawesome.com/8819ef24c8.js"></script>
 
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
-     <!-- Google Places API JavaScript (must include API key) -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvJiAVu3Vbb9O1VJmbaTdNYKCVu0Jv9G0&libraries=places"></script>
+    <!-- Google Places API JavaScript (must include API key) -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvJiAVu3Vbb9O1VJmbaTdNYKCVu0Jv9G0&libraries=places"></script>
 
     <script type="text/javascript" src="js/form-html.js"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
-      <!-- JavaScript for AJAX call functions -->
+    <?php
+        if (isset($_GET["action"])) {
+            echo "<script type='text/javascript' src='js/action-functions.js'></script>";
+        }
+    ?>
+    <!-- JavaScript for AJAX call functions -->
     <script type="text/javascript" src="js/ajax.js"></script>
     <!-- JavaScript for data type class -->
     <script type="text/javascript" src="js/data_type.js"></script>

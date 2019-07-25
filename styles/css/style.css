@@ -139,8 +139,11 @@ button.btn-align-right {
   color: white;
 }
 
-#submitRow {
-  float: right;
+#submitRow button {
+  color: #e8d82a;
+  border: solid thin #e8d82a;
+  background-color: #222;
+  transition: 0.25s;
 }
 
 .form-row button.btn {
@@ -165,6 +168,10 @@ button.btn-align-right {
   border: solid thin #e8d82a;
   border-radius: 0.5rem;
 }
+#formContainer button.action-btn {
+  color: black;
+  background-color: #e8d82a;
+}
 
 #formTitle {
   color: #462279;
@@ -178,17 +185,27 @@ button.btn-align-right {
   padding: 1rem;
 }
 
+#pipmap {
+  float: right;
+}
+#pipmap .jqvmap-zoomin,
+#pipmap .jqvmap-zoomout {
+  width: 1rem;
+  height: 1rem;
+}
+
 body {
   font-family: "Oswald", sans-serif;
   background: #F5F5F5;
   padding-bottom: 5rem;
 }
-body button,
-body .btn {
+
+button,
+.btn {
   border-radius: 0.25rem;
 }
-body button:focus,
-body .btn:focus {
+button:focus,
+.btn:focus {
   outline: none;
   box-shadow: none;
 }
