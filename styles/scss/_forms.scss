@@ -57,3 +57,22 @@ button.btn-align-right {
 .form-group .check-input {
     margin-left: .5rem;
 }
+
+#formContainer {
+    width: 75%;
+    margin: auto;
+    border: solid thin #e8d82a;
+    border-radius: .5rem;
+}
+
+#formTitle {
+    color: #462279;
+    background-color: #ffffff;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    padding: 1rem;
+}
+
+#formContainer form {
+    padding: 1rem;
+}

@@ -159,9 +159,29 @@ button.btn-align-right {
   margin-left: 0.5rem;
 }
 
+#formContainer {
+  width: 75%;
+  margin: auto;
+  border: solid thin #e8d82a;
+  border-radius: 0.5rem;
+}
+
+#formTitle {
+  color: #462279;
+  background-color: #ffffff;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 1rem;
+}
+
+#formContainer form {
+  padding: 1rem;
+}
+
 body {
   font-family: "Oswald", sans-serif;
   background: #F5F5F5;
+  padding-bottom: 5rem;
 }
 body button,
 body .btn {

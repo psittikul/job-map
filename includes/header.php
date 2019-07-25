@@ -82,9 +82,9 @@
                     </span>
                 </li>
             </ul>
-            <p id="copyright">
+            <!-- <p id="copyright">
             &#169; Patricia Sittikul 2019
-</p>
+</p> -->
             <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn  my-2 my-sm-0" type="submit">Search</button>

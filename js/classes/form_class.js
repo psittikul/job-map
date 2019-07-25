@@ -36,13 +36,15 @@ class Form {
             $.each(fieldHtmlArray, function (index, value) {
                 formHtml += value;
             });
-            $(this._target).find("form").html(formHtml);
+            // $(this._target).find("form").html(formHtml);
+            $(".container-fluid").find(".row").eq(0).html();
         }
         var buttonHtml = "";
         $.each(buttonArray, function (index, btn) {
             buttonHtml += "<div class='col'><button type='button' id='" + btn.id + "' class='" + btn.class + "'>" + btn.text + "</button></div>";
         });
-        $(this._target).find(".modal-button-sec").html(buttonHtml);
+        // $(this._target).find(".modal-button-sec").html(buttonHtml);
+
         $("#locality").parent().before($("#autocomplete"));
         $("#autocomplete").css("display", "block");
         $(this._target).modal("show");

@@ -1,54 +1,58 @@
 var actionMap = new Map();
 actionMap.set("addJob", addJob);
 actionMap.set("addCompany", addCompany);
+var actionHashMap = new Map();
+actionHashMap.set("addJob", "?action=add&item=job");
+actionHashMap.set("addCompany", "?action=add&item=company");
 
+/**
+    * Google Places API function to create autocomplete object
+    */
+var placeSearch, autocomplete;
+var componentForm = {
+    locality: 'long_name',
+    administrative_area_level_1: 'short_name'
+};
+function initAutocomplete() {
+    autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById("autocomplete")), {
+            // Limit search to geographical location types
+            type: ["geocode"]
+        });
+    // When user selects a location from the dropdown, populate the field in the form
+    autocomplete.addListener('place_changed', fillInLocation);
+    console.log("Event listener added to autocomplete object");
+};
+
+function fillInLocation() {
+    console.log("place is being changed");
+    // Get the place details from the autocomplete object.
+    var place = autocomplete.getPlace();
+    console.log(place);
+
+    for (var component in componentForm) {
+        document.getElementById(component).value = "";
+        document.getElementById(component).disabled = false;
+    }
+
+    // Get each component of the address from the place details
+    // and fill the corresponding field on the form.
+    for (var i = 0; i < place.address_components.length; i++) {
+        var addressType = place.address_components[i].types[0];
+        if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            console.log("This value is: " + val);
+            document.getElementById(addressType).value = val;
+        }
+    }
+};
 
 $(function () {
-    // Set up Google places lookup object but don't assign to an element just yet
-    var placeSearch, autocomplete;
-    var componentForm = {
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name'
-    };
-    /**
-        * Google Places API function to create autocomplete object
-        */
-    function initAutocomplete() {
-        autocomplete = new google.maps.places.Autocomplete(
-            (document.getElementById("autocomplete")), {
-                // Limit search to geographical location types
-                type: ["geocode"]
-            });
-        console.log("initAutocomplete() called");
-        // When user selects a location from the dropdown, populate the field in the form
-        autocomplete.addListener('place_changed', fillInLocation);
-        console.log("Event listener added to autocomplete object");
-    };
 
-    function fillInLocation() {
-        console.log("place is being changed");
-        // Get the place details from the autocomplete object.
-        var place = autocomplete.getPlace();
-        console.log(place);
-
-        for (var component in componentForm) {
-            document.getElementById(component).value = "";
-            document.getElementById(component).disabled = false;
-        }
-
-        // // Get each component of the address from the place details
-        // // and fill the corresponding field on the form.
-        // for (var i = 0; i < place.address_components.length; i++) {
-        //     var addressType = place.address_components[i].types[0];
-        //     if (componentForm[addressType]) {
-        //         var val = place.address_components[i][componentForm[addressType]];
-        //         console.log("This value is: " + val);
-        //         document.getElementById(addressType).value = val;
-        //     }
-        // }
-    };
-    console.log("Autocomplete field is: " + $("#autocomplete"));
-    // initAutocomplete();
+    if ($("#autocomplete").length > 0) {
+        console.log("Calling autocomplete");
+        initAutocomplete();
+    }
     // Initialize tooltips
     $("[data-toggle='tooltip']").tooltip();
     // Event handler to update dropdown/dropup arrow depending on whether dropdown is open or not
@@ -65,9 +69,10 @@ $(function () {
     // Event handler for when action items are clicked
     $("a.dropdown-item").on("click", function () {
         var action = $(this).attr("data-action");
-        var actionItem = actionMap.get(action);
-        resetModal("#actionModal");
-        actionItem.generateFormHtml();
+        var url = actionHashMap.get(action);
+        location.href = url;
+        // resetModal("#actionModal");
+        // actionItem.generateFormHtml();
     });
     $(".modal").on("click", "button.action-btn:not(#submitBtn):not(#clearBtn)", function () {
         var action = $(this).attr("data-action");
@@ -82,23 +87,10 @@ $(function () {
         var actionItem = actionMap.get(formName);
         actionItem.saveInfo();
     });
-    $("#actionModal").on("show.bs.modal", function () {
-        console.log("action modal being shown");
-        autocomplete = new google.maps.places.Autocomplete(
-            (document.getElementById("autocomplete")), {
-                // Limit search to geographical location types
-                type: ["geocode"]
-            });
-        console.log("initAutocomplete() called");
-        $("#autocomplete").on("input", function(e) {
-            console.log("autocomplete being changed");
-            console.log(componentForm);
-            fillInLocation();
-        });
-        // When user selects a location from the dropdown, populate the field in the form
-        // autocomplete.addListener('place_changed', fillInLocation);
-        // console.log("Event listener added to autocomplete object");
-    });
+    // $("#actionModal").on("show.bs.modal", function () {
+    //     console.log("action modal being shown");
+    //     initAutocomplete();
+    // });
     // TO-DO: Any time a URL field is updated (and it's not empty), show import information button
     // $(".modal").on("change paste keyup", "input[type='text'].url-input", function() {
     //     var string = $(this).val();
