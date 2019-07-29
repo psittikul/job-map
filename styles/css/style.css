@@ -172,6 +172,12 @@ button.btn-align-right {
   color: black;
   background-color: #e8d82a;
 }
+#formContainer button.action-btn:hover {
+  color: #e8d82a;
+  border: solid thin #e8d82a;
+  background-color: #222;
+  transition: 0.25s;
+}
 
 #formTitle {
   color: #462279;
@@ -192,6 +198,17 @@ button.btn-align-right {
 #pipmap .jqvmap-zoomout {
   width: 1rem;
   height: 1rem;
+}
+
+#addLocationBtn {
+  border: none;
+  margin-top: 1rem;
+}
+#addLocationBtn:hover {
+  color: #e8d82a;
+  border: solid thin #e8d82a;
+  background-color: #222;
+  transition: 0.25s;
 }
 
 body {
@@ -240,6 +257,11 @@ button:focus,
   border-right: 0.3em solid transparent;
   border-top: 0;
   border-left: 0.3em solid transparent;
+}
+
+.incomplete-field {
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 5, 0.5);
+  border-color: #ff0005;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -48,3 +48,8 @@ button,
   border-top: 0;
   border-left: 0.3em solid transparent;
 }
+
+.incomplete-field {
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 5, .5);
+  border-color: rgba(255, 0, 5, 1);
+}

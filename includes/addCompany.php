@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div id="vmap" style="width: 250px; height: 125px;"></div>
+            <div id="pipmap" style="width: 250px; height: 125px;"></div>
         </div>
     </div>
     <div id="formContainer">
@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <label for="autocomplete">Located in</label>
                     <input type="text" id="autocomplete" class="form-control" name="location_lookup">
-                    <button type="button" class="action-btn" data-action="add" data-item="location">Add Location</button>
+                    <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-item="location">Add Location</button>
                 </div>
             </div>
             <div class="form-row">

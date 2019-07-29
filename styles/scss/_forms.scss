@@ -67,6 +67,9 @@ button.btn-align-right {
     border-radius: .5rem;
     button.action-btn {
         @include sunflower-btn-inverse;
+        &:hover {
+            @include sunflower-btn;
+        }
     }
 }
 
@@ -89,5 +92,13 @@ button.btn-align-right {
     .jqvmap-zoomout {
         width: 1rem;
         height: 1rem;
+    }
+}
+
+#addLocationBtn {
+    border: none;
+    margin-top: 1rem;
+    &:hover {
+        @include sunflower-btn;
     }
 }

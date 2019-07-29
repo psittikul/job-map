@@ -7,10 +7,6 @@
     <!-- Favicons -->
 
     <link rel="icon" href="favicon.ico">
-    <!-- <link rel="manifest" href="/manifest.json"> -->
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
     <!-- Styles -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -28,7 +24,6 @@
     <!-- Google Places API JavaScript (must include API key) -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvJiAVu3Vbb9O1VJmbaTdNYKCVu0Jv9G0&libraries=places"></script>
 
-    <script type="text/javascript" src="js/form-html.js"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
     <?php
         if (isset($_GET["action"])) {

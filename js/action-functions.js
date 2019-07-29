@@ -1,12 +1,24 @@
-var actionMap = new Map();
-actionMap.set(["add", "location"], "<div class='location'tag'><p></div>");
+var btnMap = new Map();
 
-$(function() {
-    $("body").on("click", ".action-btn", function() {
-        console.log("Adding location");
-        $("#companyLocationLabels").append(
-            actionMap.get([$(this).attr("data-action"), $(this).attr("data-item")])
-            .text($("#autocomplete").val())
-        );
+$(function () {
+    $("#formContainer").on("click", "#addLocationBtn", function () {
+        console.log("Add location button clicked");
+        if ($("#autocomplete").val().length < 1) {
+            $("#autocomplete").addClass("incomplete-field");
+        }
+        else {
+            console.log($("#autocomplete"));
+            $("#companyLocationsTags").append("<div class='location-tag'></div>")
+            .text($("#autocomplete").val());
+        }
     });
-})
+
+    $("#formContainer").on("change", "#autocomplete", function () {
+        if ($("#autocomplete").hasClass("incomplete-field")) {
+            $("#autocomplete").removeClass("incomplete-field");
+        }
+    });
+});
+
+
+
