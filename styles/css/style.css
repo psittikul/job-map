@@ -211,6 +211,42 @@ button.btn-align-right {
   transition: 0.25s;
 }
 
+#companyLocationsTags {
+  padding: 0.5rem;
+  width: 100%;
+  border-style: solid;
+  border-width: thin;
+  border-color: #e8d82a;
+  border-radius: 0.25rem;
+  background-color: white;
+  display: none;
+}
+
+.location-tag {
+  background-color: #462279;
+  width: fit-content;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  display: inline-block;
+}
+.location-tag:not(:last-of-type) {
+  margin-right: 0.5rem;
+}
+.location-tag p {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.remove-location {
+  border: none;
+  background: none;
+  color: white;
+  font-size: xx-large;
+  line-height: 0.5rem;
+  margin-left: 0.5rem;
+}
+
 body {
   font-family: "Oswald", sans-serif;
   background: #F5F5F5;

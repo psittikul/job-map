@@ -48,7 +48,7 @@ function fillInLocation() {
 };
 
 $(function () {
-
+    $('[data-toggle="tooltip"]').tooltip();
     if ($("#autocomplete").length > 0) {
         console.log("Calling autocomplete");
         initAutocomplete();
@@ -67,7 +67,7 @@ $(function () {
         $(eventBtn).addClass("dropdown-toggle");
     });
     // Event handler for when action items are clicked
-    $("a.dropdown-item").on("click", function () {
+    $(".action-item").on("click", function () {
         var action = $(this).attr("data-action");
         var url = actionHashMap.get(action);
         location.href = url;

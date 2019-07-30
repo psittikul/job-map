@@ -26,11 +26,13 @@
                     <input type="text" name="company_glassdoor" class="form-control" id="companyGlassdoor" placeholder="Link to company's Glassdoor page">
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="companyName">Company Glassdoor</label>
-                    <input type="text" name="company_glassdoor" class="form-control" id="companyGlassdoor" placeholder="Link to company's Glassdoor page">
-                </div>
+            <div class="form-rcw">
+                    <div class="form-check">
+                    <input type="checkbox" name="currently_hiring" class="form-check-input" id="currentlyHiring">
+                        <label for="currentlyHiring">Currently Hiring</label>
+                    </div>
+            
+  
             </div>
             <div class="form-row">
                 <div class="form-group">
@@ -57,8 +59,7 @@
                 <div id="companyLocationsTags">
                     
                 </div>
-                <!-- <label for="companyLocationTags">Locations</label> -->
-                <!-- <textarea id="companyLocationTags" class="form-control">(Selected locations go here...)</textarea> -->
+            
             </div>
             <div class="form-row" id="submitRow">
                 <button class="action-btn" type="button" id="submitBtn" data-item="company">Save Information</button>

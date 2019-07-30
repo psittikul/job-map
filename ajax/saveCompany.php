@@ -1,17 +1,12 @@
 <?php
 $cwd = getcwd();
 include "../includes/connection.php";
-// $data = $_POST["data"];
-// $company_name = $data["company_name"];
-// $company_name = mysqli_real_escape_string($connection, $company_name);
-// $company_website = $data["company_website"];
-// $company_website = mysqli_real_escape_string($connection, $company_website);
-// $company_glassdoor = $data["company_glassdoor"];
-// $company_glassdoor = mysqli_real_escape_string($connection, $company_glassdoor);
 $name = $_POST['company_name'];
 $company_name = mysqli_real_escape_string($connection, $name);
 $company_website = mysqli_real_escape_string($connection, $_POST['company_website']);
 $company_glassdoor = mysqli_real_escape_string($connection, $_POST['company_glassdoor']);
+$currently_hiring = $_POST['currently_hiring'];
+
 
 $preexistingQuery = "SELECT * FROM company WHERE company_name LIKE %$company_name%";
 $insertQuery = "INSERT INTO company(company_name, company_website, company_glassdoor) VALUES('$company_name', '$company_website', '$company_glassdoor')";

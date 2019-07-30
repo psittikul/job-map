@@ -59,12 +59,12 @@
                         Actions
                     </button>
                     <div class="dropdown-menu" id="actionsMenu" aria-labelledby="actionsDropdown">
-                        <a class="dropdown-item" role="button" id="addJobLink" data-action="addJob">Add Job</a>
-                        <a class="dropdown-item" role="button" id="addLocationLink" data-action="addLocation">Add Location</a>
-                        <a class="dropdown-item" role="button" id="addCompanyLink" data-action="addCompany">Add Company</a>
-                        <a class="dropdown-item" role="button" id="editJobLink" data-action="editJob">Edit Job</a>
-                        <a class="dropdown-item" role="button" id="editLocationLink" data-action="editLocation">Edit Location</a>
-                        <a class="dropdown-item" role="button" id="editCompanyLink" data-action="editCompany">Edit Company</a>
+                        <a class="dropdown-item action-item" role="button" id="addJobLink" data-action="addJob">Add Job</a>
+                        <a class="dropdown-item action-item" role="button" id="addLocationLink" data-action="addLocation">Add Location</a>
+                        <a class="dropdown-item action-item" role="button" id="addCompanyLink" data-action="addCompany">Add Company</a>
+                        <a class="dropdown-item action-item" role="button" id="editJobLink" data-action="editJob">Edit Job</a>
+                        <a class="dropdown-item action-item" role="button" id="editLocationLink" data-action="editLocation">Edit Location</a>
+                        <a class="dropdown-item action-item" role="button" id="editCompanyLink" data-action="editCompany">Edit Company</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

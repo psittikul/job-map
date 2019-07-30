@@ -1,104 +1,143 @@
 #formSec input.form-control {
-    margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 button.btn-align-right {
-    float: right;
+  float: right;
 }
 
 .form-group {
-    width: 100%;
+  width: 100%;
 }
 
- #actionModal button.action-btn {
-    @include violet-btn;
-    transition: 0.25s;
-    background: transparent;
-    &:hover {
-        @include violet-btn-inverse;
-    }
+#actionModal button.action-btn {
+  @include violet-btn;
+  transition: 0.25s;
+  background: transparent;
+  &:hover {
+    @include violet-btn-inverse;
+  }
 }
 
 #closeBtn {
-    background-color: #bbb;
-    color: $spanish-violet;
-    border: solid thin $sunflower-hex;
-    &:hover {
-        background-color: $white-smoke;
-    }
+  background-color: #bbb;
+  color: $spanish-violet;
+  border: solid thin $sunflower-hex;
+  &:hover {
+    background-color: $white-smoke;
+  }
 }
 
 .modal-header {
-    background-color: $spanish-violet;
-    color: white;
+  background-color: $spanish-violet;
+  color: white;
 }
 
 .modal-header button.close {
-    color: white;
+  color: white;
 }
 
 #submitRow {
-    button {
-        @include sunflower-btn;
-    }
+  button {
+    @include sunflower-btn;
+  }
 }
 
 .form-row button.btn {
-    margin: auto;
+  margin: auto;
 }
 
-
 .form-row:not(:last-of-type) {
-    margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .modal-button-sec .col:last-of-type button {
-    float: right;
+  float: right;
 }
 
 .form-group .check-input {
-    margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 #formContainer {
-    width: 75%;
-    margin: auto;
-    border: solid thin #e8d82a;
-    border-radius: .5rem;
-    button.action-btn {
-        @include sunflower-btn-inverse;
-        &:hover {
-            @include sunflower-btn;
-        }
+  width: 75%;
+  margin: auto;
+  border: solid thin #e8d82a;
+  border-radius: 0.5rem;
+  button.action-btn {
+    @include sunflower-btn-inverse;
+    &:hover {
+      @include sunflower-btn;
     }
+  }
 }
 
 #formTitle {
-    color: #462279;
-    background-color: #ffffff;
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
-    padding: 1rem;
+  color: #462279;
+  background-color: #ffffff;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 1rem;
 }
 
 #formContainer form {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 #pipmap {
-    float: right;
-    
-    .jqvmap-zoomin,
-    .jqvmap-zoomout {
-        width: 1rem;
-        height: 1rem;
-    }
+  float: right;
+
+  .jqvmap-zoomin,
+  .jqvmap-zoomout {
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 #addLocationBtn {
-    border: none;
-    margin-top: 1rem;
-    &:hover {
-        @include sunflower-btn;
-    }
+  border: none;
+  margin-top: 1rem;
+  &:hover {
+    @include sunflower-btn;
+  }
 }
+
+#companyLocationsTags {
+  padding: 0.5rem;
+  width: 100%;
+  border: {
+    style: solid;
+    width: thin;
+    color: $sunflower-hex;
+    radius: 0.25rem;
+  }
+  background-color: white;
+  display: none;
+}
+
+.location-tag {
+  background-color: $spanish-violet;
+  width: fit-content;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  display: inline-block;
+  &:not(:last-of-type) {
+      margin-right: .5rem;
+  }
+  p {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+
+.remove-location {
+  border: none;
+  background: none;
+  color: white;
+  font-size: xx-large;
+  line-height: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+
