@@ -13,12 +13,12 @@ $preexistingQuery = "SELECT * FROM company WHERE company_name LIKE %$company_nam
 $insertQuery = "INSERT INTO company(company_name, company_website, company_glassdoor, currently_hiring, number_of_employees)
 VALUES('$company_name', '$company_website', '$company_glassdoor', $currently_hiring, '$number_of_employees')";
 
-if ($result = mysqli_query($connection, $insertQuery)) {
+if (mysqli_query($connection, $insertQuery)) {
     $id = mysqli_insert_id($connection);
-    echo json_encode(array("message"=>"Successfully inserted data", "id"=>$id));
+    echo json_encode(array("message"=>"Successfully inserted data", "status"=>0, "id"=>$id));
 }
 else {
-    echo "ERROR: COULD NOT EXECUTE QUERY " . $insertQuery . " " .  mysqli_error($connection);
-    echo json_encode(array("message"=>"error", "data"=>mysqli_error($connection)));
+    // echo "ERROR: COULD NOT EXECUTE QUERY " . $insertQuery . " " .  mysqli_error($connection);
+    echo json_encode(array("message"=>"error", "status"=>-1, "id"=>mysqli_errno($connection)));
 }
 

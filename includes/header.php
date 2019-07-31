@@ -26,8 +26,11 @@
 
     <script type="text/javascript" src="js/init-map.js"></script>
     <?php
+        $scriptsArray = array("view"=>"js/view-functions.js");
         if (isset($_GET["action"])) {
+            $script = $scriptsArray[htmlspecialchars($_GET["action"])];
             echo "<script type='text/javascript' src='js/action-functions.js'></script>";
+            echo "<script type='text/javascript' src='$script'></script>";
         }
     ?>
     <!-- JavaScript for AJAX call functions -->

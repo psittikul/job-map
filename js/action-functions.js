@@ -39,32 +39,36 @@ $(function () {
                 currently_hiring: currentlyHiring,
                 number_of_employees: numberEmployees
             },
-            success: function (data) {
+            dataType: "json",
+            success: function (response) {
                 /* Upon successful insertion of new company, show the status message modal and also add
                 locations to "located_in" table */
-                if (data["status"] === 0) {
-                    var locationsArray = $(".location-tags").toArray();
+                console.log(response);
+                console.log("Successfully inserted company with new ID: " + response["id"]);
+                if (response["status"] === 0) {
+                    var locationsArray = $(".location-tag").toArray();
                     locationsArray = $.map(locationsArray, function (value, index) {
                         return $(value).find("p").text();
                     });
+                    console.log(locationsArray);
                     $.ajax({
                         url: "ajax/locatedIn.php",
                         method: "post",
                         data: {
-                            company_id: data["id"],
-                            locations: locationsArray
+                            company_id: response["id"],
+                            company_locations: locationsArray
                         },
                         success: function (data) {
                             console.log(data);
                             $("#statusModal").find(".modal-title").text("Success");
-                            $("#statusModal").find(".modal-body").find("p").text("Successfully inserted company: " + data["id"]);
+                            $("#statusModal").find(".modal-body").find("p").text("Successfully inserted company: " + data["company_id"]);
                             $("#statusModal").find(".modal-footer").find("button").eq(0).text("Add Another Company");
                             $("#statusModal").find(".modal-footer").find("button").eq(0).addClass("action-item");
                             $("#statusModal").find(".modal-footer").find("button").eq(0).attr("data-action", "addCompany");
                             $("#statusModal").find(".modal-footer").find("button").eq(1).text("Go to Company Page");
                             $("#statusModal").find(".modal-footer").find("button").eq(1).addClass("view-item");
                             $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-action", "viewCompany");
-                            $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-id", data["id"]);
+                            $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-id", data["company_id"]);
                             $("#statusModal").modal("show");
                         }
                     });

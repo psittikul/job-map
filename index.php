@@ -4,15 +4,16 @@
         <?php
         // Array mapping URL parameters to the PHP file that should be included
         $includesArray = array(
-            "job" => "includes/addJob.php",
-            "company" => "includes/addCompany.php",
-            "location" => "includes/addLocation.php"
+            "addjob" => "includes/addJob.php",
+            "addcompany" => "includes/addCompany.php",
+            "addlocation" => "includes/addLocation.php",
+            "viewcompany" => "includes/viewCompany.php"
         );
         // If no URL parameters are set, just show the plain index
         if (!isset($_GET["action"]) && !isset($_GET["item"])) {
             include "includes/main.php";
         } else {
-            $key = htmlspecialchars($_GET["item"]);
+            $key = htmlspecialchars($_GET["action"]) . htmlspecialchars($_GET["item"]);
             include $includesArray[$key];
          }
 
