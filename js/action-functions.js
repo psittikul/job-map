@@ -28,6 +28,7 @@ $(function () {
         var companyName = $("input[name='company_name']").val();
         var companyGlassdoor = $("input[name='company_glassdoor']").val();
         var currentlyHiring = $("input[name='currently_hiring']").prop("checked") ? 1 : 0;
+        var numberEmployees = $("#numberEmployees").val().length > 0 ? $("#numberEmployees").val() : null;
         $.ajax({
             url: "ajax/saveCompany.php",
             method: "post",
@@ -35,26 +36,17 @@ $(function () {
                 company_website: companyWebsite,
                 company_name: companyName,
                 company_glassdoor: companyGlassdoor,
-                currently_hiring: currentlyHiring
+                currently_hiring: currentlyHiring,
+                number_of_employees: numberEmployees
             },
             success: function (data) {
                 /* Upon successful insertion of new company, show the status message modal and also add
                 locations to "located_in" table */
                 if (data["status"] === 0) {
                     var locationsArray = $(".location-tags").toArray();
-                    locationsArray = $.map(locationsArray, function(value, index) {
+                    locationsArray = $.map(locationsArray, function (value, index) {
                         return $(value).find("p").text();
                     });
-                    $("#statusModal").find(".modal-title").text("Success");
-                    $("#statusModal").find(".modal-body").find("p").text("Successfully inserted company: " + data["id"]);
-                    $("#statusModal").find(".modal-footer").find("button").eq(0).text("Add Another Company");
-                    $("#statusModal").find(".modal-footer").find("button").eq(0).addClass("action-item");
-                    $("#statusModal").find(".modal-footer").find("button").eq(0).attr("data-action", "addCompany");
-                    $("#statusModal").find(".modal-footer").find("button").eq(1).text("Go to Company Page");
-                    $("#statusModal").find(".modal-footer").find("button").eq(1).addClass("view-item");
-                    $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-action", "viewCompany");
-                    $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-id", data["id"]);
-                    $("#statusModal").modal("show");
                     $.ajax({
                         url: "ajax/locatedIn.php",
                         method: "post",
@@ -64,6 +56,16 @@ $(function () {
                         },
                         success: function (data) {
                             console.log(data);
+                            $("#statusModal").find(".modal-title").text("Success");
+                            $("#statusModal").find(".modal-body").find("p").text("Successfully inserted company: " + data["id"]);
+                            $("#statusModal").find(".modal-footer").find("button").eq(0).text("Add Another Company");
+                            $("#statusModal").find(".modal-footer").find("button").eq(0).addClass("action-item");
+                            $("#statusModal").find(".modal-footer").find("button").eq(0).attr("data-action", "addCompany");
+                            $("#statusModal").find(".modal-footer").find("button").eq(1).text("Go to Company Page");
+                            $("#statusModal").find(".modal-footer").find("button").eq(1).addClass("view-item");
+                            $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-action", "viewCompany");
+                            $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-id", data["id"]);
+                            $("#statusModal").modal("show");
                         }
                     });
                 }
@@ -71,7 +73,7 @@ $(function () {
         });
     });
 
-    $("body").on("click", ".remove-location", function() {
+    $("body").on("click", ".remove-location", function () {
         $(this).parent().remove();
         if ($("#companyLocationsTags").find(".location-tag").length < 1) {
             $("#companyLocationsTags").css("display", "none");
