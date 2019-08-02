@@ -24,6 +24,7 @@ $(function () {
             selectedColor: '#e8d82a',
             borderColor: '#222',
             borderOpacity: .8,
-        })
+        });
+        $("#pipmap").append('<button id="expandMap" data-toggle="tooltip" title="Click to expand map" style="bottom: .25rem; color: #e8d84a; cursor: pointer;transition: .25s;position: absolute;left: 10px; border: none; background: none; padding: 0"><i class="fas fa-expand-arrows-alt"  aria-hidden="true"></i></button>');
     }
 });

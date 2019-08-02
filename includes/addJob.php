@@ -1,29 +1,29 @@
-<div class="container-fluid" style="margin-top: -1rem">
+<div class="container">
     <div class="row">
-        <div class="col" style="padding: 0">
+        <div class="col">
             <div id="pipmap" style="width: 250px; height: 125px;"></div>
         </div>
     </div>
-    <div id="formContainer" style="width: 60%">
-        <h3 id="formTitle"></h3>
+    <div id="formContainer">
+        <h3 id="formTitle">Add New Job</h3>
 
-        <form name="viewCompany">
+        <form name="addCompany">
             <div class="form-row">
                 <div class="form-group">
-                    <label for="companyWebsite">Company Website</label>
-                    <input type="text" name="company_website" class="form-control" id="companyWebsite" placeholder="Link to company website">
+                    <label for="jobURL">Job Posting URL</label>
+                    <input type="text" name="job_url" class="form-control" id="jobURL" placeholder="Link to job posting">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="companyName">Company Name</label>
-                    <input type="text" name="company_name" class="form-control" id="companyName" placeholder="Company name">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" name="job_title" class="form-control" id="jobTitle" placeholder="Job title">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="companyName">Company Glassdoor</label>
-                    <input type="text" name="company_glassdoor" class="form-control" id="companyGlassdoor" placeholder="Link to company's Glassdoor page">
+                    <label for="hiringCompany">Hiring Company</label>
+                    <input type="text" name="hiring_company" class="form-control" id="hiringCompany" placeholder="Name of hiring company">
                 </div>
             </div>
             <div class="form-row">
@@ -51,6 +51,27 @@
                 </div>
 
             </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="autocomplete">Located in</label>
+                    <input type="text" id="autocomplete" class="form-control" name="location_lookup">
+                    <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-item="location">Add Location</button>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="locality">City</label>
+                        <input type="text" id="locality" name="company_city" disabled="true" class="form-control" placeholder="Enter a location to lookup">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="administrative_area_level_1">State</label>
+                        <input type="text" id="administrative_area_level_1" name="company_state" disabled="true" class="form-control">
+                    </div>
+                </div>
+            </div>
             <div class="form-row" id="companyLocationsRow">
                 <div id="companyLocationsTags">
 
@@ -58,7 +79,7 @@
 
             </div>
             <div class="form-row" id="submitRow">
-                <button class="action-btn" type="button" id="editBtn" data-item="company">Edit Information</button>
+                <button class="action-btn" type="button" id="submitBtn" data-item="company">Save Information</button>
             </div>
         </form>
     </div>

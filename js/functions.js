@@ -3,7 +3,9 @@ actionMap.set("addJob", addJob);
 actionMap.set("addCompany", addCompany);
 var actionHashMap = new Map();
 actionHashMap.set("addJob", "?action=add&item=job");
+actionHashMap.set("addLocation", "?action=add&item=location");
 actionHashMap.set("addCompany", "?action=add&item=company");
+actionHashMap.set("viewCompanies", "?action=view&item=company");
 
 /**
     * Google Places API function to create autocomplete object
@@ -48,7 +50,6 @@ function fillInLocation() {
 };
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
     if ($("#autocomplete").length > 0) {
         console.log("Calling autocomplete");
         initAutocomplete();
@@ -69,10 +70,10 @@ $(function () {
     // Event handler for when action items are clicked
     $(".action-item").on("click", function () {
         var action = $(this).attr("data-action");
+        console.log(action);
         var url = actionHashMap.get(action);
+        console.log(url);
         location.href = url;
-        // resetModal("#actionModal");
-        // actionItem.generateFormHtml();
     });
     $(".modal").on("click", "button.action-btn:not(#submitBtn):not(#clearBtn)", function () {
         var action = $(this).attr("data-action");

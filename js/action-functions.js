@@ -1,3 +1,7 @@
+/**
+ * General functions used across the different "action item" pages (e.g. adding locations, submitting forms)
+ */
+
 $(function () {
     $("#formContainer").on("click", "#addLocationBtn", function () {
         console.log("Add location button clicked");
