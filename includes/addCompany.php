@@ -34,6 +34,12 @@
                     </div>
                 </div>
                 <div class="col">
+                    <div class="form-check">
+                        <input type="checkbox" name="remote_work" class="form-check-input" id="remoteWork">
+                        <label for="remoteWork">Work Remotely</label>
+                    </div>
+                </div>
+                <div class="col">
                     <div class="form-group">
                         <label for="numberEmployees">Number of Employees</label>
                         <select id="numberEmployees" name="number_of_employees">

@@ -16,15 +16,36 @@ $(function () {
     }
     // "Picture in picture" map on the other pages
     if ($("#pipmap")) {
-        $("#pipmap").vectorMap({
-            map: 'usa_en',
-            backgroundColor: 'rgba(0,0,0,.7)',
-            selectedRegions: ['TX', 'NY', 'PA', 'DC', 'CA', 'WA'],
-            hoverColor: 'rgba(232,216,42,.8)',
-            selectedColor: '#e8d82a',
-            borderColor: '#222',
-            borderOpacity: .8,
-        });
-        $("#pipmap").append('<button id="expandMap" data-toggle="tooltip" title="Click to expand map" style="bottom: .25rem; color: #e8d84a; cursor: pointer;transition: .25s;position: absolute;left: 10px; border: none; background: none; padding: 0"><i class="fas fa-expand-arrows-alt"  aria-hidden="true"></i></button>');
+        init_pip_map();
     }
 });
+
+function init_pip_map() {
+    $("#pipmap").html("");
+    $("#pipmap").vectorMap({
+        map: 'usa_en',
+        backgroundColor: 'rgba(0,0,0,.7)',
+        selectedRegions: ['TX', 'NY', 'PA', 'DC', 'CA', 'WA'],
+        hoverColor: 'rgba(232,216,42,.8)',
+        selectedColor: '#e8d82a',
+        borderColor: '#222',
+        borderOpacity: .8,
+        multiSelectRegion: true
+    });
+    $("#pipmap").append('<button id="expandMap" data-toggle="tooltip" title="Click to expand map" style="bottom: .25rem; color: #e8d84a; cursor: pointer;transition: .25s;position: absolute;left: 10px; border: none; background: none; padding: 0"><i class="fas fa-expand-arrows-alt"  aria-hidden="true"></i></button>');
+};
+
+function reconstruct_pip_map(states) {
+    $("#pipmap").html("");
+    $("#pipmap").vectorMap({
+        map: 'usa_en',
+        backgroundColor: 'rgba(0,0,0,.7)',
+        selectedRegions: states,
+        hoverColor: 'rgba(232,216,42,.8)',
+        selectedColor: '#e8d82a',
+        borderColor: '#222',
+        borderOpacity: .8,
+        multiSelectRegion: true
+    });
+    $("#pipmap").append('<button id="expandMap" data-toggle="tooltip" title="Click to expand map" style="bottom: .25rem; color: #e8d84a; cursor: pointer;transition: .25s;position: absolute;left: 10px; border: none; background: none; padding: 0"><i class="fas fa-expand-arrows-alt"  aria-hidden="true"></i></button>');
+}

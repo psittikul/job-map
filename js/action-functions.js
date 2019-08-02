@@ -33,6 +33,7 @@ $(function () {
         var companyGlassdoor = $("input[name='company_glassdoor']").val();
         var currentlyHiring = $("input[name='currently_hiring']").prop("checked") ? 1 : 0;
         var numberEmployees = $("#numberEmployees").val().length > 0 ? $("#numberEmployees").val() : null;
+        var remoteWork = $("input[name='remote_work']").prop("checked") ? 1 : 0;
         $.ajax({
             url: "ajax/saveCompany.php",
             method: "post",
@@ -41,7 +42,8 @@ $(function () {
                 company_name: companyName,
                 company_glassdoor: companyGlassdoor,
                 currently_hiring: currentlyHiring,
-                number_of_employees: numberEmployees
+                number_of_employees: numberEmployees,
+                remote_work: remoteWork
             },
             dataType: "json",
             success: function (response) {
@@ -65,14 +67,14 @@ $(function () {
                         success: function (data) {
                             console.log(data);
                             $("#statusModal").find(".modal-title").text("Success");
-                            $("#statusModal").find(".modal-body").find("p").text("Successfully inserted company: " + data["company_id"]);
+                            $("#statusModal").find(".modal-body").find("p").text("Successfully inserted company: " + response["company_id"]);
                             $("#statusModal").find(".modal-footer").find("button").eq(0).text("Add Another Company");
                             $("#statusModal").find(".modal-footer").find("button").eq(0).addClass("action-item");
                             $("#statusModal").find(".modal-footer").find("button").eq(0).attr("data-action", "addCompany");
                             $("#statusModal").find(".modal-footer").find("button").eq(1).text("Go to Company Page");
                             $("#statusModal").find(".modal-footer").find("button").eq(1).addClass("view-item");
                             $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-action", "viewCompany");
-                            $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-id", data["company_id"]);
+                            $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-id", response["company_id"]);
                             $("#statusModal").modal("show");
                         }
                     });

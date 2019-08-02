@@ -46,9 +46,11 @@ $(function () {
         }
     });
     // Hovering over a company's row should highlight their locations on the map
-    $("#companyListTable").on("mouseover", "tbody > tr", function() {
+    $("#companyListTable").on("mouseover", "tbody > tr", function () {
         var theseStates = companyStatesMap.get($(this).attr("data-id"));
-        console.log(theseStates);
-        jQuery("#pipmap").vectorMap("set", "selectedRegions", theseStates);
+        reconstruct_pip_map(theseStates);
+    });
+    $("#companyListTable").on("mouseout", "tbody > tr", function() {
+        init_pip_map();
     });
 });
