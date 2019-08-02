@@ -16,8 +16,7 @@ function get_all_companies($connection)
                 "company_glassdoor" => $obj->company_glassdoor, "currently_hiring" => $obj->currently_hiring, "number_of_employees" => $obj->number_of_employees
             );
         }
-        echo $companyData;
-        $result->close();
+        return $companyData;
     } else {
         echo "ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " .  mysqli_error($connection);
     }
@@ -31,7 +30,9 @@ function get_company_info($cid, $connection)
     echo "To do lol";
 }
 if ($id > 0) {
-    get_company_info($id, $connection);
-} else {
-    get_all_companies($connection);
+    echo json_encode(array("data"=>"View specific company page", "range"=>"single"));
+}
+else {
+    $companyData = get_all_companies($connection);
+    echo json_encode(array("data"=>$companyData, "range"=>"all"));
 }
