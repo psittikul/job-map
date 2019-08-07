@@ -30,10 +30,10 @@ $(function () {
                         success: function (locationData) {
                             companyStatesMap.set(data["data"][index]["company_id"], locationData["states"]);
                             websiteButton = "<td><a href='" + data["data"][index]["company_website"] + "' target='_blank'>" +
-                                "<button type='button' data-goto='company_website'>Company Website</button></a></td>";
+                                "<button type='button' data-goto='company_website'>Website</button></a></td>";
                             glassdoorButton = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>" +
-                                "<button type='button' data-goto='company_glassdoor'>Company Glassdoor Page</button></a></td>";
-                            var currentlyHiring = "<td>" + (data["data"][index]["currently_hiring"] == 1 ? "<i class='far fa-check-circle'></i>" : "") + "</td>";
+                                "<button type='button' data-goto='company_glassdoor'>Glassdoor</button></a></td>";
+                            var currentlyHiring = "<td class='currently-hiring-cell'>" + (data["data"][index]["currently_hiring"] == 1 ? "<i class='far fa-check-circle'></i>" : "") + "</td>";
                             var numberEmployees = "<td>" + data["data"][index]["number_of_employees"] + "</td>";
                             var locations = "<td>" + locationData["string"] + "</td>";
                             dataHtml = "<tr data-id='" + data["data"][index]["company_id"] + "'><td data-toggle='tooltip' title='Go to company detail page'>" + data["data"][index]["company_name"] + "</td>" + websiteButton + glassdoorButton + currentlyHiring + numberEmployees + locations + "</tr>";

@@ -1,0 +1,13 @@
+#companyListTable button {
+    @include sunflower-btn-inverse;
+    border: none;
+    &:hover {
+        @include sunflower-btn;
+    }
+}
+
+#companyListTable .currently-hiring-cell {
+    font-size: x-large;
+    text-align: center;
+    color: $spanish-violet;
+}

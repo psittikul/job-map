@@ -247,6 +247,24 @@ button.btn-align-right {
   margin-left: 0.5rem;
 }
 
+#companyListTable button {
+  color: black;
+  background-color: #e8d82a;
+  border: none;
+}
+#companyListTable button:hover {
+  color: #e8d82a;
+  border: solid thin #e8d82a;
+  background-color: #222;
+  transition: 0.25s;
+}
+
+#companyListTable .currently-hiring-cell {
+  font-size: x-large;
+  text-align: center;
+  color: #462279;
+}
+
 body {
   font-family: "Oswald", sans-serif;
   background: #F5F5F5;
