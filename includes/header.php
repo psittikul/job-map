@@ -23,7 +23,7 @@
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
     <!-- Google Places API JavaScript (must include API key) -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvJiAVu3Vbb9O1VJmbaTdNYKCVu0Jv9G0&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaDeAtfQa2FsHwSyxpxa2tZcm73FLoRbE&libraries=places"></script>
 
     <script type="text/javascript" src="js/init-map.js"></script>
     <?php
