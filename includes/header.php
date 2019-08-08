@@ -22,17 +22,17 @@
 
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
-    <!-- Google Places API JavaScript (must include API key) -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDMe8rgLnHYmjwHqoUcccKtruxr23_ZwM&libraries=places"></script>
-
+    <!-- Google Places API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjGtvBf7slybgMZ7KPyIE7Kj1B_KS68hY&libraries=places"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
+    <!-- <script src="locations.js"></script> -->
     <?php
-        $scriptsArray = array("view"=>"js/view-functions.js", "add"=>"js/add-functions.js");
-        if (isset($_GET["action"])) {
-            $script = $scriptsArray[htmlspecialchars($_GET["action"])];
-            echo "<script type='text/javascript' src='js/action-functions.js'></script>";
-            echo "<script type='text/javascript' src='$script'></script>";
-        }
+    $scriptsArray = array("view" => "js/view-functions.js", "add" => "js/add-functions.js");
+    if (isset($_GET["action"])) {
+        $script = $scriptsArray[htmlspecialchars($_GET["action"])];
+        echo "<script type='text/javascript' src='js/action-functions.js'></script>";
+        echo "<script type='text/javascript' src='$script'></script>";
+    }
     ?>
     <!-- JavaScript for AJAX call functions -->
     <script type="text/javascript" src="js/ajax.js"></script>
