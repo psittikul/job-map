@@ -247,6 +247,20 @@ button.btn-align-right {
   margin-left: 0.5rem;
 }
 
+form ul.dropdown-list {
+  padding: 0;
+}
+form ul.dropdown-list li.dropdown-option {
+  transition: 0.25s;
+  list-style: none;
+  padding-left: 0.75rem;
+  background-color: white;
+  border: solid thin #e8d82a;
+}
+form ul.dropdown-list li.dropdown-option:hover {
+  background-color: #e8d82a;
+}
+
 #companyListTable button {
   color: black;
   background-color: #e8d82a;

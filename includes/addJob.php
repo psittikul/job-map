@@ -7,7 +7,7 @@
     <div id="formContainer">
         <h3 id="formTitle">Add New Job</h3>
 
-        <form name="addCompany">
+        <form name="addJob">
             <div class="form-row">
                 <div class="form-group">
                     <label for="jobURL">Job Posting URL</label>
@@ -24,6 +24,8 @@
                 <div class="form-group">
                     <label for="hiringCompany">Hiring Company</label>
                     <input type="text" name="hiring_company" class="form-control" id="hiringCompany" placeholder="Name of hiring company">
+                    <div id="companySuggestions">
+                    </div>
                     <input type="number" style="display: none" name="company_id" class="form-control" id="companyID">
                 </div>
             </div>
@@ -59,6 +61,26 @@
 
                 </div>
 
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="postingDate">Posting Date</label>
+                        <input type="date" class="form-control" name="posting_date" id="postingDate">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="applicationDeadline">Deadline</label>
+                        <input type="date" class="form-control" name="deadline" id="applicationDeadline">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="dateApplied">Date Applied</label>
+                        <input type="date" class="form-control" name="date_applied" id="dateApplied">
+                    </div>
+                </div>
             </div>
             <div class="form-row" id="submitRow">
                 <button class="action-btn" type="button" id="submitBtn" data-item="job">Save Information</button>

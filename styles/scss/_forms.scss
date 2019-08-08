@@ -140,4 +140,17 @@ button.btn-align-right {
   margin-left: 0.5rem;
 }
 
+form ul.dropdown-list {
+  padding: 0;
+  li.dropdown-option {
+    transition: .25s;
+    list-style: none;
+    padding-left: .75rem;
+    background-color: white;
+    border: solid thin $sunflower-hex;
+    &:hover {
+      background-color: $sunflower-hex;
+    }
+  }
+}
 

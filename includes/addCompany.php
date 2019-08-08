@@ -17,7 +17,8 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="companyName">Company Name</label>
-                    <input type="text" name="company_name" class="form-control" id="companyName" placeholder="Company name">
+                    <input type="text" name="company_name" class="form-control" required id="companyName" placeholder="Company name">
+                    <input type="number" style="display: none" name="company_id">
                 </div>
             </div>
             <div class="form-row">

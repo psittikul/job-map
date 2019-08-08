@@ -25,7 +25,6 @@
     <!-- Google Places API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjGtvBf7slybgMZ7KPyIE7Kj1B_KS68hY&libraries=places"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
-    <!-- <script src="locations.js"></script> -->
     <?php
     $scriptsArray = array("view" => "js/view-functions.js", "add" => "js/add-functions.js");
     if (isset($_GET["action"])) {
