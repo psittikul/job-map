@@ -64,14 +64,14 @@ function submitCompany() {
             company_glassdoor: companyGlassdoor,
             currently_hiring: currentlyHiring,
             number_of_employees: numberEmployees,
-            remote_work: remoteWork
+            remote_work: remoteWork,
+            source: "addCompany"
         },
         dataType: "json",
         success: function (response) {
             /* Upon successful insertion of new company, show the status message modal and also add
             locations to "located_in" table */
             console.log(response);
-            console.log("Successfully inserted company with new ID: " + response["id"]);
             if (response["status"] === 0) {
                 var locationsArray = $(".location-tag").toArray();
                 locationsArray = $.map(locationsArray, function (value, index) {
@@ -82,7 +82,7 @@ function submitCompany() {
                     url: "ajax/locatedIn.php",
                     method: "post",
                     data: {
-                        company_id: response["id"],
+                        company_id: response["company_id"],
                         company_locations: locationsArray
                     },
                     success: function (data) {
@@ -105,55 +105,40 @@ function submitCompany() {
 };
 
 function submitJob() {
-    console.log("submitJob function called");
     var jobWebsite = $("input[name='job_url']").val();
     var jobTitle = $("input[name='job_title']").val();
     var companyID = $("input[name='company_id']").val().length > 0 ? $("input[name='company_id']").val() : -1;
     var hiringCompany = $("input[name='hiring_company']").val();
     var remoteWork = $("input[name='remote_work']").prop("checked") ? 1 : 0;
+    // Insert/update company first
     $.ajax({
-        url: "ajax/saveJob.php",
+        url: "ajax/saveCompany.php",
         method: "post",
         data: {
-            hiring_company: hiringCompany,
+            company_name: hiringCompany,
             remote_work: remoteWork,
+            currently_hiring: 1,
             company_id: companyID,
-            job_url: jobWebsite,
-            job_title: jobTitle
+            source: "addJob"
         },
         dataType: "json",
         success: function (response) {
             /* Upon successful insertion of new company, insert this new job, associating it with the company */
             console.log(response);
-            if (response["status"] === 0) {
-                console.log("Successfully inserted job with new ID: " + response["id"]);
-                // var locationsArray = $(".location-tag").toArray();
-                // locationsArray = $.map(locationsArray, function (value, index) {
-                //     return $(value).find("p").text();
-                // });
-                // console.log(locationsArray);
-                // $.ajax({
-                //     url: "ajax/locatedIn.php",
-                //     method: "post",
-                //     data: {
-                //         company_id: response["id"],
-                //         company_locations: locationsArray
-                //     },
-                //     success: function (data) {
-                //         console.log(data);
-                //         $("#statusModal").find(".modal-title").text("Success");
-                //         $("#statusModal").find(".modal-body").find("p").text("Successfully inserted company: " + response["company_id"]);
-                //         $("#statusModal").find(".modal-footer").find("button").eq(0).text("Add Another Company");
-                //         $("#statusModal").find(".modal-footer").find("button").eq(0).addClass("action-item");
-                //         $("#statusModal").find(".modal-footer").find("button").eq(0).attr("data-action", "addCompany");
-                //         $("#statusModal").find(".modal-footer").find("button").eq(1).text("Go to Company Page");
-                //         $("#statusModal").find(".modal-footer").find("button").eq(1).addClass("view-item");
-                //         $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-action", "viewCompany");
-                //         $("#statusModal").find(".modal-footer").find("button").eq(1).attr("data-id", response["company_id"]);
-                //         $("#statusModal").modal("show");
-                //     }
-                // });
-            }
+            $.ajax({
+                url: "ajax/saveJob.php",
+                method: "post",
+                data: {
+                    company_id: response["company_id"],
+                    job_title: jobTitle,
+                    job_url: jobWebsite,
+                    remote: remoteWork
+                },
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                }
+            });
         }
     });
 }
