@@ -61,7 +61,7 @@
                 <div class="form-group">
                     <label for="autocomplete">Located in</label>
                     <input type="text" id="autocomplete" class="form-control" name="location_lookup">
-                    <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-item="location">Add Location</button>
+                    <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-for="company" data-item="location">Add Location</button>
                 </div>
             </div>
             <div class="form-row">
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="form-row" id="companyLocationsRow">
-                <div id="companyLocationsTags">
+                <div id="companyLocationsTags" class="location-tag-container">
 
                 </div>
 

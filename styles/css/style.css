@@ -211,7 +211,7 @@ button.btn-align-right {
   transition: 0.25s;
 }
 
-#companyLocationsTags {
+.location-tag-container {
   padding: 0.5rem;
   width: 100%;
   border-style: solid;

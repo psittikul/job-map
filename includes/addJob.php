@@ -24,38 +24,14 @@
                 <div class="form-group">
                     <label for="hiringCompany">Hiring Company</label>
                     <input type="text" name="hiring_company" class="form-control" id="hiringCompany" placeholder="Name of hiring company">
+                    <input type="number" style="display: none" name="company_id" class="form-control" id="companyID">
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="form-check">
-                        <input type="checkbox" name="currently_hiring" class="form-check-input" id="currentlyHiring">
-                        <label for="currentlyHiring">Currently Hiring</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="numberEmployees">Number of Employees</label>
-                        <select id="numberEmployees" name="number_of_employees">
-                            <option value=""></option>
-                            <option value='1-10'>1-10</option>
-                            <option value="11-50">11-50</option>
-                            <option value="51-200">51-200</option>
-                            <option value="201-500">201-500</option>
-                            <option value="501-1000">501-1000</option>
-                            <option value="1001-5000">1001-5000</option>
-                            <option value="5001-10,000">5001-10,000</option>
-                            <option value="10,001+">10,001+</option>
-                        </select>
-                    </div>
-                </div>
-
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="autocomplete">Located in</label>
                     <input type="text" id="autocomplete" class="form-control" name="location_lookup">
-                    <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-item="location">Add Location</button>
+                    <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-for="job" data-item="location">Add Location</button>
                 </div>
             </div>
             <div class="form-row">
@@ -72,14 +48,20 @@
                     </div>
                 </div>
             </div>
-            <div class="form-row" id="companyLocationsRow">
-                <div id="companyLocationsTags">
+            <div class="form-row">
+                <div class="form-check">
+                    <input type="checkbox" name="remote_work" class="form-check-input" id="remoteWork">
+                    <label for="remoteWork">Remote Work</label>
+                </div>
+            </div>
+            <div class="form-row" id="jobLocationsRow">
+                <div id="jobLocationsTags" class="location-tag-container">
 
                 </div>
 
             </div>
             <div class="form-row" id="submitRow">
-                <button class="action-btn" type="button" id="submitBtn" data-item="company">Save Information</button>
+                <button class="action-btn" type="button" id="submitBtn" data-item="job">Save Information</button>
             </div>
         </form>
     </div>
