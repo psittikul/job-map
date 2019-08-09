@@ -63,11 +63,11 @@
                     </button>
                     <div class="dropdown-menu" id="actionsMenu" aria-labelledby="actionsDropdown">
                         <a class="dropdown-item action-item" role="button" id="addJobLink" data-action="addJob" data-toggle="tooltip" data-placement="left" title="Add a job you are interested in applying for">Add Job</a>
-                        <a class="dropdown-item action-item" role="button" id="addLocationLink" data-action="addLocation" data-placement="left" data-toggle="tooltip" title="Add a location you are interested in relocating to">Add Location</a>
+                        <!-- <a class="dropdown-item action-item" role="button" id="addLocationLink" data-action="addLocation" data-placement="left" data-toggle="tooltip" title="Add a location you are interested in relocating to">Add Location</a> -->
                         <a class="dropdown-item action-item" role="button" id="addCompanyLink" data-action="addCompany" data-placement="left" data-toggle="tooltip" title="Add a company you are interested in">Add Company</a>
-                        <a class="dropdown-item action-item" role="button" id="editJobLink" data-action="editJob">Edit Job</a>
+                        <!-- <a class="dropdown-item action-item" role="button" id="editJobLink" data-action="editJob">Edit Job</a>
                         <a class="dropdown-item action-item" role="button" id="editLocationLink" data-action="editLocation">Edit Location</a>
-                        <a class="dropdown-item action-item" role="button" id="editCompanyLink" data-action="editCompany">Edit Company</a>
+                        <a class="dropdown-item action-item" role="button" id="editCompanyLink" data-action="editCompany">Edit Company</a> -->
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -75,9 +75,9 @@
                         Views
                     </button>
                     <div class="dropdown-menu" role="button" id="viewsMenu" aria-labelledby="viewsDropdown">
-                        <a class="dropdown-item action-item" role="button" data-action="viewJobs" id="viewJobsLink">View Jobs</a>
-                        <a class="dropdown-item action-item" role="button" data-action="viewLocations" id="viewLocationsLink">View Locations</a>
-                        <a class="dropdown-item action-item" role="button" data-action="viewCompanies" id="viewCompaniesLink">View Companies</a>
+                        <a class="dropdown-item action-item" role="button" data-action="viewJobs" id="viewJobsLink">View/Edit Jobs</a>
+                        <!-- <a class="dropdown-item action-item" role="button" data-action="viewLocations" id="viewLocationsLink">View Locations</a> -->
+                        <a class="dropdown-item action-item" role="button" data-action="viewCompanies" id="viewCompaniesLink">View/Edit Companies</a>
                 </li>
                 <li class="nav-item">
                     <span class="navbar-text">

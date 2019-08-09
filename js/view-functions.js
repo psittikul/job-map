@@ -16,6 +16,7 @@ $(function () {
         },
         dataType: "json",
         success: function (data) {
+            // If information for all companies, jobs, or locations is being returned, display accordingly
             if (data["range"] === "all") {
                 var dataHtml = "";
                 $.each(data["data"], function (index, value) {
@@ -36,9 +37,8 @@ $(function () {
                             var currentlyHiring = "<td class='currently-hiring-cell'>" + (data["data"][index]["currently_hiring"] == 1 ? "<i class='far fa-check-circle'></i>" : "") + "</td>";
                             var numberEmployees = "<td>" + data["data"][index]["number_of_employees"] + "</td>";
                             var locations = "<td>" + locationData["string"] + "</td>";
-                            dataHtml = "<tr data-id='" + data["data"][index]["company_id"] + "'><td data-toggle='tooltip' title='Go to company detail page'>" + data["data"][index]["company_name"] + "</td>" + websiteButton + glassdoorButton + currentlyHiring + numberEmployees + locations + "</tr>";
+                            dataHtml = "<tr data-id='" + data["data"][index]["company_id"] + "'><td class='company-name-cell'><button type='button' class='company-name'>" + data["data"][index]["company_name"] + "</button></td>" + websiteButton + glassdoorButton + currentlyHiring + numberEmployees + locations + "</tr>";
                             $("#companyListTable").find("tbody").append(dataHtml);
-                            $("[data-toggle='tooltip']").tooltip();
                         }
                     });
                 });
@@ -50,7 +50,12 @@ $(function () {
         var theseStates = companyStatesMap.get($(this).attr("data-id"));
         reconstruct_pip_map(theseStates);
     });
-    $("#companyListTable").on("mouseout", "tbody > tr", function() {
+    $("#companyListTable").on("mouseout", "tbody > tr", function () {
         init_pip_map();
     });
+    // Clicking on a company's name should go to that company's detail page
+    $("body").on("click", ".company-name-cell", function (event) {
+        window.location.href = window.location.href + "&id=" + $(this).parent().attr("data-id");
+    });
+
 });

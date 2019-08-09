@@ -1,8 +1,22 @@
-#companyListTable button {
+#companyListTable button:not(.company-name) {
     @include sunflower-btn-inverse;
     border: none;
     &:hover {
         @include sunflower-btn;
+        border: none;
+    }
+}
+
+
+#companyListTable button.company-name {
+    border: none;
+    background: none;
+}
+
+#companyListTable td.company-name-cell {
+    cursor: pointer;
+    &:hover {
+        background-color: $sunflower-hex;
     }
 }
 

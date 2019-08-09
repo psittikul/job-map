@@ -261,16 +261,29 @@ form ul.dropdown-list li.dropdown-option:hover {
   background-color: #e8d82a;
 }
 
-#companyListTable button {
+#companyListTable button:not(.company-name) {
   color: black;
   background-color: #e8d82a;
   border: none;
 }
-#companyListTable button:hover {
+#companyListTable button:not(.company-name):hover {
   color: #e8d82a;
   border: solid thin #e8d82a;
   background-color: #222;
   transition: 0.25s;
+  border: none;
+}
+
+#companyListTable button.company-name {
+  border: none;
+  background: none;
+}
+
+#companyListTable td.company-name-cell {
+  cursor: pointer;
+}
+#companyListTable td.company-name-cell:hover {
+  background-color: #e8d82a;
 }
 
 #companyListTable .currently-hiring-cell {
