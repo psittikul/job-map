@@ -8,6 +8,7 @@ $(function () {
     var urlParams = new URLSearchParams(window.location.search);
     var item = urlParams.get("item");
     var id = urlParams.get("id") ? urlParams.get("id") : 0;
+
     $.ajax({
         url: ajaxCallMap.get(item),
         method: "GET",
@@ -43,6 +44,38 @@ $(function () {
                     });
                 });
             }
+            if (data["range"] === "single") {
+                // Get this company's locations as well as jobs
+                $.ajax({
+                    method: "get",
+                    url: "ajax/getCompanyLocations.php",
+                    data: {
+                        id: id
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        reconstruct_pip_map(data["states"]);
+                    }
+                });
+                // Get jobs 
+                $.ajax({
+
+                });
+                $("#formTitle").text(data["data"]["company_name"]);
+                // Go through each of the data fields returned from the database and fill them in on the form
+                $.each(data["data"], function (index, value) {
+                    var selector = "[name='" + index + "']";
+                    if (index == "currently_hiring") {
+                        $("input[name='currently_hiring']").prop("checked", function () {
+                            return value == 1 ? true : false;
+                        });
+                    }
+                    else {
+                        $(selector).val(value);
+                    }
+                });
+            }
         }
     });
     // Hovering over a company's row should highlight their locations on the map
@@ -59,3 +92,16 @@ $(function () {
     });
 
 });
+function get_locations(id) {
+    console.log("Getting locations for company: " + id);
+    $.ajax({
+        method: "get",
+        url: "ajax/getCompanyLocations.php",
+        data: id,
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            return data["states"];
+        }
+    });
+}

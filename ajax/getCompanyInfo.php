@@ -25,12 +25,26 @@ function get_all_companies($connection)
 /**
  * Get a single company's info based on company ID
  */
-function get_company_info($cid, $connection)
+function get_company($cid, $connection)
 {
-    echo "To do lol";
+    $companyInfoQuery = "SELECT * FROM company WHERE company_id = $cid";
+    if ($result = mysqli_query($connection, $companyInfoQuery)) {
+        while ($obj = $result->fetch_object()) {
+            $companyData = array(
+                "company_id" => $obj->company_id, "company_name" => $obj->company_name, "company_website" => $obj->company_website,
+                "company_glassdoor" => $obj->company_glassdoor, "currently_hiring" => $obj->currently_hiring, "number_of_employees" => $obj->number_of_employees
+            );
+        }
+        return $companyData;
+    }
+    else {
+        echo "ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " . mysqli_error($connection);
+    }
+
 }
 if ($id > 0) {
-    echo json_encode(array("data"=>"View specific company page", "range"=>"single"));
+    $companyData = get_company($id, $connection);
+    echo json_encode(array("data"=>$companyData, "range"=>"single"));
 }
 else {
     $companyData = get_all_companies($connection);

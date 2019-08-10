@@ -48,6 +48,7 @@ $(function () {
         var query = $(this).val();
         if (query.length < 1) {
             $("#companySuggestions").html("");
+            $("input[name='company_id']").val("");
         }
         else {
             searchCompanies(query);
@@ -135,13 +136,13 @@ function submitJob() {
         },
         dataType: "json",
         success: function (response) {
-            /* Upon successful insertion of new company, insert this new job, associating it with the company */
+            /* Upon successful insertion/updating of new company, insert this new job, associating it with the company */
             console.log(response);
             $.ajax({
                 url: "ajax/saveJob.php",
                 method: "post",
                 data: {
-                    company_id: response["company_id"],
+                    company_id: parseInt(response["company_id"]),
                     job_title: jobTitle,
                     job_url: jobWebsite,
                     remote: remoteWork,
@@ -153,29 +154,32 @@ function submitJob() {
                 success: function (data) {
                     console.log(data);
                     if (data["status"] === 0) {
-                        // Now save the locations associated with this job
+                        // Now save the locations associated with this job/company ONLY IF locations have been selected
                         var locationsArray = $(".location-tag").toArray();
-                        locationsArray = $.map(locationsArray, function (value, index) {
-                            return $(value).find("p").text();
-                        });
-                        console.log(locationsArray);
-                        $.ajax({
-                            url: "ajax/locatedIn.php",
-                            method: "post",
-                            data: {
-                                object_id: data["job_id"],
-                                object_locations: locationsArray
-                            },
-                            success: function (data) {
-                                console.log(data);
-                                $("#statusModal").find(".modal-title").text("Success");
-                                $("#statusModal").find(".modal-body p").text("Successfully saved information for this job");
-                                $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Job");
-                                $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Job");
-                                // TO-DO: clear form
-                                $("#statusModal").modal("show");
-                            }
-                        });
+                        if (locationsArray.length > 0) {
+                            locationsArray = $.map(locationsArray, function (value, index) {
+                                return $(value).find("p").text();
+                            });
+                            console.log(locationsArray);
+                            $.ajax({
+                                url: "ajax/locatedIn.php",
+                                method: "post",
+                                data: {
+                                    object_id: data["job_id"],
+                                    object_locations: locationsArray
+                                },
+                                success: function (data) {
+
+                                }
+                            });
+                        }
+                        console.log(data);
+                        $("#statusModal").find(".modal-title").text("Success");
+                        $("#statusModal").find(".modal-body p").text("Successfully saved information for this job");
+                        $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Job");
+                        $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Job");
+                        // TO-DO: clear form
+                        $("#statusModal").modal("show");
                     }
                 }
             });

@@ -14,5 +14,5 @@ if ($companyLocations = mysqli_query($connection, $companyLocationsQuery)) {
     $locationString .= "</ul>";
     echo json_encode(array("states"=>$states, "string"=>$locationString));
 } else {
-    echo json_encode(array("string"=>"ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " .  mysqli_error($connection)));
+    echo json_encode(array("states"=>NULL, "string"=>"ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " .  mysqli_error($connection)));
 }

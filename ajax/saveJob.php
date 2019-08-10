@@ -19,5 +19,5 @@ if (mysqli_query($connection, $query)) {
     $job_id = mysqli_insert_id($connection);
     echo json_encode(array("message" => "Successfully saved job information", "status" => 0, "job_id" => $job_id));
 } else {
-    echo json_encode(array("message" => "error", "status" => -1, "id" => mysqli_errno($connection)));
+    echo json_encode(array("message" => mysqli_error($connection) . " " . $query, "status" => -1, "id" => mysqli_errno($connection)));
 }

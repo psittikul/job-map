@@ -6,6 +6,9 @@ actionHashMap.set("addJob", "?action=add&item=job");
 actionHashMap.set("addLocation", "?action=add&item=location");
 actionHashMap.set("addCompany", "?action=add&item=company");
 actionHashMap.set("viewCompanies", "?action=view&item=company");
+var urlParams = new URLSearchParams(window.location.search);
+var item = urlParams.get("item");
+var id = urlParams.get("id");
 
 /**
     * Google Places API function to create autocomplete object
@@ -50,6 +53,10 @@ function fillInLocation() {
 };
 
 $(function () {
+    // If we are on the home page, initialize its view
+    if (!(urlParams.get("item")) && !(urlParams.get("id"))) {
+        initializeHomePage();
+    }
     if ($("#autocomplete").length > 0) {
         console.log("Calling autocomplete");
         initAutocomplete();
@@ -124,4 +131,8 @@ function resetModal(id) {
 
 function clearBody() {
     $(".container-fluid").html("");
+}
+
+function initializeHomePage() {
+    
 }
