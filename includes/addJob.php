@@ -4,8 +4,10 @@
             <div id="pipmap" style="width: 250px; height: 125px;"></div>
         </div>
     </div>
-    <div id="formContainer">
-        <h3 id="formTitle">Add New Job</h3>
+    <div class="form-container">
+        <div id="formHeader">
+            <h3 id="formTitle">Add New Job</h3>
+        </div>
 
         <form name="addJob">
             <div class="form-row">

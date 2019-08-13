@@ -13,15 +13,28 @@
     background: none;
 }
 
+#companyListTable a {
+    color: $spanish-violet;
+    transition: 0.25s;
+    &:hover {
+        text-decoration: underline;
+        color: grey;
+    }
+}
+
 #companyListTable td.company-name-cell {
+    transition: 0.25s;
     cursor: pointer;
+    white-space: nowrap;
     &:hover {
         background-color: $sunflower-hex;
     }
 }
 
-#companyListTable .currently-hiring-cell {
+#companyListTable .currently-hiring-cell,
+#companyListTable .remote-work-cell {
     font-size: x-large;
     text-align: center;
     color: $spanish-violet;
 }
+

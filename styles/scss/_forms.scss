@@ -59,29 +59,59 @@ button.btn-align-right {
   margin-left: 0.5rem;
 }
 
-#formContainer {
+.form-container {
   width: 75%;
   margin: auto;
   border: solid thin #e8d82a;
   border-radius: 0.5rem;
+  a {
+    color: $spanish-violet;
+    &:hover {
+      color: grey;
+      text-decoration: underline;
+    }
+  }
+  .edit-btn {
+    color: #495057;
+    float: right;
+    background: none;
+    border: none;
+    &:hover {
+      color: grey;
+    }
+  }
   button.action-btn {
     @include sunflower-btn-inverse;
     &:hover {
       @include sunflower-btn;
     }
   }
+  .field-display {
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
 }
 
-#formTitle {
-  color: #462279;
+#formHeader {
   background-color: #ffffff;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   padding: 1rem;
 }
 
-#formContainer form {
+#formTitle {
+  color: #462279;
+  display: inline-block;
+}
+
+.form-container form {
   padding: 1rem;
+}
+
+#singleCompanyForm {
+  .field-display {
+    display: none;
+  }
 }
 
 #pipmap {
@@ -123,7 +153,7 @@ button.btn-align-right {
   padding: 0.5rem;
   display: inline-block;
   &:not(:last-of-type) {
-      margin-right: .5rem;
+    margin-right: 0.5rem;
   }
   p {
     display: inline-block;
@@ -143,9 +173,9 @@ button.btn-align-right {
 form ul.dropdown-list {
   padding: 0;
   li.dropdown-option {
-    transition: .25s;
+    transition: 0.25s;
     list-style: none;
-    padding-left: .75rem;
+    padding-left: 0.75rem;
     background-color: white;
     border: solid thin $sunflower-hex;
     &:hover {
@@ -153,4 +183,3 @@ form ul.dropdown-list {
     }
   }
 }
-

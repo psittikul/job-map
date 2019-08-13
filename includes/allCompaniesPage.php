@@ -8,12 +8,14 @@
     <div class="row" id="companyListContainer">
         <table class="table table-bordered table-striped" id="companyListTable">
             <thead id="headerRow">
-                <th>Company Name</th>
+                <th>Company</th>
                 <th>Website</th>
                 <th>Glassdoor</th>
                 <th>Currently Hiring?</th>
+                <th>Number of Jobs Saved</th>
                 <th>Number of Employees</th>
                 <th>Locations</th>
+                <th>Remote Work Available</th>
             </thead>
             <tbody></tbody>
         </table>

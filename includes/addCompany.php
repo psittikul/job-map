@@ -5,7 +5,9 @@
         </div>
     </div>
     <div id="formContainer">
-        <h3 id="formTitle">Add New Company</h3>
+        <div id="formHeader">
+            <h3 id="formTitle">Add New Company</h3>
+        </div>
 
         <form name="addCompany">
             <div class="form-row">

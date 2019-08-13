@@ -162,33 +162,61 @@ button.btn-align-right {
   margin-left: 0.5rem;
 }
 
-#formContainer {
+.form-container {
   width: 75%;
   margin: auto;
   border: solid thin #e8d82a;
   border-radius: 0.5rem;
 }
-#formContainer button.action-btn {
+.form-container a {
+  color: #462279;
+}
+.form-container a:hover {
+  color: grey;
+  text-decoration: underline;
+}
+.form-container .edit-btn {
+  color: #495057;
+  float: right;
+  background: none;
+  border: none;
+}
+.form-container .edit-btn:hover {
+  color: grey;
+}
+.form-container button.action-btn {
   color: black;
   background-color: #e8d82a;
 }
-#formContainer button.action-btn:hover {
+.form-container button.action-btn:hover {
   color: #e8d82a;
   border: solid thin #e8d82a;
   background-color: #222;
   transition: 0.25s;
 }
+.form-container .field-display {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
 
-#formTitle {
-  color: #462279;
+#formHeader {
   background-color: #ffffff;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   padding: 1rem;
 }
 
-#formContainer form {
+#formTitle {
+  color: #462279;
+  display: inline-block;
+}
+
+.form-container form {
   padding: 1rem;
+}
+
+#singleCompanyForm .field-display {
+  display: none;
 }
 
 #pipmap {
@@ -279,14 +307,26 @@ form ul.dropdown-list li.dropdown-option:hover {
   background: none;
 }
 
+#companyListTable a {
+  color: #462279;
+  transition: 0.25s;
+}
+#companyListTable a:hover {
+  text-decoration: underline;
+  color: grey;
+}
+
 #companyListTable td.company-name-cell {
+  transition: 0.25s;
   cursor: pointer;
+  white-space: nowrap;
 }
 #companyListTable td.company-name-cell:hover {
   background-color: #e8d82a;
 }
 
-#companyListTable .currently-hiring-cell {
+#companyListTable .currently-hiring-cell,
+#companyListTable .remote-work-cell {
   font-size: x-large;
   text-align: center;
   color: #462279;

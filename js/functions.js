@@ -133,6 +133,21 @@ function clearBody() {
     $(".container-fluid").html("");
 }
 
+// Function to initialize the home page with the information it should show (e.g. number of jobs saved, number of jobs applied to)
 function initializeHomePage() {
-    
+    $.ajax({
+        url: "ajax/getIndexInfo.php",
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            if (data["status"] === 0) {
+                var numSavedCompanies = data["data"]["num_companies"];
+                var numSavedJobs = data["data"]["num_jobs"];
+                var numJobsApplied = data["data"]["num_applied"];
+                $("#numSavedCompanies").text($("#numSavedCompanies").text() + numSavedCompanies);
+                $("#numSavedJobs").text($("#numSavedJobs").text() + numSavedJobs);
+                $("#numJobsApplied").text($("#numJobsApplied").text() + numJobsApplied);
+            }
+        }
+    });
 }

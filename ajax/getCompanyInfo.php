@@ -11,10 +11,19 @@ function get_all_companies($connection)
     if ($result = mysqli_query($connection, $companyInfoQuery)) {
         /* fetch object array */
         while ($obj = $result->fetch_object()) {
-            $companyData[] = array(
-                "company_id" => $obj->company_id, "company_name" => $obj->company_name, "company_website" => $obj->company_website,
-                "company_glassdoor" => $obj->company_glassdoor, "currently_hiring" => $obj->currently_hiring, "number_of_employees" => $obj->number_of_employees
-            );
+            $companyJobsQuery = "SELECT COUNT(*) AS num_jobs FROM job WHERE company_id = $obj->company_id";
+            if ($companyJobs = mysqli_query($connection, $companyJobsQuery)) {
+                $jobs = mysqli_fetch_assoc($companyJobs);
+                $count_jobs = $jobs["num_jobs"];
+                $companyData[] = array(
+                    "company_id" => $obj->company_id, "company_name" => $obj->company_name, "company_website" => $obj->company_website,
+                    "company_glassdoor" => $obj->company_glassdoor, "currently_hiring" => $obj->currently_hiring,
+                    "number_of_employees" => $obj->number_of_employees, "remote_work" => $obj->remote_work, "num_jobs" => $count_jobs
+                );
+            }
+            else {
+                echo "ERROR: COULD NOT EXECUTE QUERY " . $companyJobsQuery . " " .  mysqli_error($connection);
+            }
         }
         return $companyData;
     } else {
@@ -36,17 +45,14 @@ function get_company($cid, $connection)
             );
         }
         return $companyData;
-    }
-    else {
+    } else {
         echo "ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " . mysqli_error($connection);
     }
-
 }
 if ($id > 0) {
     $companyData = get_company($id, $connection);
-    echo json_encode(array("data"=>$companyData, "range"=>"single"));
-}
-else {
+    echo json_encode(array("data" => $companyData, "range" => "single"));
+} else {
     $companyData = get_all_companies($connection);
-    echo json_encode(array("data"=>$companyData, "range"=>"all"));
+    echo json_encode(array("data" => $companyData, "range" => "all"));
 }

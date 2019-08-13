@@ -4,9 +4,9 @@
             <table id="statsTable">
                 <tbody>
                     <tr>
-                        <td>Number of Companies Saved: 4</td>
-                        <td>Number of Jobs Saved: 1</td>
-                        <td>Number of Jobs Applied To: 0</td>
+                        <td id="numSavedCompanies">Number of Companies Saved: </td>
+                        <td id="numSavedJobs">Number of Jobs Saved: </td>
+                        <td id="numJobsApplied">Number of Jobs Applied To: </td>
                     </tr>
                 </tbody>
             </table>
