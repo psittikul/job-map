@@ -139,18 +139,18 @@ function initializeHomePage() {
     $.ajax({
         url: "ajax/testGetIndexInfo.php",
         method: "GET",
-        // dataType: "json",
+        dataType: "json",
         success: function (data) {
             console.log(data);
-            // if (data["status"] === 0) {
-            //     console.log(data);
-            //     // var numSavedCompanies = data["data"]["num_companies"];
-            //     // var numSavedJobs = data["data"]["num_jobs"];
-            //     // var numJobsApplied = data["data"]["num_applied"];
-            //     // $("#numSavedCompanies").text($("#numSavedCompanies").text() + numSavedCompanies);
-            //     // $("#numSavedJobs").text($("#numSavedJobs").text() + numSavedJobs);
-            //     // $("#numJobsApplied").text($("#numJobsApplied").text() + numJobsApplied);
-            // }
+            if (data["status"] === 0) {
+                var numSavedCompanies = data["data"]["count_companies"];
+                var numSavedJobs = data["data"]["count_jobs"];
+                var numJobsApplied = data["data"]["count_applied"];
+                $("#numSavedCompanies").text($("#numSavedCompanies").text() + " " + numSavedCompanies);
+                $("#numSavedJobs").text($("#numSavedJobs").text() + " " + numSavedJobs);
+                $("#numJobsApplied").text($("#numJobsApplied").text() + " " + numJobsApplied);
+                // var numDeadlines = data["data"]["count_deadlines"];
+            }
         }
     });
 }
