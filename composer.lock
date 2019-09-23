@@ -1,0 +1,38 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "01cd6f2d7306d31240df8d8285fc5e30",
+    "packages": [
+        {
+            "name": "tmzwinkels/jqvmap",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tmzwinkels/jqvmap.git",
+                "reference": "4c6836d2939609c1f41105290cbf8356726afbea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tmzwinkels/jqvmap/zipball/4c6836d2939609c1f41105290cbf8356726afbea",
+                "reference": "4c6836d2939609c1f41105290cbf8356726afbea",
+                "shasum": ""
+            },
+            "type": "component",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "jVectorMap is a vector-based, cross-browser and cross-platform component for interactive geography-related data visualization on the web.",
+            "homepage": "https://github.com/manifestinteractive/jqvmap",
+            "time": "2018-03-01T11:26:26+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
