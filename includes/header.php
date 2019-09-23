@@ -18,11 +18,12 @@ include "connection.php"; ?>
     <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="vendor/tmzwinkels/jqvmap/jquery.vmap.js"></script>
+    <!-- <script type="text/javascript" src="vendor/tmzwinkels/jqvmap/jquery.vmap.js"></script> -->
+    <script type="text/javascript" src="jqvmap/dist/jquery.vmap.js"></script>
     <script src="https://kit.fontawesome.com/8819ef24c8.js"></script>
 
-    <!-- <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
-    <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.world.js" charset="utf-8"></script> -->
+    <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
     <!-- Google Places API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjGtvBf7slybgMZ7KPyIE7Kj1B_KS68hY&libraries=places"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
@@ -41,7 +42,7 @@ include "connection.php"; ?>
     <!-- JavaScript for action class -->
     <!-- <script type="text/javascript" src="js/action_object.js"></script> -->
     <!-- JavaScript for form class -->
-    <!-- <script type="text/javascript" src="js/classes/form_class.js"></script> -->
+    <script type="text/javascript" src="js/classes/form_class.js"></script>
     <!-- JavaScript to initialize objects -->
     <script type="text/javascript" src="js/init-objects.js"></script>
     <!-- JavaScript for various global functions -->
