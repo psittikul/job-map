@@ -1,5 +1,5 @@
 <?php 
-include "connection.php"; ?>
+include "pg-connection.php"; ?>
 <!doctype html>
 <html>
 
