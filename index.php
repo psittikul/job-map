@@ -1,5 +1,5 @@
 <?php
-require('../vendor/autoload.php');
+require('vendor/autoload.php');
 $app = new Symfony\Application();
 $app['debug'] = true;
 // Register the monolog logging service
