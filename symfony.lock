@@ -1,0 +1,69 @@
+{
+    "monolog/monolog": {
+        "version": "1.25.1"
+    },
+    "symfony/config": {
+        "version": "v4.3.4"
+    },
+    "symfony/dependency-injection": {
+        "version": "v4.3.4"
+    },
+    "symfony/filesystem": {
+        "version": "v4.3.4"
+    },
+    "symfony/flex": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "dc3fc2e0334a4137c47cfd5a3ececc601fa61a0b"
+        },
+        "files": [
+            "./.env"
+        ]
+    },
+    "symfony/monolog-bridge": {
+        "version": "v4.3.4"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "6240c6d43e8237a32452f057f81816820fd56ab6"
+        },
+        "files": [
+            "./config/packages/dev/monolog.yaml",
+            "./config/packages/prod/monolog.yaml",
+            "./config/packages/test/monolog.yaml"
+        ]
+    },
+    "symfony/service-contracts": {
+        "version": "v1.1.6"
+    },
+    "symfony/translation-contracts": {
+        "version": "v1.1.6"
+    },
+    "symfony/twig-bridge": {
+        "version": "v4.3.4"
+    },
+    "symfony/twig-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "369b5b29dc52b2c190002825ae7ec24ab6f962dd"
+        },
+        "files": [
+            "./config/packages/twig.yaml",
+            "./config/routes/dev/twig.yaml",
+            "./templates/base.html.twig"
+        ]
+    },
+    "twig/twig": {
+        "version": "v2.11.3"
+    }
+}
