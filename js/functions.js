@@ -135,13 +135,11 @@ function clearBody() {
 
 // Function to initialize the home page with the information it should show (e.g. number of jobs saved, number of jobs applied to)
 function initializeHomePage() {
-    console.log("Initializing home page");
     $.ajax({
-        url: "ajax/testGetIndexInfo.php",
+        url: "ajax/getIndexInfo.php",
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
             if (data["status"] === 0) {
                 var numSavedCompanies = data["data"]["count_companies"];
                 var numSavedJobs = data["data"]["count_jobs"];

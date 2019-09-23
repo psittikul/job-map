@@ -1,51 +1,27 @@
 <?php
-include "../includes/connection.php";
-$companiesQuery = "SELECT COUNT(*) AS count_companies FROM company";
-// $companiesQuery = "SELECT * FROM company";
-$jobsQuery = "SELECT COUNT(*) AS count_jobs FROM job";
-$appliedQuery = "SELECT COUNT(*) AS count_applied FROM job WHERE applied = 1";
-$deadlinesQuery = "SELECT COUNT(*) AS count_deadlines FROM job WHERE deadline IS NOT NULL";
+include "../includes/pg-connection.php";
 $data_array = array();
-
-$companies = mysqli_query($connection, $companiesQuery);
+$companies = pg_query($connection, "SELECT COUNT(*) AS count_companies FROM company");
 if ($companies) {
-    $result = mysqli_fetch_assoc($companies);
-    $count_companies = $result["count_companies"];
-    $data_array["num_companies"] = $count_companies;
-    $jobs = mysqli_query($connection, $jobsQuery);
+    $result = pg_fetch_assoc($companies);
+    $data_array["count_companies"] = $result["count_companies"];
+    $jobs = pg_query($connection, "SELECT COUNT(*) AS count_jobs FROM job");
     if ($jobs) {
-        $result = mysqli_fetch_assoc($jobs);
-        $count_jobs = $result["count_jobs"];
-        $data_array["num_jobs"] = $count_jobs;
-
-        $jobs_applied = mysqli_query($connection, $appliedQuery);
+        $result = pg_fetch_assoc($jobs);
+        $data_array["count_jobs"] = $result["count_jobs"];
+        $jobs_applied = pg_query($connection, "SELECT COUNT(*) AS count_applied FROM job WHERE applied = true");
         if ($jobs_applied) {
-            $result = mysqli_fetch_assoc($jobs_applied);
-            $count_applied = $result["count_applied"];
-            $data_array["num_applied"] = $count_applied;
-        } else {
-            echo json_encode(array("status" => -1, "data" => mysqli_error($connection)));
+            $result = pg_fetch_assoc($jobs_applied);
+            $data_array["count_applied"] = $result["count_applied"];
+            echo json_encode(array("status"=>0, "data"=>$data_array));
         }
-    } else {
-        echo json_encode(array("status" => -1, "data" => mysqli_error($connection)));
+        else {
+            echo json_encode(array("status"=>-1, "data"=>pg_last_error($connection)));
+        }
     }
-    echo json_encode(array("status" => 0, "data" => $data_array));
-    // echo json_encode(array("status"=>0, "data"=>$result["count_companies"]));
+    else {
+        echo json_encode(array("status"=>-1, "data"=>pg_last_error($connection)));
+    }
 } else {
-    echo json_encode(array("status" => -1, "data" => mysqli_error($connection)));
+    echo json_encode(array("status" => -1, "data" => pg_last_error($connection)));
 }
-
-// $companies = mysqli_query("SELECT * FROM companies", $connection);
-// if ($companies) {
-//     // $count = mysqli_fetch_assoc($companies);
-//     // $data_array["num_companies"] = $count;
-//     // if (($jobs = mysqli_query($jobsQuery, $connection))) {
-//     //     $count_jobs = mysqli_fetch_assoc($count);
-//     //     $data_array["num_jobs"] = $count_jobs;
-//     // }
-//     echo json_encode(array("status"=>0, "data"=>"success"));
-//     // echo json_encode(array("status"=>0, "data"=>$data_array));
-// }   
-// else {
-//     echo json_encode(array("status"=>-1, "data"=>"ERROR: could not execute query " . mysqli_error($connection)));
-// }
