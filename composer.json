@@ -2,6 +2,8 @@
     "require": {
         "tmzwinkels/jqvmap": "^1.0",
         "csanquer/pdo-service-provider": "~1.1dev",
-        "symfony/flex": "^1.4"
+        "symfony/flex": "^1.4",
+        "symfony/twig-bundle": "^4.3",
+        "symfony/monolog-bundle": "^3.4"
     }
 }
