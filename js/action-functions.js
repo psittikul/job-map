@@ -63,6 +63,7 @@ $(function () {
 });
 
 function submitCompany() {
+    console.log("Submit Company button clicked");
     var companyWebsite = $("input[name='company_website']").val().length > 0 ? $("input[name='company_website']").val() : null;
     var companyName = $("input[name='company_name']").val();
     var companyGlassdoor = $("input[name='company_glassdoor']").val().length > 0 ? $("input[name='company_glassdoor']").val() : null;
@@ -93,12 +94,7 @@ function submitCompany() {
                     return $(value).find("p").text();
                 });
                 console.log(locationsArray);
-                $("#statusModal").find(".modal-title").text("Success");
-                $("#statusModal").find(".modal-body p").text("Successfully saved company information.");
-                $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Company");
-                $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Company");
                 // TO-DO: clear form
-                $("#statusModal").modal("show");
                 // $.ajax({
                 //     url: "ajax/locatedIn.php",
                 //     method: "post",

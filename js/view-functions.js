@@ -20,7 +20,6 @@ $(function () {
         },
         dataType: "json",
         success: function (data) {
-            console.log(data);
             // If information for all companies, jobs, or locations is being returned, display accordingly
             if (data["range"] === "all") {
                 var dataHtml = "";

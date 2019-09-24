@@ -13,15 +13,10 @@ if ($company_id > 0) {
     /** TO-DO: If a company ID already exists, just update that company */
 } else {
     $insertQuery = "INSERT INTO company(company_name, company_website, company_glassdoor, currently_hiring, number_of_employees, remote_work)
-    VALUES('$company_name', '$company_website', '$company_glassdoor', '$currently_hiring', '$number_of_employees', '$remote_work')";
-    if (pg_query($connection, $insertQuery)) {
-        // Get last insert id
-        if (($lastInsertQuery = "SELECT currval(pg_get_serial_sequence('company', 'company_id'))")) {
-            $id = var_dump(pg_fetch_object($lastInsertQuery));
-            echo json_encode(array("message" => "Successfully saved data", "status" => 0, "company_id" => $id));
-        } else {
-            echo json_encode(array("status" => -1, "message" => pg_last_error($connection)));
-        }
+    VALUES('$company_name', '$company_website', '$company_glassdoor', '$currently_hiring', '$number_of_employees', '$remote_work') RETURNING company_id";
+    if ($result = pg_query($connection, $insertQuery)) {
+        $res = var_dump(pg_fetch_object($result));
+        echo json_encode(array("status"=>0, "message"=>"Successfully inserted new company", "id"=>$res));
     } else {
         echo json_encode(array("status" => -1, "message" => pg_last_error($connection)));
     }
