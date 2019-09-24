@@ -4,7 +4,7 @@
             <div id="pipmap" style="width: 250px; height: 125px;"></div>
         </div>
     </div>
-    <div class="form-container">
+    <div class="form-container" id="formContainer">
         <div id="formHeader">
             <h3 id="formTitle">Add New Job</h3>
         </div>
