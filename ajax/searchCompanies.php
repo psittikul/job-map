@@ -2,7 +2,7 @@
 include "../includes/pg-connection.php";
 $searchString = $_GET['search'];
 $companies = array();
-$query = "SELECT company_id, company_name FROM company WHERE company_name LIKE '%$searchString%'";
+$query = "SELECT company_id, company_name FROM company WHERE LOWER(company_name) LIKE LOWER('%$searchString%')";
 if ($results = pg_query($connection, $query)) {
     while ($company = pg_fetch_object($results)) {
         $companies[] = array("company_id"=>$company->company_id, "company_name"=>$company->company_name);

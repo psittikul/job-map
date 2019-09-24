@@ -18,6 +18,7 @@ $(function () {
             var selector = "#" + item + "LocationsTags";
             $(selector).append("<div class='location-tag'><p>" + $("#autocomplete").val() + "</p><button type='button' class='remove-location'>&times;</button></div>");
             $(selector).css("display", "block");
+            // Update the map to reflect this new location
             // Clear the place lookup field after adding the location
             $("#autocomplete").val("");
         }
@@ -153,13 +154,17 @@ function submitJob() {
         data: {
             company_name: hiringCompany,
             remote_work: remoteWork,
-            currently_hiring: 1,
+            currently_hiring: 't',
             company_id: companyID,
         },
         dataType: "json",
         success: function (response) {
-            /* Upon successful insertion/updating of new company, insert this new job, associating it with the company */
+            /* Upon successful insertion/updating of new company, update the company ID field if necessary, then 
+            insert this new job, associating it with the company */
             console.log(response);
+            if ($("input[name='company_id']").val().length < 1) {
+                $("input[name='company_id']").val(parseInt(response["company_id"]));
+            }
             $.ajax({
                 url: "ajax/saveJob.php",
                 method: "post",
@@ -182,20 +187,19 @@ function submitJob() {
                             locationsArray = $.map(locationsArray, function (value, index) {
                                 return $(value).find("p").text();
                             });
-                            console.log(locationsArray);
                             $.ajax({
                                 url: "ajax/locatedIn.php",
                                 method: "post",
                                 data: {
-                                    object_id: data["job_id"],
+                                    object_type: ["job", "company"],
+                                    object_id: { job_id: data["job_id"], company_id: },
                                     object_locations: locationsArray
                                 },
                                 success: function (data) {
-
+                                    console.log(data);
                                 }
                             });
                         }
-                        console.log(data);
                         $("#statusModal").find(".modal-title").text("Success");
                         $("#statusModal").find(".modal-body p").text("Successfully saved information for this job");
                         $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Job");
