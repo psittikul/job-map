@@ -14,11 +14,11 @@ foreach ($object_locations as $location) {
      *  */
     switch ($object_type) {
         case "company":
-            $query = "INSERT INTO company_located_in(object_id, city, state, country) VALUES($object_id,
+            $query = "INSERT INTO company_located_in(company_id, city, state, country) VALUES($object_id,
         '$city', '$state', '$country')";
             break;
         case "job":
-            $query = "INSERT INTO job_located_in(object_id, city, state, country) VALUES($object_id,
+            $query = "INSERT INTO job_located_in(job_id, city, state, country) VALUES($object_id,
         '$city', '$state', '$country')";
             break;
     }

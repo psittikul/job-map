@@ -18,6 +18,8 @@ $(function () {
             var selector = "#" + item + "LocationsTags";
             $(selector).append("<div class='location-tag'><p>" + $("#autocomplete").val() + "</p><button type='button' class='remove-location'>&times;</button></div>");
             $(selector).css("display", "block");
+            // Clear the place lookup field after adding the location
+            $("#autocomplete").val("");
         }
     });
 
