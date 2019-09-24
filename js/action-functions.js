@@ -106,6 +106,7 @@ function submitCompany() {
                             object_id: response["company_id"],
                             object_locations: locationsArray
                         },
+                        dataType: "json",
                         success: function (data) {
                             console.log(data);
                             clearForm("addCompany");
