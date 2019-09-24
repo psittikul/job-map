@@ -251,6 +251,10 @@ function clearForm(form) {
     $("form[name='" + form + "']").find("input").val("");
     $("form[name='" + form + "']").find("input[type='checkbox']").prop("checked", false);
     $("form[name='" + form + "']").find("select").val("");
+    // Also clear the status modal
+    $("#statusModal").find(".modal-footer").html("");
+    $("#statusModal").find(".modal-header").text("");
+    $("#statusModal").find(".modal-body p").text("");
 }
 
 
