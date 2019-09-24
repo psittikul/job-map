@@ -142,7 +142,7 @@ function submitJob() {
     console.log("Submit job time");
     var jobWebsite = $("input[name='job_url']").val();
     var jobTitle = $("input[name='job_title']").val();
-    var companyID = $("input[name='company_id']").val();
+    var companyID = parseInt($("input[name='company_id']").val());
     var hiringCompany = $("input[name='hiring_company']").val();
     var remoteWork = $("input[name='remote_work']").prop("checked") ? 't' : 'f';
     var postingDate = $("input[name='posting_date'").val();
@@ -156,16 +156,16 @@ function submitJob() {
             company_name: hiringCompany,
             remote_work: remoteWork,
             currently_hiring: 't',
-            company_id: parseInt(companyID)
+            company_id: companyID
         },
         dataType: "json",
         success: function (response) {
             /* Upon successful insertion/updating of new company, update the company ID field if necessary, then 
             insert this new job, associating it with the company */
             console.log(response);
-            if ($("input[name='company_id']").val().length < 1) {
-                $("input[name='company_id']").val(parseInt(response["company_id"]));
-            }
+            // if ($("input[name='company_id']").val().length < 1) {
+            //     $("input[name='company_id']").val(parseInt(response["company_id"]));
+            // }
             // $.ajax({
             //     url: "ajax/saveJob.php",
             //     method: "post",

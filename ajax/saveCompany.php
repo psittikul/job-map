@@ -15,6 +15,9 @@ if ($company_id > 0) {
     if (pg_query($connection, $updateQuery)) {
         echo json_encode(array("status"=>0, "message"=>"Successfully updated company: " . $company_name, "company_id"=>$company_id));
     }
+    else {
+        echo json_encode(array("status"=>-1, "message"=>"ERROR: " . pg_last_error($connection), "company_id"=>$company_id));
+    }
 } else {
     $insertQuery = "INSERT INTO company(company_name, company_website, company_glassdoor, currently_hiring, number_of_employees, remote_work)
     VALUES('$company_name', '$company_website', '$company_glassdoor', '$currently_hiring', '$number_of_employees', '$remote_work') RETURNING company_id";
