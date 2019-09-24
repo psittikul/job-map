@@ -197,6 +197,7 @@ function submitJob() {
                                     object_id: { job_id: data["job_id"], company_id: $("input[name='company_id']").val()},
                                     object_locations: locationsArray
                                 },
+                                dataType: "json",
                                 success: function (data) {
                                     console.log(data);
                                 }
