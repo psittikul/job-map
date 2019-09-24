@@ -26,7 +26,8 @@ foreach ($object_locations as $location) {
         case ["job", "company"]:
             $job_id = intval($object_id["job_id"]);
             $company_id = intval($object_id["company_id"]);
-            $query = "INSERT INTO job_located_in(job_id, city, state, country) VALUES($job_id, '$city','$state', '$country');";
+            $query = "INSERT INTO job_located_in(job_id, city, state, country) VALUES($job_id, '$city','$state', '$country');
+            INSERT INTO company_located_in(company_id, city, state, country) VALUES($company_id, '$city', '$state', '$country');";
             break;
     }
     if ($result = pg_query($connection, $query)) {
