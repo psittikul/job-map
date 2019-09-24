@@ -44,6 +44,20 @@
                     <label for="remoteWork">Remote Work</label>
                 </div>
             </div>
+            <div class="form-row" style="display: none">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="locality">City</label>
+                        <input type="text" id="locality" name="company_city" disabled="true" class="form-control" placeholder="Enter a location to lookup">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="administrative_area_level_1">State</label>
+                        <input type="text" id="administrative_area_level_1" name="company_state" disabled="true" class="form-control">
+                    </div>
+                </div>
+            </div>
             <div class="form-row" id="jobLocationsRow">
                 <div id="jobLocationsTags" class="location-tag-container">
 
