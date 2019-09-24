@@ -1,6 +1,6 @@
 <?php
-include "../includes/connection.php";
-$company_name = mysqli_real_escape_string($connection, $_POST['company_name']);
+include "../includes/pg-connection.php";
+$company_name = pg_escape_string($connection, $_POST["company_name"]);
 $remote_work = $_POST["remote_work"];
 $currently_hiring = $_POST['currently_hiring'];
 /* The following fields would only be posted if this were being called from the addCompany form, so make them null if they

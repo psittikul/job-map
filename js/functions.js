@@ -26,14 +26,11 @@ function initAutocomplete() {
         });
     // When user selects a location from the dropdown, populate the field in the form
     autocomplete.addListener('place_changed', fillInLocation);
-    console.log("Event listener added to autocomplete object");
 };
 
 function fillInLocation() {
-    console.log("place is being changed");
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace();
-    console.log(place);
 
     for (var component in componentForm) {
         document.getElementById(component).value = "";
@@ -46,7 +43,6 @@ function fillInLocation() {
         var addressType = place.address_components[i].types[0];
         if (componentForm[addressType]) {
             var val = place.address_components[i][componentForm[addressType]];
-            console.log("This value is: " + val);
             document.getElementById(addressType).value = val;
         }
     }

@@ -1,5 +1,5 @@
 <?php
-include "../includes/connection.php";
+include "../includes/pg-connection.php";
 $companyData = array();
 $id = $_GET["id"];
 /**
@@ -8,26 +8,26 @@ $id = $_GET["id"];
 function get_all_companies($connection)
 {
     $companyInfoQuery = "SELECT * FROM company ORDER BY company_name ASC";
-    if ($result = mysqli_query($connection, $companyInfoQuery)) {
+    if ($companies = pg_query($connection, $companyInfoQuery)) {
         /* fetch object array */
-        while ($obj = $result->fetch_object()) {
-            $companyJobsQuery = "SELECT COUNT(*) AS num_jobs FROM job WHERE company_id = $obj->company_id";
-            if ($companyJobs = mysqli_query($connection, $companyJobsQuery)) {
-                $jobs = mysqli_fetch_assoc($companyJobs);
-                $count_jobs = $jobs["num_jobs"];
+        while ($company = pg_fetch_object($companies)) {
+            $companyJobsQuery = "SELECT COUNT(*) AS count_jobs FROM job WHERE company_id = $company->company_id";
+            if ($companyJobs = pg_query($connection, $companyJobsQuery)) {
+                $jobs = pg_fetch_assoc($companyJobs);
+                $count_jobs = $jobs["count_jobs"];
                 $companyData[] = array(
-                    "company_id" => $obj->company_id, "company_name" => $obj->company_name, "company_website" => $obj->company_website,
-                    "company_glassdoor" => $obj->company_glassdoor, "currently_hiring" => $obj->currently_hiring,
-                    "number_of_employees" => $obj->number_of_employees, "remote_work" => $obj->remote_work, "num_jobs" => $count_jobs
+                    "company_id" => $company->company_id, "company_name" => $company->company_name,
+                    "company_website" => $company->company_website, "company_glassdoor" => $company->company_glassdoor,
+                    "currently_hiring" => $company->currently_hiring, "number_of_employees" => $company->number_of_employees,
+                    "remote_work" => $company->remote_work, "num_jobs" => $count_jobs
                 );
-            }
-            else {
-                echo "ERROR: COULD NOT EXECUTE QUERY " . $companyJobsQuery . " " .  mysqli_error($connection);
+            }else {
+                echo "ERROR: COULD NOT EXECUTE QUERY " . $companyJobsQuery . " " . pg_last_error($connection);
             }
         }
         return $companyData;
     } else {
-        echo "ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " .  mysqli_error($connection);
+        echo "ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " . pg_last_error($connection);
     }
 }
 
@@ -37,8 +37,8 @@ function get_all_companies($connection)
 function get_company($cid, $connection)
 {
     $companyInfoQuery = "SELECT * FROM company WHERE company_id = $cid";
-    if ($result = mysqli_query($connection, $companyInfoQuery)) {
-        while ($obj = $result->fetch_object()) {
+    if ($result = pg_query($connection, $companyInfoQuery)) {
+        while ($obj = pg_fetch_object($result)) {
             $companyData = array(
                 "company_id" => $obj->company_id, "company_name" => $obj->company_name, "company_website" => $obj->company_website,
                 "company_glassdoor" => $obj->company_glassdoor, "currently_hiring" => $obj->currently_hiring, "number_of_employees" => $obj->number_of_employees
@@ -46,7 +46,7 @@ function get_company($cid, $connection)
         }
         return $companyData;
     } else {
-        echo "ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " . mysqli_error($connection);
+        echo "ERROR: COULD NOT EXECUTE QUERY " . $companyInfoQuery . " " . pg_last_error($connection);
     }
 }
 if ($id > 0) {

@@ -1,5 +1,5 @@
 <?php
-include "../includes/connection.php";
+include "../includes/pg-connection.php";
 $id = $_GET["id"];
 $companyLocationsQuery = "SELECT * FROM located_in WHERE object_id = $id";
 $locationString = "<ul style='padding: 0; margin: 0'>";

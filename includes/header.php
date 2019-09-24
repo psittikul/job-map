@@ -25,7 +25,7 @@ include "pg-connection.php"; ?>
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
     <script type="text/javascript" src="jqvmap/dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
     <!-- Google Places API -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjGtvBf7slybgMZ7KPyIE7Kj1B_KS68hY&libraries=places&types=(regions)"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?types=(cities)&key=AIzaSyBjGtvBf7slybgMZ7KPyIE7Kj1B_KS68hY&libraries=places"></script>
     <script type="text/javascript" src="js/init-map.js"></script>
     <?php
     $scriptsArray = array("view" => "js/view-functions.js", "add" => "js/add-functions.js");
