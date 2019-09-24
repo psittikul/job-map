@@ -12,12 +12,6 @@
         <form name="addJob">
             <div class="form-row">
                 <div class="form-group">
-                    <label for="jobURL">Job Posting URL</label>
-                    <input type="text" name="job_url" class="form-control" id="jobURL" placeholder="Link to job posting">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
                     <label for="jobTitle">Job Title</label>
                     <input type="text" name="job_title" class="form-control" id="jobTitle" placeholder="Job title">
                 </div>
@@ -33,23 +27,15 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="autocomplete">Located in</label>
-                    <input type="text" id="autocomplete" class="form-control" name="location_lookup">
-                    <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-for="job" data-item="location">Add Location</button>
+                    <label for="jobURL">Job Posting URL</label>
+                    <input type="text" name="job_url" class="form-control" id="jobURL" placeholder="Link to job posting">
                 </div>
             </div>
             <div class="form-row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="locality">City</label>
-                        <input type="text" id="locality" name="company_city" disabled="true" class="form-control" placeholder="Enter a location to lookup">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="administrative_area_level_1">State</label>
-                        <input type="text" id="administrative_area_level_1" name="company_state" disabled="true" class="form-control">
-                    </div>
+                <div class="form-group">
+                    <label for="autocomplete">Located in</label>
+                    <input type="text" id="autocomplete" class="form-control" name="location_lookup">
+                    <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-for="job" data-item="location">Add Location</button>
                 </div>
             </div>
             <div class="form-row">

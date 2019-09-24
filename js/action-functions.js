@@ -142,7 +142,7 @@ function submitJob() {
     var jobTitle = $("input[name='job_title']").val();
     var companyID = $("input[name='company_id']").val();
     var hiringCompany = $("input[name='hiring_company']").val();
-    var remoteWork = $("input[name='remote_work']").prop("checked") ? 1 : 0;
+    var remoteWork = $("input[name='remote_work']").prop("checked") ? 't' : 'f';
     var postingDate = $("input[name='posting_date'").val();
     var deadline = $("input[name='deadline']").val();
     var dateApplied = $("input[name='date_applied']").val();
@@ -226,6 +226,7 @@ function searchCompanies(query) {
         },
         dataType: "json",
         success: function (data) {
+            console.log(data);
             var html;
             if (data["data"].length === 0) {
                 html = "";
