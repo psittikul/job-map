@@ -12,12 +12,13 @@ $company_id = $_POST['company_id'];
 if ($company_id > 0) {
     /** TO-DO: If a company ID already exists, just update that company */
     $updateQuery = "UDPATE company SET currently_hiring = '$currently_hiring' WHERE company_id = $company_id";
-    if (pg_query($connection, $updateQuery)) {
-        echo json_encode(array("status"=>0, "message"=>"Successfully updated company: " . $company_name, "company_id"=>$company_id));
-    }
-    else {
-        echo json_encode(array("status"=>-1, "message"=>"ERROR: " . pg_last_error($connection), "company_id"=>$company_id));
-    }
+    // if (pg_query($connection, $updateQuery)) {
+    //     echo json_encode(array("status"=>0, "message"=>"Successfully updated company: " . $company_name, "company_id"=>$company_id));
+    // }
+    // else {
+    //     echo json_encode(array("status"=>-1, "message"=>"ERROR: " . pg_last_error($connection), "company_id"=>$company_id));
+    // }
+    echo json_encode(array("status"=>-1, "company_id"=>$company_id));
 } else {
     $insertQuery = "INSERT INTO company(company_name, company_website, company_glassdoor, currently_hiring, number_of_employees, remote_work)
     VALUES('$company_name', '$company_website', '$company_glassdoor', '$currently_hiring', '$number_of_employees', '$remote_work') RETURNING company_id";
