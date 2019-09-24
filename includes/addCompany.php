@@ -4,7 +4,7 @@
             <div id="pipmap" style="width: 250px; height: 125px;"></div>
         </div>
     </div>
-    <div id="formContainer">
+    <div class="form-container" id="formContainer">
         <div id="formHeader">
             <h3 id="formTitle">Add New Company</h3>
         </div>
@@ -67,7 +67,7 @@
                     <button type="button" class="action-btn" id="addLocationBtn" data-action="add" data-for="company" data-item="location">Add Location</button>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" style="display: none">
                 <div class="col">
                     <div class="form-group">
                         <label for="locality">City</label>

@@ -1,5 +1,5 @@
 <?php
-include "../includes/connection.php";
+include "../includes/pg-connection.php";
 $object_id = $_POST['object_id'];
 $object_locations = $_POST['object_locations'];
 

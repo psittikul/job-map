@@ -66,9 +66,9 @@ function submitCompany() {
     var companyWebsite = $("input[name='company_website']").val().length > 0 ? $("input[name='company_website']").val() : null;
     var companyName = $("input[name='company_name']").val();
     var companyGlassdoor = $("input[name='company_glassdoor']").val().length > 0 ? $("input[name='company_glassdoor']").val() : null;
-    var currentlyHiring = $("input[name='currently_hiring']").prop("checked") ? 1 : 0;
+    var currentlyHiring = $("input[name='currently_hiring']").prop("checked") ? 't' : 'f';
     var numberEmployees = $("#numberEmployees").val();
-    var remoteWork = $("input[name='remote_work']").prop("checked") ? 1 : 0;
+    var remoteWork = $("input[name='remote_work']").prop("checked") ? 't' : 'f';
     var companyID = $("input[name='company_id']").val();
     $.ajax({
         url: "ajax/saveCompany.php",
@@ -85,7 +85,7 @@ function submitCompany() {
         dataType: "json",
         success: function (response) {
             /* Upon successful insertion of new company, show the status message modal and also add
-            locations to "located_in" table */
+            locations to "company_located_in" table */
             console.log(response);
             if (response["status"] === 0) {
                 var locationsArray = $(".location-tag").toArray();
@@ -93,23 +93,30 @@ function submitCompany() {
                     return $(value).find("p").text();
                 });
                 console.log(locationsArray);
-                $.ajax({
-                    url: "ajax/locatedIn.php",
-                    method: "post",
-                    data: {
-                        object_id: response["company_id"],
-                        object_locations: locationsArray
-                    },
-                    success: function (data) {
-                        console.log(data);
-                        $("#statusModal").find(".modal-title").text("Success");
-                        $("#statusModal").find(".modal-body p").text("Successfully saved information for this company");
-                        $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Company");
-                        $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Company");
-                        // TO-DO: clear form
-                        $("#statusModal").modal("show");
-                    }
-                });
+                $("#statusModal").find(".modal-title").text("Success");
+                $("#statusModal").find(".modal-body p").text("Successfully saved company information.");
+                $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Company");
+                $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Company");
+                // TO-DO: clear form
+                $("#statusModal").modal("show");
+                // $.ajax({
+                //     url: "ajax/locatedIn.php",
+                //     method: "post",
+                //     data: {
+                //         object_type: "company",
+                //         object_id: response["company_id"],
+                //         object_locations: locationsArray
+                //     },
+                //     success: function (data) {
+                //         console.log(data);
+                //         $("#statusModal").find(".modal-title").text("Success");
+                //         $("#statusModal").find(".modal-body p").text("Successfully saved information for this company");
+                //         $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Company");
+                //         $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Company");
+                //         // TO-DO: clear form
+                //         $("#statusModal").modal("show");
+                //     }
+                // });
             }
         }
     });
