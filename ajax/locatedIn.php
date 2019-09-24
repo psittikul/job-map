@@ -6,7 +6,12 @@ $object_locations = $_POST['object_locations'];
 $status = 0;
 
 if (sizeof($object_type) > 1) {
-    echo json_encode(array("status"=>$status, "object_type"=>$object_type, "object_id"=>$object_id));
+    /**
+     * If the object locations should be associated with both a job and a company, handle accordingly
+     */
+    $job_id = intval($object_id["job_id"]);
+    $company_id = intval($object_id["company_id"]);
+    echo json_encode(array("status"=>$status, "job_id"=>$job_id, "company_id"=>$company_id));
  } else {
 
     foreach ($object_locations as $location) {
