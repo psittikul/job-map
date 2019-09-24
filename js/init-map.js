@@ -13,6 +13,11 @@ $(function () {
             borderColor: '#222',
             borderOpacity: .8
         });
+        // Add a legend for the small states (like DC) and highlight if applicable
+        $(".jqvmap-zoomin").before("<div class='small-states-legend'><ul><li>D.C.</li></ul></div>");
+        if ($("#jqvmap1_dc").attr("fill") == "#e8d82a") {
+            $(".small-states-legend").css("background-color", "#e8d82a");
+        }
     }
     // "Picture in picture" map on the other pages
     if ($("#pipmap")) {
