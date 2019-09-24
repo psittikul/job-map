@@ -7,7 +7,7 @@ $(function () {
         $("#vmap").vectorMap({
             map: 'usa_en',
             backgroundColor: '#F5F5F5',
-            selectedRegions: ['TX', 'NY', 'PA', 'DC', 'CA', 'WA'],
+            selectedRegions: ['TX', 'NY', 'PA', 'CA', 'WA'],
             hoverColor: 'rgba(232,216,42,.8)',
             selectedColor: '#e8d82a',
             borderColor: '#222',
