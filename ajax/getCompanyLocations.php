@@ -1,7 +1,7 @@
 <?php
 include "../includes/pg-connection.php";
 $id = $_GET["id"];
-$companyLocationsQuery = "SELECT * FROM located_in WHERE object_id = $id";
+$companyLocationsQuery = "SELECT * FROM company_located_in WHERE company_id = $id";
 $locationString = "<ul style='padding: 0; margin: 0'>";
 $states = array();
 

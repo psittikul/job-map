@@ -35,20 +35,31 @@ $(function () {
                         dataType: "json",
                         success: function (locationData) {
                             companyStatesMap.set(data["data"][index]["company_id"], locationData["states"]);
-                            // websiteButton = "<td><a href='" + data["data"][index]["company_website"] + "' target='_blank'>" +
-                            //     "<button type='button' data-goto='company_website'>Website</button></a></td>";
-                            var websiteLink = "<td><a href= '" + data["data"][index]["company_website"] + "' target=_'blank'>Website</a></td>";
-                            // glassdoorButton = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>" +
-                            //     "<button type='button' data-goto='company_glassdoor'>Glassdoor</button></a></td>";
-                            var glassdoorLink = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>Glassdoor</a></td>";
+                            if (data["data"][index]["company_website"] != null) {
+                                var websiteLink = "<td><a href= '" + data["data"][index]["company_website"] + "' target=_'blank'>Website</a></td>";
+                            }
+                            else {
+                                var websiteLink = "<td></td>";
+                            }
+                            if (data["data"][index]["company_glassdoor"] != null) {
+                                var glassdoorLink = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>Glassdoor</a></td>";
+                            }
+                            else {
+                                var glassdoorLink = "<td></td>";
+                            }
                             var currentlyHiring = "<td class='currently-hiring-cell'>" + (data["data"][index]["currently_hiring"] == 1 ? "<i class='far fa-check-circle'></i>" : "") + "</td>";
                             var numberJobs = "<td class='num-jobs-saved-cell'>" + (data["data"][index]["num_jobs"]) + "</td>";
-                            var numberEmployees = "<td>" + data["data"][index]["number_of_employees"] + "</td>";
+                            if (numberEmployees != null) {
+                                var numberEmployees = "<td>" + data["data"][index]["number_of_employees"] + "</td>";
+                            }
+                            else {
+                                var numberEmployees = "<td></td>";
+                            }
                             var locations = "<td>" + locationData["string"] + "</td>";
-                            var remoteWork = "<td class='remote-work-cell'>" + (data["data"][index]["remote_work"] == 1 ? "<i class='far fa-check-circle'></i>" : "");
-                            dataHtml = "<tr data-id='" + data["data"][index]["company_id"] + "'><td class='company-name-cell'><button type='button' " + 
-                            "class='company-name'>" + data["data"][index]["company_name"] + "</button></td>" + websiteLink + glassdoorLink + 
-                            currentlyHiring + numberJobs + numberEmployees + locations + remoteWork + "</tr>";
+                            var remoteWork = "<td class='remote-work-cell'>" + (data["data"][index]["remote_work"] == 't' ? "<i class='far fa-check-circle'></i>" : "");
+                            dataHtml = "<tr data-id='" + data["data"][index]["company_id"] + "'><td class='company-name-cell'><button type='button' " +
+                                "class='company-name'>" + data["data"][index]["company_name"] + "</button></td>" + websiteLink + glassdoorLink +
+                                currentlyHiring + numberJobs + numberEmployees + locations + remoteWork + "</tr>";
                             $("#companyListTable").find("tbody").append(dataHtml);
                         }
                     });
@@ -112,11 +123,11 @@ $(function () {
         window.location.href = window.location.href + "&id=" + $(this).parent().attr("data-id");
     });
     // Clicking the edit button on a form should reveal the update button/fields
-    $(".form-container").on("click", ".edit-btn", function() {
+    $(".form-container").on("click", ".edit-btn", function () {
         $(".form-container").find(".buttons-row").css("display", "block");
     });
     // Clicking on the update button on a form should send an AJAX call to update that company/job's information
-    $("body").on("click", ".update-btn", function() {
+    $("body").on("click", ".update-btn", function () {
         $.ajax({
             url: actionBtnMap.get($(this).attr("data-item")),
             method: "POST",
@@ -124,7 +135,7 @@ $(function () {
 
             },
             dataType: "json",
-            success: function(data) {
+            success: function (data) {
 
             }
         });
