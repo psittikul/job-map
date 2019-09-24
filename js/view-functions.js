@@ -22,38 +22,38 @@ $(function () {
         success: function (data) {
             console.log(data);
             // If information for all companies, jobs, or locations is being returned, display accordingly
-            // if (data["range"] === "all") {
-            //     var dataHtml = "";
-            //     $.each(data["data"], function (index, value) {
-            //         // Get locations of each company
-            //         $.ajax({
-            //             url: "ajax/getCompanyLocations.php",
-            //             method: "GET",
-            //             data: {
-            //                 id: data["data"][index]["company_id"]
-            //             },
-            //             dataType: "json",
-            //             success: function (locationData) {
-            //                 companyStatesMap.set(data["data"][index]["company_id"], locationData["states"]);
-            //                 // websiteButton = "<td><a href='" + data["data"][index]["company_website"] + "' target='_blank'>" +
-            //                 //     "<button type='button' data-goto='company_website'>Website</button></a></td>";
-            //                 var websiteLink = "<td><a href= '" + data["data"][index]["company_website"] + "' target=_'blank'>Website</a></td>";
-            //                 // glassdoorButton = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>" +
-            //                 //     "<button type='button' data-goto='company_glassdoor'>Glassdoor</button></a></td>";
-            //                 var glassdoorLink = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>Glassdoor</a></td>";
-            //                 var currentlyHiring = "<td class='currently-hiring-cell'>" + (data["data"][index]["currently_hiring"] == 1 ? "<i class='far fa-check-circle'></i>" : "") + "</td>";
-            //                 var numberJobs = "<td class='num-jobs-saved-cell'>" + (data["data"][index]["num_jobs"]) + "</td>";
-            //                 var numberEmployees = "<td>" + data["data"][index]["number_of_employees"] + "</td>";
-            //                 var locations = "<td>" + locationData["string"] + "</td>";
-            //                 var remoteWork = "<td class='remote-work-cell'>" + (data["data"][index]["remote_work"] == 1 ? "<i class='far fa-check-circle'></i>" : "");
-            //                 dataHtml = "<tr data-id='" + data["data"][index]["company_id"] + "'><td class='company-name-cell'><button type='button' " + 
-            //                 "class='company-name'>" + data["data"][index]["company_name"] + "</button></td>" + websiteLink + glassdoorLink + 
-            //                 currentlyHiring + numberJobs + numberEmployees + locations + remoteWork + "</tr>";
-            //                 $("#companyListTable").find("tbody").append(dataHtml);
-            //             }
-            //         });
-            //     });
-            // }
+            if (data["range"] === "all") {
+                var dataHtml = "";
+                $.each(data["data"], function (index, value) {
+                    // Get locations of each company
+                    $.ajax({
+                        url: "ajax/getCompanyLocations.php",
+                        method: "GET",
+                        data: {
+                            id: data["data"][index]["company_id"]
+                        },
+                        dataType: "json",
+                        success: function (locationData) {
+                            companyStatesMap.set(data["data"][index]["company_id"], locationData["states"]);
+                            // websiteButton = "<td><a href='" + data["data"][index]["company_website"] + "' target='_blank'>" +
+                            //     "<button type='button' data-goto='company_website'>Website</button></a></td>";
+                            var websiteLink = "<td><a href= '" + data["data"][index]["company_website"] + "' target=_'blank'>Website</a></td>";
+                            // glassdoorButton = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>" +
+                            //     "<button type='button' data-goto='company_glassdoor'>Glassdoor</button></a></td>";
+                            var glassdoorLink = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>Glassdoor</a></td>";
+                            var currentlyHiring = "<td class='currently-hiring-cell'>" + (data["data"][index]["currently_hiring"] == 1 ? "<i class='far fa-check-circle'></i>" : "") + "</td>";
+                            var numberJobs = "<td class='num-jobs-saved-cell'>" + (data["data"][index]["num_jobs"]) + "</td>";
+                            var numberEmployees = "<td>" + data["data"][index]["number_of_employees"] + "</td>";
+                            var locations = "<td>" + locationData["string"] + "</td>";
+                            var remoteWork = "<td class='remote-work-cell'>" + (data["data"][index]["remote_work"] == 1 ? "<i class='far fa-check-circle'></i>" : "");
+                            dataHtml = "<tr data-id='" + data["data"][index]["company_id"] + "'><td class='company-name-cell'><button type='button' " + 
+                            "class='company-name'>" + data["data"][index]["company_name"] + "</button></td>" + websiteLink + glassdoorLink + 
+                            currentlyHiring + numberJobs + numberEmployees + locations + remoteWork + "</tr>";
+                            $("#companyListTable").find("tbody").append(dataHtml);
+                        }
+                    });
+                });
+            }
             // if (data["range"] === "single") {
             //     // Get this company's locations as well as jobs
             //     $.ajax({
