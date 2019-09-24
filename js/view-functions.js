@@ -64,49 +64,54 @@ $(function () {
                     });
                 });
             }
-            // if (data["range"] === "single") {
-            //     // Get this company's locations as well as jobs
-            //     $.ajax({
-            //         method: "get",
-            //         url: "ajax/getCompanyLocations.php",
-            //         data: {
-            //             id: id
-            //         },
-            //         dataType: "json",
-            //         success: function (data) {
-            //             reconstruct_pip_map(data["states"]);
-            //         }
-            //     });
-            //     // Get jobs 
-            //     $.ajax({
-            //         url: "ajax/getCompanyJobs.php",
-            //         method: "GET",
-            //         data: {
-            //             id: id
-            //         },
-            //         dataType: "json",
-            //         success: function(data) {
-            //             console.log(data);
-            //             if (data["status"] == 0) {
-            //                 $("#companyJobs").find("tbody").html(data["data"]);
-            //             }
-            //         }
-            //     });
-            //     $("#formTitle").text(data["data"]["company_name"]);
-            //     // Go through each of the data fields returned from the database and fill them in on the form
-            //     $.each(data["data"], function (index, value) {
-            //         var selector = "[name='" + index + "']";
-            //         // var displayField = "[data-field='" + index + "']";
-            //         if (index == "currently_hiring") {
-            //             $("input[name='currently_hiring']").prop("checked", function () {
-            //                 return value == 1 ? true : false;
-            //             });
-            //         }
-            //         else {
-            //             $(selector).val(value);
-            //         }
-            //     });
-            // }
+            if (data["range"] === "single") {
+                // Get this company's locations as well as jobs
+                $.ajax({
+                    method: "get",
+                    url: "ajax/getCompanyLocations.php",
+                    data: {
+                        id: id
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        reconstruct_pip_map(data["states"]);
+                    }
+                });
+                // Get jobs 
+                $.ajax({
+                    url: "ajax/getCompanyJobs.php",
+                    method: "GET",
+                    data: {
+                        id: id
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                        if (data["status"] == 0) {
+                            $("#companyJobs").find("tbody").html(data["data"]);
+                        }
+                    }
+                });
+                $("#formTitle").text(data["data"]["company_name"]);
+                // Go through each of the data fields returned from the database and fill them in on the form
+                $.each(data["data"], function (index, value) {
+                    var selector = "[name='" + index + "']";
+                    // var displayField = "[data-field='" + index + "']";
+                    if (index == "currently_hiring") {
+                        $("input[name='currently_hiring']").prop("checked", function () {
+                            return value == 't' ? true : false;
+                        });
+                    }
+                    if (index == 'remote_work') {
+                        $("input[name='remote_work']").prop("checked", function() {
+                            return value == 't' ? true : false;
+                        });
+                    }
+                    else {
+                        $(selector).val(value);
+                    }
+                });
+            }
         }
     });
     // Hovering over a company's row should highlight their locations on the map

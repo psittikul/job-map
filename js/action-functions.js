@@ -110,7 +110,7 @@ function submitCompany() {
                             $("#statusModal").find(".modal-title").text("Success");
                             $("#statusModal").find(".modal-body p").text("Successfully saved information for this company");
                             /** Add buttons to the modal footer to view/edit the company or add another one */
-                            var footerHtml = "<a href='/index.php?action=view&item=company&id=" + data["company_id"] + "'>"
+                            var footerHtml = "<a href='/index.php?action=view&item=company&id=" + data["object_id"] + "'>"
                                 + "<button type='button' class='btn action-btn'>Go to Company Detail Page</button></a>"
                                 + "<button type='button' class='btn' data-dismiss='modal' data-target='#statusModal'>Add Another Company</button>";
                             $("#statusModal").find(".modal-footer").html(footerHtml);
