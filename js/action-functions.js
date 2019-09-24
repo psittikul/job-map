@@ -192,7 +192,7 @@ function submitJob() {
                                 method: "post",
                                 data: {
                                     object_type: ["job", "company"],
-                                    object_id: { job_id: data["job_id"], company_id: },
+                                    object_id: { job_id: data["job_id"], company_id: $("input[name='company_id']").val()},
                                     object_locations: locationsArray
                                 },
                                 success: function (data) {
