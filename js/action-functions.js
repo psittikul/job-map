@@ -189,18 +189,18 @@ function submitJob() {
                                 return $(value).find("p").text();
                             });
                             console.log(locationsArray + " eventually add these locations");
-                            // $.ajax({
-                            //     url: "ajax/locatedIn.php",
-                            //     method: "post",
-                            //     data: {
-                            //         object_type: ["job", "company"],
-                            //         object_id: { job_id: data["job_id"], company_id: $("input[name='company_id']").val()},
-                            //         object_locations: locationsArray
-                            //     },
-                            //     success: function (data) {
-                            //         console.log(data);
-                            //     }
-                            // });
+                            $.ajax({
+                                url: "ajax/locatedIn.php",
+                                method: "post",
+                                data: {
+                                    object_type: ["job", "company"],
+                                    object_id: { job_id: data["job_id"], company_id: $("input[name='company_id']").val()},
+                                    object_locations: locationsArray
+                                },
+                                success: function (data) {
+                                    console.log(data);
+                                }
+                            });
                         }
                         $("#statusModal").find(".modal-title").text("Success");
                         $("#statusModal").find(".modal-body p").text("Successfully saved information for this job");
