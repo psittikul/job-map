@@ -94,25 +94,41 @@ function submitCompany() {
                     return $(value).find("p").text();
                 });
                 console.log(locationsArray);
-                // TO-DO: clear form
-                // $.ajax({
-                //     url: "ajax/locatedIn.php",
-                //     method: "post",
-                //     data: {
-                //         object_type: "company",
-                //         object_id: response["company_id"],
-                //         object_locations: locationsArray
-                //     },
-                //     success: function (data) {
-                //         console.log(data);
-                //         $("#statusModal").find(".modal-title").text("Success");
-                //         $("#statusModal").find(".modal-body p").text("Successfully saved information for this company");
-                //         $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Company");
-                //         $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Company");
-                //         // TO-DO: clear form
-                //         $("#statusModal").modal("show");
-                //     }
-                // });
+                // If locations have been specified for this company, send an AJAX call to update the company_located_in table
+                if (locationsArray.length > 0) {
+                    $.ajax({
+                        url: "ajax/locatedIn.php",
+                        method: "post",
+                        data: {
+                            object_type: "company",
+                            object_id: response["company_id"],
+                            object_locations: locationsArray
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            clearForm("addCompany");
+                            $("#statusModal").find(".modal-title").text("Success");
+                            $("#statusModal").find(".modal-body p").text("Successfully saved information for this company");
+                            /** Add buttons to the modal footer to view/edit the company or add another one */
+                            var footerHtml = "<a href='/index.php?action=view&item=company&id='" + response["company_id"] + "'>"
+                                + "<button type='button' class='btn action-btn'>Go to Company Detail Page</button></a>"
+                                + "<button type='button' class='btn action-btn' data-dismiss='modal' data-target='#statusModal'>Add Another Company</button>";
+                            $("#statusModal").find(".modal-footer").html(footerHtml);
+                            $("#statusModal").modal("show");
+                        }
+                    });
+                }
+                else {
+                    clearForm("addCompany");
+                    $("#statusModal").find(".modal-title").text("Success");
+                    $("#statusModal").find(".modal-body p").text("Successfully saved information for this company");
+                    /** Add buttons to the modal footer to view/edit the company or add another one */
+                    var footerHtml = "<a href='/index.php?action=view&item=company&id='" + response["company_id"] + "'>"
+                        + "<button type='button' class='btn action-btn'>Go to Company Detail Page</button></a>"
+                        + "<button type='button' class='btn action-btn' data-dismiss='modal' data-target='#statusModal'>Add Another Company</button>";
+                    $("#statusModal").find(".modal-footer").html(footerHtml);
+                    $("#statusModal").modal("show");
+                }
             }
         }
     });
@@ -222,7 +238,16 @@ function searchCompanies(query) {
             $("#companySuggestions").html(html);
         }
     });
-}
+};
 
+/**
+ * Function to clear form
+ * @param {String} form : name of form to clear
+ */
+function clearForm(form) {
+    $("form[name='" + form + "']").find("input").val("");
+    $("form[name='" + form + "']").find("input[type='checkbox']").prop("checked", false);
+    $("form[name='" + form + "']").find("select").val("");
+}
 
 
