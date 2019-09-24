@@ -366,7 +366,7 @@ button:focus,
   transition: 0.25s;
 }
 .small-states-legend:hover {
-  background-color: rgba(232, 216, 42, 0.8);
+  background-color: rgba(232, 216, 42, 0.8) !important;
 }
 .small-states-legend ul {
   list-style: none;

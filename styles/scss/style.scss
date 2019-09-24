@@ -36,7 +36,7 @@ button,
   border: solid thin rgba(0, 0, 0, 0.8);
   transition: 0.25s;
   &:hover {
-    background-color: rgba(232, 216, 42, 0.8);
+    background-color: rgba(232, 216, 42, 0.8) !important;
   }
   ul {
     list-style: none;
