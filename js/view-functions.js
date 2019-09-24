@@ -46,7 +46,7 @@ $(function () {
                             else {
                                 var glassdoorLink = "<td></td>";
                             }
-                            var currentlyHiring = "<td class='currently-hiring-cell'>" + (data["data"][index]["currently_hiring"] == 1 ? "<i class='far fa-check-circle'></i>" : "") + "</td>";
+                            var currentlyHiring = "<td class='currently-hiring-cell'>" + (data["data"][index]["currently_hiring"] == 't' ? "<i class='far fa-check-circle'></i>" : "") + "</td>";
                             var numberJobs = "<td class='num-jobs-saved-cell'>" + (data["data"][index]["num_jobs"]) + "</td>";
                             if (numberEmployees != null) {
                                 var numberEmployees = "<td>" + data["data"][index]["number_of_employees"] + "</td>";
