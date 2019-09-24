@@ -34,13 +34,13 @@ $(function () {
                         dataType: "json",
                         success: function (locationData) {
                             companyStatesMap.set(data["data"][index]["company_id"], locationData["states"]);
-                            if (data["data"][index]["company_website"] != null) {
+                            if (data["data"][index]["company_website"] != null && data["data"][index]["company_website"].length > 1) {
                                 var websiteLink = "<td><a href= '" + data["data"][index]["company_website"] + "' target=_'blank'>Website</a></td>";
                             }
                             else {
                                 var websiteLink = "<td></td>";
                             }
-                            if (data["data"][index]["company_glassdoor"] != null) {
+                            if (data["data"][index]["company_glassdoor"] != null && data["data"][index]["company_glassdoor"].length > 1) {
                                 var glassdoorLink = "<td><a href='" + data["data"][index]["company_glassdoor"] + "' target='_blank'>Glassdoor</a></td>";
                             }
                             else {

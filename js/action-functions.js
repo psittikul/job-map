@@ -111,7 +111,7 @@ function submitCompany() {
                             console.log(data);
                             clearForm("addCompany");
                             $("#statusModal").find(".modal-title").text("Success");
-                            $("#statusModal").find(".modal-body p").text("Successfully saved information for this company");
+                            $("#statusModal").find(".modal-body p").text("Successfully saved information for this company.");
                             /** Add buttons to the modal footer to view/edit the company or add another one */
                             var footerHtml = "<a href='/index.php?action=view&item=company&id=" + data["object_id"] + "'>"
                                 + "<button type='button' class='btn action-btn'>Go to Company Detail Page</button></a>"
@@ -251,6 +251,7 @@ function clearForm(form) {
     $("form[name='" + form + "']").find("input").val("");
     $("form[name='" + form + "']").find("input[type='checkbox']").prop("checked", false);
     $("form[name='" + form + "']").find("select").val("");
+    $("form[name='" + form + "']").find(".remove-location").click();
     // Also clear the status modal
     $("#statusModal").find(".modal-footer").html("");
     $("#statusModal").find(".modal-title").text("");
