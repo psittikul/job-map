@@ -139,6 +139,7 @@ function submitCompany() {
 };
 
 function submitJob() {
+    console.log("Submit job time");
     var jobWebsite = $("input[name='job_url']").val();
     var jobTitle = $("input[name='job_title']").val();
     var companyID = $("input[name='company_id']").val();
@@ -165,51 +166,51 @@ function submitJob() {
             if ($("input[name='company_id']").val().length < 1) {
                 $("input[name='company_id']").val(parseInt(response["company_id"]));
             }
-            $.ajax({
-                url: "ajax/saveJob.php",
-                method: "post",
-                data: {
-                    company_id: parseInt(response["company_id"]),
-                    job_title: jobTitle,
-                    job_url: jobWebsite,
-                    remote: remoteWork,
-                    posting_date: postingDate,
-                    deadline: deadline,
-                    date_applied: dateApplied
-                },
-                dataType: "json",
-                success: function (data) {
-                    console.log(data);
-                    if (data["status"] === 0) {
-                        // Now save the locations associated with this job/company ONLY IF locations have been selected
-                        var locationsArray = $(".location-tag").toArray();
-                        if (locationsArray.length > 0) {
-                            locationsArray = $.map(locationsArray, function (value, index) {
-                                return $(value).find("p").text();
-                            });
-                            console.log(locationsArray + " eventually add these locations");
-                            // $.ajax({
-                            //     url: "ajax/locatedIn.php",
-                            //     method: "post",
-                            //     data: {
-                            //         object_type: ["job", "company"],
-                            //         object_id: { job_id: data["job_id"], company_id: $("input[name='company_id']").val()},
-                            //         object_locations: locationsArray
-                            //     },
-                            //     success: function (data) {
-                            //         console.log(data);
-                            //     }
-                            // });
-                        }
-                        $("#statusModal").find(".modal-title").text("Success");
-                        $("#statusModal").find(".modal-body p").text("Successfully saved information for this job");
-                        $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Job");
-                        $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Job");
-                        // TO-DO: clear form
-                        $("#statusModal").modal("show");
-                    }
-                }
-            });
+            // $.ajax({
+            //     url: "ajax/saveJob.php",
+            //     method: "post",
+            //     data: {
+            //         company_id: parseInt($("input[name='company_id']").val()),
+            //         job_title: jobTitle,
+            //         job_url: jobWebsite,
+            //         remote: remoteWork,
+            //         posting_date: postingDate,
+            //         deadline: deadline,
+            //         date_applied: dateApplied
+            //     },
+            //     dataType: "json",
+            //     success: function (data) {
+            //         console.log(data);
+            //         if (data["status"] === 0) {
+            //             // Now save the locations associated with this job/company ONLY IF locations have been selected
+            //             var locationsArray = $(".location-tag").toArray();
+            //             if (locationsArray.length > 0) {
+            //                 locationsArray = $.map(locationsArray, function (value, index) {
+            //                     return $(value).find("p").text();
+            //                 });
+            //                 console.log(locationsArray + " eventually add these locations");
+            //                 // $.ajax({
+            //                 //     url: "ajax/locatedIn.php",
+            //                 //     method: "post",
+            //                 //     data: {
+            //                 //         object_type: ["job", "company"],
+            //                 //         object_id: { job_id: data["job_id"], company_id: $("input[name='company_id']").val()},
+            //                 //         object_locations: locationsArray
+            //                 //     },
+            //                 //     success: function (data) {
+            //                 //         console.log(data);
+            //                 //     }
+            //                 // });
+            //             }
+            //             $("#statusModal").find(".modal-title").text("Success");
+            //             $("#statusModal").find(".modal-body p").text("Successfully saved information for this job");
+            //             $("#statusModal").find(".modal-footer .action-btn").eq(0).text("View/Edit This Job");
+            //             $("#statusModal").find(".modal-footer .action-btn").eq(1).text("Add Another Job");
+            //             // TO-DO: clear form
+            //             $("#statusModal").modal("show");
+            //         }
+            //     }
+            // });
         }
     });
 };
