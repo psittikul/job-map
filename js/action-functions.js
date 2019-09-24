@@ -95,9 +95,9 @@ function submitCompany() {
                 locationsArray = $.map(locationsArray, function (value, index) {
                     return $(value).find("p").text();
                 });
-                console.log(locationsArray);
                 // If locations have been specified for this company, send an AJAX call to update the company_located_in table
                 if (locationsArray.length > 0) {
+                    console.log("Locations selected; insert into located_in table...");
                     $.ajax({
                         url: "ajax/locatedIn.php",
                         method: "post",
@@ -253,7 +253,7 @@ function clearForm(form) {
     $("form[name='" + form + "']").find("select").val("");
     // Also clear the status modal
     $("#statusModal").find(".modal-footer").html("");
-    $("#statusModal").find(".modal-header").text("");
+    $("#statusModal").find(".modal-title").text("");
     $("#statusModal").find(".modal-body p").text("");
 }
 

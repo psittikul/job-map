@@ -3,6 +3,7 @@ include "../includes/pg-connection.php";
 $object_type = $_POST['object_type'];
 $object_id = $_POST['object_id'];
 $object_locations = $_POST['object_locations'];
+$status = 0;
 
 foreach ($object_locations as $location) {
     $city = pg_escape_string($connection, trim(explode(", ", $location)[0]));
@@ -23,8 +24,15 @@ foreach ($object_locations as $location) {
             break;
     }
     if ($result = pg_query($connection, $query)) {
-        echo json_encode(array("message" => "Successfully inserted into located_in", "status" => 0, "object_id" => $object_id));
+        $status = 0;
     } else {
-        echo json_encode(array("message" => pg_last_error($connection), "status" => -1));
+        $status = -1;
     }
+}
+
+if ($status == 0) {
+    echo json_encode(array("status"=>$status, "message"=>"Successfully insert into located_in", "object_id"=>$object_id));
+}
+else {
+    echo json_encode(array("status"=>$status, "message"=>"ERROR: " . pg_last_error($connection)));
 }
